@@ -9,9 +9,9 @@ public class UserDao {
 	public User selectByVipId(Integer vipId) {
 		
 		
-		User user=SqlHelper.executeQueryOne(User.class, "select * from T_User where vipId="+vipId);
+		User user=SqlHelper.executeQueryOne(User.class, "select u.*,c.* from T_User u,T_Community c where c.communityId=u.communityId and vipId="+vipId);
 		
-		user.setCommunity((Community)SqlHelper.executeQueryOne(Community.class, "select * from T_Community where communityId="+user.getCommunityId()));
+		//user.setCommunity((Community)SqlHelper.executeQueryOne(Community.class, "select * from T_Community where communityId="+user.getCommunityId()));
 		
 		
 		return user;
@@ -19,11 +19,8 @@ public class UserDao {
 	
 	public static void main(String[] args) {
 		User user=new User();
-		user.setVipId(2);
 		user.setVipName("abc");
-	
-		
-		
-		System.out.println(new UserDao().selectByVipId(2));
+		user.setCommunityId(2);
+		System.out.println(SqlHelper.executeInsert("T_User", user));
 	}
 }

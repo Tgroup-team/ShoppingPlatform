@@ -1,14 +1,14 @@
 package web.entity;
 
 public class Community {
-	private int communityId;
+	private Integer communityId;
 	private String communityName;
 
-	public int getCommunityId() {
+	public Integer getCommunityId() {
 		return communityId;
 	}
 
-	public void setCommunityId(int communityId) {
+	public void setCommunityId(Integer communityId) {
 		this.communityId = communityId;
 	}
 

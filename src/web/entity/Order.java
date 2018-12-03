@@ -3,23 +3,23 @@ package web.entity;
 import java.util.Date;
 
 public class Order {
-	private int orderId;
+	private Integer orderId;
 
 	private Orderdetails orderdetails;
-	private int detailsId;
+	private Integer detailsId;
 
 	private User user;
-	private int vipId;
+	private Integer vipId;
 
 	private String orderstate;
 	private Date delivery;
 	private Date acceptance;
 
-	public int getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(int orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 
@@ -31,11 +31,11 @@ public class Order {
 		this.orderdetails = orderdetails;
 	}
 
-	public int getDetailsId() {
+	public Integer getDetailsId() {
 		return detailsId;
 	}
 
-	public void setDetailsId(int detailsId) {
+	public void setDetailsId(Integer detailsId) {
 		this.detailsId = detailsId;
 	}
 
@@ -47,11 +47,11 @@ public class Order {
 		this.user = user;
 	}
 
-	public int getVipId() {
+	public Integer getVipId() {
 		return vipId;
 	}
 
-	public void setVipId(int vipId) {
+	public void setVipId(Integer vipId) {
 		this.vipId = vipId;
 	}
 

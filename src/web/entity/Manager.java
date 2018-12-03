@@ -1,16 +1,16 @@
 package web.entity;
 
 public class Manager {
-	private int managerId;
+	private Integer managerId;
 	private String managerName;
 	private String password;
 	private Double money;
 
-	public int getManagerId() {
+	public Integer getManagerId() {
 		return managerId;
 	}
 
-	public void setManagerId(int managerId) {
+	public void setManagerId(Integer managerId) {
 		this.managerId = managerId;
 	}
 

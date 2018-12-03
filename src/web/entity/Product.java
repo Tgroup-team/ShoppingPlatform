@@ -1,30 +1,30 @@
 package web.entity;
 
 public class Product {
-	private int productId;
-	private int categoryId;
+	private Integer productId;
+	private Integer categoryId;
 	private Category category;
 	private String productName;
 	private Float productPrice;
 	private String productImge;
-	private int inventory;
+	private Integer inventory;
 	private String productState;
 
 	private String suppliers;
 
-	public int getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 
-	public int getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 
@@ -60,11 +60,11 @@ public class Product {
 		this.productImge = productImge;
 	}
 
-	public int getInventory() {
+	public Integer getInventory() {
 		return inventory;
 	}
 
-	public void setInventory(int inventory) {
+	public void setInventory(Integer inventory) {
 		this.inventory = inventory;
 	}
 

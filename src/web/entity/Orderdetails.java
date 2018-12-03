@@ -3,24 +3,24 @@ package web.entity;
 import java.util.Date;
 
 public class Orderdetails {
-	private int detailsId;
+	private Integer detailsId;
 
 	private Order order;
-	private int orderId;
+	private Integer orderId;
 
 	private Product product;
-	private int productId;
+	private Integer productId;
 
-	private int amount;
-	private float price;
-	private float total;
+	private Integer amount;
+	private Float price;
+	private Float total;
 	private Date ordertime;
 
-	public int getDetailsId() {
+	public Integer getDetailsId() {
 		return detailsId;
 	}
 
-	public void setDetailsId(int detailsId) {
+	public void setDetailsId(Integer detailsId) {
 		this.detailsId = detailsId;
 	}
 
@@ -32,11 +32,11 @@ public class Orderdetails {
 		this.order = order;
 	}
 
-	public int getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(int orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 
@@ -48,35 +48,35 @@ public class Orderdetails {
 		this.product = product;
 	}
 
-	public int getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
-	public float getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 
-	public float getTotal() {
+	public Float getTotal() {
 		return total;
 	}
 
-	public void setTotal(float total) {
+	public void setTotal(Float total) {
 		this.total = total;
 	}
 

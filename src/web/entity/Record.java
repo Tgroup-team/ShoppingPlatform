@@ -3,16 +3,16 @@ package web.entity;
 import java.util.Date;
 
 public class Record {
-	private int mPaymentId;
+	private Integer mPaymentId;
 	private Date recordTime;
 	private String recordtype;
 	private String recordAmount;
 
-	public int getmPaymentId() {
+	public Integer getmPaymentId() {
 		return mPaymentId;
 	}
 
-	public void setmPaymentId(int mPaymentId) {
+	public void setmPaymentId(Integer mPaymentId) {
 		this.mPaymentId = mPaymentId;
 	}
 

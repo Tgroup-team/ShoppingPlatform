@@ -1,11 +1,11 @@
 package web.entity;
 
 public class User {
-	private int vipId;
+	private Integer vipId;
 	private String vipName;
 	private String password;
 
-	private int communityId;
+	private Integer communityId;
 	private Community community;
 
 	private String vipPhone;
@@ -13,11 +13,11 @@ public class User {
 	private String isLead;
 	private String address;
 
-	public int getVipId() {
+	public Integer getVipId() {
 		return vipId;
 	}
 
-	public void setVipId(int vipId) {
+	public void setVipId(Integer vipId) {
 		this.vipId = vipId;
 	}
 
@@ -37,11 +37,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getCommunityId() {
+	public Integer getCommunityId() {
 		return communityId;
 	}
 
-	public void setCommunityId(int communityId) {
+	public void setCommunityId(Integer communityId) {
 		this.communityId = communityId;
 	}
 

@@ -3,34 +3,34 @@ package web.entity;
 import java.util.Date;
 
 public class Return {
-	private int returnId;
+	private Integer returnId;
 
-	private int productId;
+	private Integer productId;
 	private Product product;
-	private int vipId;
+	private Integer vipId;
 	private User user;
 
 	private Float total;
 	private String returnstate;
 	private Date applytime;
-	private int amount;
+	private Integer amount;
 	private String processingstate;
 	private Float productprice;
 	private Date returnTime;
 
-	public int getReturnId() {
+	public Integer getReturnId() {
 		return returnId;
 	}
 
-	public void setReturnId(int returnId) {
+	public void setReturnId(Integer returnId) {
 		this.returnId = returnId;
 	}
 
-	public int getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 
@@ -42,11 +42,11 @@ public class Return {
 		this.product = product;
 	}
 
-	public int getVipId() {
+	public Integer getVipId() {
 		return vipId;
 	}
 
-	public void setVipId(int vipId) {
+	public void setVipId(Integer vipId) {
 		this.vipId = vipId;
 	}
 
@@ -82,11 +82,11 @@ public class Return {
 		this.applytime = applytime;
 	}
 
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 

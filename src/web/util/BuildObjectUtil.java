@@ -14,7 +14,11 @@ public class BuildObjectUtil {
 			for(Field field:fields) {
 				field.setAccessible(true);
 				String fieldName=field.getName();
-				field.set(object, map.get(fieldName));
+				Object value=map.get(fieldName);
+				if(value==null) {
+					continue;
+				}
+				field.set(object, value);
 			}
 			T_Object=(T) object;
 		} catch (Exception e) {

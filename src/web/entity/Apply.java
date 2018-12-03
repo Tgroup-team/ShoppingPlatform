@@ -3,9 +3,9 @@ package web.entity;
 import java.util.Date;
 
 public class Apply {
-	private int applyId;
-	private int communityId;
-	private int vipId;
+	private Integer applyId;
+	private Integer communityId;
+	private Integer vipId;
 	private Date rappl;
 	private String deal;
 	private Date dealtime;
@@ -13,27 +13,27 @@ public class Apply {
 	private Community community;
 	private User user;
 
-	public int getApplyId() {
+	public Integer getApplyId() {
 		return applyId;
 	}
 
-	public void setApplyId(int applyId) {
+	public void setApplyId(Integer applyId) {
 		this.applyId = applyId;
 	}
 
-	public int getCommunityId() {
+	public Integer getCommunityId() {
 		return communityId;
 	}
 
-	public void setCommunityId(int communityId) {
+	public void setCommunityId(Integer communityId) {
 		this.communityId = communityId;
 	}
 
-	public int getVipId() {
+	public Integer getVipId() {
 		return vipId;
 	}
 
-	public void setVipId(int vipId) {
+	public void setVipId(Integer vipId) {
 		this.vipId = vipId;
 	}
 
@@ -76,5 +76,13 @@ public class Apply {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	@Override
+	public String toString() {
+		return "Apply [applyId=" + applyId + ", communityId=" + communityId + ", vipId=" + vipId + ", rappl=" + rappl
+				+ ", deal=" + deal + ", dealtime=" + dealtime + ", community=" + community + ", user=" + user + "]";
+	}
+	
+	
 
 }

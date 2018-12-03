@@ -9,10 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import web.entity.Apply;
 import web.util.BuildObjectUtil;
 import web.util.ResolveObjectUtil;
 
 public class SqlHelper {
+	private static final String BaseEntityPacage="web.entity";
+	
 
 	public static int executeNoQuery(String sql) {
 		int i=0;
@@ -41,15 +44,45 @@ public class SqlHelper {
 			PreparedStatement preparedStatement=conn.prepareStatement(sql);
 			ResultSet rs=preparedStatement.executeQuery();
 			Map<String,Object> map=new HashMap<String,Object>();
+			List<String> columns=getColumnsFromSql(sql);
+			if(columns==null) {
+				columns=new ArrayList<String>();
+			}
+			for(String attr:BuildObjectUtil.getAttrNames(clazz)) {
+				if(!columns.contains(attr)) {
+					columns.add(attr);
+				}
+			}
 			Object attrValue=null;
 			T object=null;
 			while(rs.next()) {
-				for(String attr:BuildObjectUtil.getAttrNames(clazz)) {
+				for(String attr:columns) {
 					try {
 						attrValue=rs.getObject(attr);
 						map.put(attr, attrValue);
 					} catch (Exception e) {
-						System.out.println("Mysql查询：获取列"+attr+"失败");
+						try {
+							Class<?> attrClass=Class.forName(BaseEntityPacage+"."+attr.substring(0, 1).toUpperCase()+attr.substring(1));
+							T attr_Object=null;
+							Map<String,Object> attr_Object_attrs=new HashMap<String,Object>();
+							for(String attr_attr:BuildObjectUtil.getAttrNames(attrClass)) {
+								Object attr_attr_value=null;
+								try {
+									attr_attr_value=rs.getObject(attr_attr);
+								} catch (Exception e2) {
+									continue;
+								}
+								if(attr_attr_value==null) {
+									continue;
+								}
+								attr_Object_attrs.put(attr_attr, attr_attr_value);
+							}
+							attr_Object=BuildObjectUtil.build(attrClass, attr_Object_attrs);
+							map.put(attr, attr_Object);
+						} catch (Exception e1) {
+							e1.printStackTrace();
+							System.out.println("SQL查询：获取列"+attr+"失败");
+						}
 					}
 				}
 				object=BuildObjectUtil.build(clazz, map);
@@ -75,6 +108,9 @@ public class SqlHelper {
 				continue;
 			}
 			String className=value.getClass().getName();
+			if(!className.startsWith("java.lang")) {
+				continue;
+			}
 			col=col+","+key;
 			row+=",";
 			if("java.lang.String".equals(className)) {
@@ -101,6 +137,9 @@ public class SqlHelper {
 					continue;
 				}
 				String className=value.getClass().getName();
+				if(!className.startsWith("java.lang")) {
+					continue;
+				}
 				if(!getedAttrNames) {
 					col=col+","+key;
 				}
@@ -138,6 +177,9 @@ public class SqlHelper {
 				continue;
 			}
 			String className=value.getClass().getName();
+			if(!className.startsWith("java.lang")) {
+				continue;
+			}
 			sets=sets+","+key+"=";
 			if("java.lang.String".equals(className)) {
 				sets=sets+"'"+element.get(key)+"'";
@@ -147,5 +189,39 @@ public class SqlHelper {
 		}
 		sql=sql+sets.substring(1)+" "+whereCause;
 		return SqlHelper.executeNoQuery(sql);
+	}
+	
+	private static List<String> getColumnsFromSql(String sql){
+		List<String> list=new ArrayList<String>();
+		if(sql==null) {
+			return null;
+		}
+		sql=sql.toLowerCase();
+		int selectEndIndex=sql.indexOf("select")+6;
+		int fromStartIndex=sql.indexOf("from")-1;
+		String columnString=sql.substring(selectEndIndex, fromStartIndex).trim();
+		String[] columnStrs=columnString.split(",");
+		for(String columnStr:columnStrs) {
+			if(columnStr.contains("*")) {
+				continue;
+			}
+			int whitespaceIndex=columnStr.trim().indexOf(" ");
+			if(whitespaceIndex>0) {
+				columnStr=columnStr.substring(whitespaceIndex+1).trim();
+			}
+			int pointIndex=columnStr.trim().indexOf(".");
+			if(pointIndex>0) {
+				columnStr=columnStr.substring(pointIndex+1).trim();
+			}
+			list.add(columnStr);
+		}
+		return list;
+	}
+	
+	public static void main(String[] args) {
+		List<Apply> list=SqlHelper.executeQuery(Apply.class, "select * from T_Apply");
+		for(Apply apply:list) {
+			System.out.println(apply);
+		}
 	}
 }
