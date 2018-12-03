@@ -80,7 +80,6 @@ public class SqlHelper {
 							attr_Object=BuildObjectUtil.build(attrClass, attr_Object_attrs);
 							map.put(attr, attr_Object);
 						} catch (Exception e1) {
-							e1.printStackTrace();
 							System.out.println("SQL查询：获取列"+attr+"失败");
 						}
 					}
@@ -171,6 +170,10 @@ public class SqlHelper {
 		String sql="update "+tableName+" set ";
 		String sets="";
 		Map<String,Object> element=ResolveObjectUtil.resolveObject(object);
+		String prikey=getPrimaryKeyFromSqlWhere(whereCause);
+		if(prikey!=null&&!"".equals(prikey)) {
+			element.remove(prikey);
+		}
 		for(String key:element.keySet()) {
 			Object value=element.get(key);
 			if(value==null) {
@@ -218,10 +221,15 @@ public class SqlHelper {
 		return list;
 	}
 	
+	private static String getPrimaryKeyFromSqlWhere(String whereCase) {
+		String whereCase_LowerCase=whereCase.toLowerCase().trim();
+		int whereStrIndex=whereCase_LowerCase.indexOf("where")+6;
+		int equalsStrIndex=whereCase_LowerCase.indexOf("=");
+		String key=whereCase.substring(whereStrIndex, equalsStrIndex);
+		return key;
+	}
+	
 	public static void main(String[] args) {
-		List<Apply> list=SqlHelper.executeQuery(Apply.class, "select * from T_Apply");
-		for(Apply apply:list) {
-			System.out.println(apply);
-		}
+		System.out.println(SqlHelper.getPrimaryKeyFromSqlWhere("WheRe aa="));
 	}
 }

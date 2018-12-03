@@ -1,6 +1,6 @@
 package web.entity;
 
-public class Manager {
+public class Managers {
 	private Integer managerId;
 	private String managerName;
 	private String password;
@@ -38,9 +38,15 @@ public class Manager {
 		this.money = money;
 	}
 
-	public static Manager find(String managername2, String password2) {
+	public static Managers find(String managername2, String password2) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "Managers [managerId=" + managerId + ", managerName=" + managerName + ", password=" + password
+				+ ", money=" + money + "]";
 	}
 
 }

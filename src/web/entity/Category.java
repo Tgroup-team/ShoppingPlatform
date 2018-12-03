@@ -29,4 +29,12 @@ public class Category {
 		this.cdescribe = cdescribe;
 	}
 
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", cdescribe=" + cdescribe
+				+ "]";
+	}
+	
+	
+
 }
