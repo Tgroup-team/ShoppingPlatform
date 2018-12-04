@@ -2,7 +2,6 @@ package web.dao;
 
 import java.util.List;
 
-import org.apache.catalina.Manager;
 
 import web.dao.util.SqlHelper;
 import web.entity.Managers;
