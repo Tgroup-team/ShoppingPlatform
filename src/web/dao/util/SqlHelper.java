@@ -217,11 +217,4 @@ public class SqlHelper {
 		}
 		return list;
 	}
-	
-	public static void main(String[] args) {
-		List<Apply> list=SqlHelper.executeQuery(Apply.class, "select * from T_Apply");
-		for(Apply apply:list) {
-			System.out.println(apply);
-		}
-	}
 }

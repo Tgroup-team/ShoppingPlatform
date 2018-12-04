@@ -19,7 +19,7 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("IndexServlet.doGet");
 		
-		User user=userDao.selectByVipId(2);
+		User user=userDao.selectUser(2);
 		System.out.println(user);
 		
 		request.setAttribute("user", user);

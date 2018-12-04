@@ -22,7 +22,8 @@ public class AllFilter implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("AllFilter.doFilter");
+		request.setCharacterEncoding("utf-8");
+		
 		chain.doFilter(request, response);
 	}
 

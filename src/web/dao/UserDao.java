@@ -1,26 +1,50 @@
 package web.dao;
 
+import java.util.List;
+
 import web.dao.util.SqlHelper;
-import web.entity.Community;
 import web.entity.User;
 
+/**
+ * 	用户信息	数据层
+ */
 public class UserDao {
-	
-	public User selectByVipId(Integer vipId) {
-		
-		
-		User user=SqlHelper.executeQueryOne(User.class, "select u.*,c.* from T_User u,T_Community c where c.communityId=u.communityId and vipId="+vipId);
-		
-		//user.setCommunity((Community)SqlHelper.executeQueryOne(Community.class, "select * from T_Community where communityId="+user.getCommunityId()));
-		
-		
-		return user;
+	private static final String TABLENAME = "T_User";
+
+	/**
+	 * 插入用户信息
+	 */
+	public int insertUser(User User) {
+		return SqlHelper.executeInsert(TABLENAME, User);
 	}
-	
-	public static void main(String[] args) {
-		User user=new User();
-		user.setVipName("abc");
-		user.setCommunityId(2);
-		System.out.println(SqlHelper.executeInsert("T_User", user));
+
+	/**
+	 * 通过主键删除用户信息
+	 */
+	public int deleteUser(Integer vipId) {
+		return SqlHelper.executeNoQuery("delete from " + TABLENAME + " where vipId=" + vipId);
 	}
+
+	/**
+	 * 执行更新用户信息
+	 */
+	public int updateUser(User User) {
+		return SqlHelper.executeUpdate(TABLENAME, User, "where vipId=" + User.getVipId());
+	}
+
+	/**
+	 * 查询所有用户信息
+	 */
+	public List<User> selectUser() {
+		return SqlHelper.executeQuery(User.class, "select * from " + TABLENAME);
+	}
+
+	/**
+	 * 通过主键查询单个用户信息
+	 */
+	public User selectUser(Integer vipId) {
+		return SqlHelper.executeQueryOne(User.class,
+				"select * from " + TABLENAME + " where vipId=" + vipId);
+	}
+
 }

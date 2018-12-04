@@ -518,7 +518,7 @@ top: 11px;text-align: right;}
 .floodThree .text-five img,.floodThree .text-four img{position: absolute;margin:0px 0px;width: 120px;top: 10px;right: 50%;margin-right: -60px;}
 .floodThree .list img{position: absolute;top:auto;margin:0px 0px;bottom:10px;right:50%;width:200px;margin-right: -100px;}
 .floodThree .text-four{border-right: none;}
-.floodFour .text-two .outer-con ,.floodFour .text-three .outer-con {top:auto;left:5%;width:90%;bottom:10px ;}
+.floodFour .text-two .outer-con ,.floodFour .text-three .outer-con {top:75%;left:5%;width:90%;bottom:10px ;}
 
 /*楼层颜色*/
 #f1 .list {background:#6bdea7;}
@@ -757,9 +757,9 @@ filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#f8c375',endCo
 .category-content .b-category-name {padding-left:10px ;}
 .category-content .category-name i {top:6px}
 .category-content .category-info em{top:9px}
-.floodThree .big, .floodThree .list, .floodFour .big, .floodFour .list, .floodFive .big, .floodFive .list {height: 480px !important;}
+.floodThree .big, .floodThree .list, .floodFour .big, .floodFour .list, .floodFive .big, .floodFive .list {height: 320px !important;}
 .floodThree .big img, .floodFour .big img, .floodFive .big img  {width:194px !important;margin-right: -97px !important;}
-.big .outer-con {top: 25% !important;}
+.big .outer-con {top: 5% !important;}
 
 /*三楼*/
 .floodThree .text-four,.floodThree .text-five{height:240px ;}
@@ -768,8 +768,8 @@ filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#f8c375',endCo
 .floodThree .list img{width:210px;margin-right: -105px;}
 
 /*四楼*/
-.floodFour .text-one,.floodFour .text-two,.floodFour .text-three{width:20%;text-align: center;margin: 0px 0px;height:240px ;}
-.floodFour .text-two.sug,.floodFour .text-three.sug{top:240px;}
+.floodFour .text-one,.floodFour .text-two,.floodFour .text-three{width:20%;text-align: center;margin: 0px 0px;height:320px ;}
+.floodFour .text-two.sug,.floodFour .text-three.sug{top:0px;z-index:-1;}
 .floodFour .text-one img,.floodFour .text-two img,.floodFour .text-three img{width: 180px;margin-right: -90px;}
 
 .floodFour .list img{width:210px;margin-right: -105px;}
