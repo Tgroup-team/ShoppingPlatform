@@ -1,0 +1,214 @@
+一：表示层：Webroot 
+  （一）会员
+      首页 index.jsp
+      (点击当前页面显示购物网站首页)
+
+      1.会员注册 register2.jsp
+      (点击首页注册 register2.jsp)
+
+      2.会员登录 login2.jsp
+      (点击首页登录 login2.jsp)
+
+      3.商品浏览 index.jsp
+      (点击当前页面浏览商品index.jsp)
+
+      4.购物车 shopcart2.jsp
+      (添加商品到购物车 addshopcart.jsp，结算pay2.jsp)
+
+      5.订单管理 orderinfo2.jsp
+      (查询订单orderinfoList.jsp,退货change2.jsp)
+
+      6.账户余额 topup2.jsp
+      (充值topup2.jsp,查询账户余额balance2.jsp)
+
+（二）管理员
+      管理员中心 ahome1.jsp
+      (点击当前页面显示社区管理员系统管理信息）
+
+      1.产品类别管理 catagory1.jsp
+      （产品类别页面的添加类别addcatagory1.jsp，查询产品类别catagoryList.jsp）
+
+      2.产品管理 product1.jsp
+     （产品管理页面的添加产品addproduct1.jsp，查询产品productList.jsp）
+
+      3.订单管理 porder1.jsp
+      （查询订单porderList.jsp，退货）
+
+      4.社区管理 community1.jsp
+      （添加社区addcommunity1.jsp，查询社区信息communityList.jsp）
+
+      5.我的账户 baccounts1.jsp
+      （提现withdrawal1.jsp，查询账户余额baccountsList.jsp）
+     
+      6.产品分类
+
+      7.产品发布
+
+      （三）社区团长
+      1.社区团长的申请
+      2.查看小区用户的订单
+      3.编辑收货地址
+      4.确认收货
+      5.查看小区用户信息
+
+二：业务处理层:service
+（一）会员
+1.会员注册      Doregister2Servlet.java
+2.会员登录      Dologin2Servlet.java
+3.商品浏览      DoindexServlet.java
+4.购物车 
+       添加商品  DoAddcartServlet.java
+       结算         DoorderdetailsServelt.java
+5.订单管理
+       查询订单  DoorderinfoServelt.java
+       退货申请      DoUpdatereturnServlet.java
+6.账户余额
+       充值      DoUpdatetopupServelt.java
+       查询      DobalanceServlet.java
+
+（（二）管理员
+1.产品类别管理
+      添加类别      DoAddcatagoryServlet.java
+      查询产品类别    DoAllcatagoryServlet.java
+2.产品管理 
+      添加产品      DoAddproductServlet.java
+      查询产品      DoAllproductServlet.java
+      产品上下架    DoUpdateproductServlet.java
+3.订单管理 
+      查询订单        DoAllOrderdetailsServlet.java
+      发货              DoUpdateOrderServlet.java
+      退货             DoUpdateReturnServlet.java
+4.社区管理   
+      添加社区        DoAddcommunityServlet.java
+      查询社区信息     DoAllCommunityServlet.java
+      社区团长审核   DoUpdateIapplyServlet.java
+5.我的账户     
+      提现      DoUpdatewithdrawalServlet.java
+      查询账户余额     DoAllrecordServlet.java
+6.管理员登陆
+       登陆      DoManagerServlet.java
+（三）社区团长
+
+
+三：数据访问层:dao（dao）
+               IUserDao.java
+               ICartDao.java
+               IOrderDao.java
+               IOrderdetailsDao.java
+               IReturnDao.java
+               ICategoryDao.java
+               IProductDao.java
+               ICommunityDao.java
+               IManagerDao.java
+               IapplyDao.java
+               IvipRecordDao.java
+               IRecordDao.java
+              
+             （dao.impl）
+               UserDaoImpl.java
+               CartDaoImpl.java
+               OrderDaoImpl.java
+               OrderdetailsDaoImpl.java
+               ReturnDaoImpl.java
+               CategoryDaoImpl.java
+               ProductDaoImpl.java
+               CommunityDaoImpl.java
+               ManagerDaoImpl.java
+               ApplyDaoImpl.java
+               vipRecordDaoImpl.java
+               RecordDaoImpl.java
+     
+四：实体类：eintity
+                User.java
+                Cart.java
+                Order.java
+                Orderdetails.java
+                Return.java
+                Category.java
+                Product.java
+                Community.java
+                Manager.java
+                apply.java
+                vipRecord.java
+                Record.java
+
+ 
+五：方法详细设计：
+
+（一）   IUserDao.java：会员信息表的操作
+//会员注册,返回int
+public int addUserById(String vipId)
+//根据会员id查找会员信息登陆,返回List
+public List queryUserById(String vipId)
+//根据会员id改变是否为团长
+public boolean changeLead(int id,String lead);
+
+（二）   ICartDao.java：购物车信息表的操作
+//添加商品 
+public int addCart(Carts cart);
+//结算
+public int addOrderinfo(Orderdetails Orderdetail)
+
+（三）   IOrderDao.java：订单表的操作
+ //根据订单编号查询所有订单信息，返回List
+ public List<Order> getAll();
+//发货
+ public boolean updateOrder(int id);
+     
+（四）   IOrderdetailsDao.java：订单详情表的操作
+//根据详情编号查询订单信息，返回List
+ public List<Orderdetails> getAll();
+
+（五）   IReturnDao.java：退货详情表的操作
+//申请退货
+public int updateReturn(Returns return);
+//查询所有退货信息
+public List<Return> getAll();
+//退货
+public boolean updateReturn(int id);
+
+（六）   ICategoryDao.java：产品类别表的操作
+ //添加类别     
+public boolean addApplicant(Category app);
+ //根据类别id 查询产品类别 ，返回List
+public List<Category> getAll();
+
+（七）   IProductDao.java：产品信息表的操作
+//会员用户浏览商品
+public List queryProduct()
+//添加产品
+public boolean addProduct(Product product);  
+// 查询产品信息
+ public List<Product> getAll();
+ // 产品上下架
+public boolean updateProduct(Product product);  
+
+（八）   ICommunityDao.java：社区管理表的操作
+ //添加社区 
+public boolean addCommunity(Community c1);  
+ // 根据社区id查询社区id，返回List
+public List queryCommunity(String community_id)
+
+（九）   IManagerDao.java：管理员表的操作
+//根据管理员id查询管理员信息，返回List
+public Manager login(String managerName);
+
+（十）   IApplyDao.java：团长申请信息表的操作
+// 查询团长申请信息
+ public List<Apply> getAll();
+// 社区团长审核  
+ public boolean updateApply(int id,String t);      
+
+
+（十一）  IvipRecordDao.java：会员收支记录表的操作
+ //  根据收支id，查询账户余额      
+ public List queryvipRecord(String paymentId) 
+ // 充值
+ public int updatetopup(topups topup);
+
+（十二）  IRecordDao.java：管理员收支记录表的操作
+
+ //  根据收支id，查询账户余额      
+ public List queryRecord(String mPaymentId) 
+ // 提现
+ public int updatewithdrawal(withdrawals withdrawal);          
