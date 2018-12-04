@@ -46,5 +46,15 @@ public class UserDao {
 		return SqlHelper.executeQueryOne(User.class,
 				"select * from " + TABLENAME + " where vipId=" + vipId);
 	}
+	
+	public User selectByVipName(String uname) {
+		
+		User user=SqlHelper.executeQueryOne(User.class, 
+			"select * from T_User where vipName='"+uname+"'");
+		/*user.setCommunity((Community)SqlHelper.executeQueryOne(Community.class, 
+		"select * from T_Community where communityId="+user.getCommunityId()));*/
+
+		return user;
+	}
 
 }

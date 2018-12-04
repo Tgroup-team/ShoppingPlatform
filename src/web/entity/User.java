@@ -13,6 +13,16 @@ public class User {
 	private String isLead;
 	private String address;
 
+	public User() {}
+	
+	public User(String vipName, String password, String vipPhone, String address) {
+		super();
+		/*this.vipId = vipId;*/
+		this.vipName = vipName;
+		this.password = password;
+		this.vipPhone = vipPhone;
+		this.address = address;
+	}
 	public Integer getVipId() {
 		return vipId;
 	}
