@@ -17,7 +17,7 @@ public class ManagerDao {
 	
 	//查询密码
 	public Managers seleteByPassword(String password) {
-		Managers managers=SqlHelper.executeQueryOne(Managers.class,"select managerName from T_Manager where password='"+password+"'");
+		Managers managers=SqlHelper.executeQueryOne(Managers.class,"select password from T_Manager where password='"+password+"'");
 		return managers;
 	}
 	
