@@ -1,11 +1,13 @@
 package web.entity;
 
+import java.math.BigDecimal;
+
 public class Product {
 	private Integer productId;
 	private Integer categoryId;
 	private Category category;
 	private String productName;
-	private Float productPrice;
+	private BigDecimal productPrice;
 	private String productImge;
 	private Integer inventory;
 	private String productState;
@@ -44,11 +46,11 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public Float getProductPrice() {
+	public BigDecimal getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(Float productPrice) {
+	public void setProductPrice(BigDecimal productPrice) {
 		this.productPrice = productPrice;
 	}
 

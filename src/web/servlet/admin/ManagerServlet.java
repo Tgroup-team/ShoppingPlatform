@@ -26,6 +26,15 @@ public class ManagerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Managers seleteByManagerName = managerDao.seleteByManagerName("");
 		Managers seleteByPassword = managerDao.seleteByPassword("");
+		if(seleteByManagerName==null) {
+			request.setAttribute("show", "用户名不存在");
+		}else {
+			if (seleteByPassword==null) {
+				request.setAttribute("show", "密码错误");
+			}else {
+				request.getRequestDispatcher("");
+			}
+		}
 	}
 
 }

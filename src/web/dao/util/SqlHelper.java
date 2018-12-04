@@ -107,7 +107,7 @@ public class SqlHelper {
 				continue;
 			}
 			String className=value.getClass().getName();
-			if(!className.startsWith("java.lang")) {
+			if(!className.startsWith("java.lang")&&!className.startsWith("java.math")) {
 				continue;
 			}
 			col=col+","+key;
@@ -136,7 +136,7 @@ public class SqlHelper {
 					continue;
 				}
 				String className=value.getClass().getName();
-				if(!className.startsWith("java.lang")) {
+				if(!className.startsWith("java.lang")&&!className.startsWith("java.math")) {
 					continue;
 				}
 				if(!getedAttrNames) {
@@ -180,7 +180,7 @@ public class SqlHelper {
 				continue;
 			}
 			String className=value.getClass().getName();
-			if(!className.startsWith("java.lang")) {
+			if(!className.startsWith("java.lang")&&!className.startsWith("java.math")) {
 				continue;
 			}
 			sets=sets+","+key+"=";
