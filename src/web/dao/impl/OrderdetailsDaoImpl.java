@@ -6,18 +6,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import web.dao.IOrderdetailsDao;
 import web.dao.util.SqlHelper;
 import web.entity.Orderdetails;
 
 /**
  * 	订单详情	数据层
  */
-public class OrderdetailsDao {
+public class OrderdetailsDaoImpl implements IOrderdetailsDao {
 	private static final String TABLENAME = "T_Orderdetails";
 
 	/**
 	 * 插入订单详情
 	 */
+	@Override
 	public int insertOrderdetails(Orderdetails orderdetails) {
 		return SqlHelper.executeInsert(TABLENAME, orderdetails);
 	}
@@ -25,6 +27,7 @@ public class OrderdetailsDao {
 	/**
 	 * 通过主键删除订单详情
 	 */
+	@Override
 	public int deleteOrderdetails(Integer detailsId) {
 		return SqlHelper.executeNoQuery("delete from " + TABLENAME + " where detailsId=" + detailsId);
 	}
@@ -32,6 +35,7 @@ public class OrderdetailsDao {
 	/**
 	 * 执行更新订单详情
 	 */
+	@Override
 	public int updateOrderdetails(Orderdetails orderdetails) {
 		return SqlHelper.executeUpdate(TABLENAME, orderdetails, "where detailsId=" + orderdetails.getDetailsId());
 	}
@@ -39,6 +43,7 @@ public class OrderdetailsDao {
 	/**
 	 * 查询所有订单详情
 	 */
+	@Override
 	public List<Orderdetails> selectOrderdetails() {
 		return SqlHelper.executeQuery(Orderdetails.class, "select * from " + TABLENAME);
 	}
@@ -46,6 +51,7 @@ public class OrderdetailsDao {
 	/**
 	 * 通过主键查询单个订单详情
 	 */
+	@Override
 	public Orderdetails selectOrderdetails(Integer detailsId) {
 		return SqlHelper.executeQueryOne(Orderdetails.class,
 				"select * from " + TABLENAME + " where detailsId=" + detailsId);
@@ -54,6 +60,7 @@ public class OrderdetailsDao {
 	/**
 	 * 获取商品月销量
 	 */
+	@Override
 	public Integer selectMonthSellCountByProductId(Integer productId) {
 		Calendar calendar=Calendar.getInstance();
 		calendar.add(Calendar.MONTH, -1);
@@ -71,6 +78,7 @@ public class OrderdetailsDao {
 	/**
 	 * 获取商品总销量
 	 */
+	@Override
 	public Integer selectAllSellCountByProductId(Integer productId) {
 		ResultSet rs=SqlHelper.executeQuery("select count(*) from " + TABLENAME + " where productId="+productId);
 		Integer count=0;

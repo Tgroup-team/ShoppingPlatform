@@ -2,18 +2,20 @@ package web.dao.impl;
 
 import java.util.List;
 
+import web.dao.IProductDao;
 import web.dao.util.SqlHelper;
 import web.entity.Product;
 
 /**
  * 	商品	数据层
  */
-public class ProductDao {
+public class ProductDaoImpl implements IProductDao {
 	private static final String TABLENAME = "T_Product";
 
 	/**
 	 * 插入商品
 	 */
+	@Override
 	public int insertProduct(Product product) {
 		return SqlHelper.executeInsert(TABLENAME, product);
 	}
@@ -21,6 +23,7 @@ public class ProductDao {
 	/**
 	 * 通过主键删除商品
 	 */
+	@Override
 	public int deleteProduct(Integer productId) {
 		return SqlHelper.executeNoQuery("delete from " + TABLENAME + " where productId=" + productId);
 	}
@@ -28,6 +31,7 @@ public class ProductDao {
 	/**
 	 * 执行更新商品
 	 */
+	@Override
 	public int updateProduct(Product product) {
 		return SqlHelper.executeUpdate(TABLENAME, product, "where productId=" + product.getProductId());
 	}
@@ -35,6 +39,7 @@ public class ProductDao {
 	/**
 	 * 查询所有商品
 	 */
+	@Override
 	public List<Product> selectProduct() {
 		return SqlHelper.executeQuery(Product.class, "select p.*,c.* from " + TABLENAME + " p,T_Category c where p.categoryId=c.categoryId");
 	}
@@ -42,6 +47,7 @@ public class ProductDao {
 	/**
 	 * 通过主键查询单个商品
 	 */
+	@Override
 	public Product selectProduct(Integer productId) {
 		return SqlHelper.executeQueryOne(Product.class,
 				"select p.*,c.* from " + TABLENAME + " p,T_Category c where p.categoryId=c.categoryId and p.productId=" + productId);
@@ -53,6 +59,7 @@ public class ProductDao {
 	 * @param size 单页内商品的数量
 	 * @return
 	 */
+	@Override
 	public List<Product> selectOnlineProductsByCategoryId(Integer categoryId,Integer lineStartIndex,Integer lineSize) {
 		String limitString="";
 		if(lineStartIndex!=null&&lineStartIndex>-1&&lineSize!=null&&lineSize>0) {

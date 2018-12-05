@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.impl.ProductDao;
+import web.dao.impl.ProductDaoImpl;
 import web.entity.Product;
 
 /**
@@ -32,7 +32,7 @@ public class BrowseServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ProductDao productdao=new ProductDao();
+		ProductDaoImpl productdao=new ProductDaoImpl();
 		List<Product> products=productdao.selectProduct();
 		for (Product product : products) {
 			System.out.println(product.toString());

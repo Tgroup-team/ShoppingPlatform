@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import web.dao.impl.CategoryDao;
-import web.dao.impl.ProductDao;
+import web.dao.impl.ProductDaoImpl;
 import web.entity.Category;
 import web.entity.Product;
 
 @WebServlet("")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static ProductDao productDao=new ProductDao();
+	private static ProductDaoImpl productDao=new ProductDaoImpl();
 	private static CategoryDao categoryDao=new CategoryDao();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

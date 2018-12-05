@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import web.dao.impl.CategoryDao;
-import web.dao.impl.OrderdetailsDao;
-import web.dao.impl.ProductDao;
+import web.dao.impl.OrderdetailsDaoImpl;
+import web.dao.impl.ProductDaoImpl;
 import web.entity.Category;
 import web.entity.Product;
 
@@ -21,8 +21,8 @@ import web.entity.Product;
 @WebServlet("/IntroductionServlet")
 public class IntroductionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ProductDao productDao=new ProductDao();
-	private OrderdetailsDao orderdetailsDao=new OrderdetailsDao();
+	private ProductDaoImpl productDao=new ProductDaoImpl();
+	private OrderdetailsDaoImpl orderdetailsDao=new OrderdetailsDaoImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer productId=null;
