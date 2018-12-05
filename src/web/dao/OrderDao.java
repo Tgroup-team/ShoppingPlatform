@@ -40,7 +40,7 @@ public class OrderDao {
 	 * 通过orderId查询
 	 */
 	public Order selectByOrderId(Integer orderId) {
-		return SqlHelper.executeQueryOne(Order.class,"select orderId,vipName,orderstate,delivery,acceptance from T_Order,T_User where orderId=T_User.vipId and orderId="+orderId);
+		return SqlHelper.executeQueryOne(Order.class,"select T_Order.*,T_User.* from T_Order,T_User where T_Order.orderId=T_User.vipId and orderId="+orderId);
 	}
 
 }
