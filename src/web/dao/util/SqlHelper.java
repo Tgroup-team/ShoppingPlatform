@@ -16,7 +16,18 @@ import web.util.ResolveObjectUtil;
 public class SqlHelper {
 	private static final String BaseEntityPacage="web.entity";
 	
-
+	public static ResultSet executeQuery(String sql) {
+		ResultSet rs=null;
+		Connection conn=DbConnection.getConnection();
+		try {
+			PreparedStatement preparedStatement=conn.prepareStatement(sql);
+			rs=preparedStatement.executeQuery();
+		} catch (SQLException e) {
+			System.err.println("执行Sql出现错误：sql="+sql+"  &|&msg="+e.getMessage());
+		}
+		return rs;
+	}
+	
 	public static int executeNoQuery(String sql) {
 		int i=0;
 		Connection conn=DbConnection.getConnection();
@@ -107,7 +118,7 @@ public class SqlHelper {
 				continue;
 			}
 			String className=value.getClass().getName();
-			if(!className.startsWith("java.lang")) {
+			if(!className.startsWith("java.lang")&&!className.startsWith("java.math")) {
 				continue;
 			}
 			col=col+","+key;
@@ -136,7 +147,7 @@ public class SqlHelper {
 					continue;
 				}
 				String className=value.getClass().getName();
-				if(!className.startsWith("java.lang")) {
+				if(!className.startsWith("java.lang")&&!className.startsWith("java.math")) {
 					continue;
 				}
 				if(!getedAttrNames) {
@@ -180,7 +191,7 @@ public class SqlHelper {
 				continue;
 			}
 			String className=value.getClass().getName();
-			if(!className.startsWith("java.lang")) {
+			if(!className.startsWith("java.lang")&&!className.startsWith("java.math")) {
 				continue;
 			}
 			sets=sets+","+key+"=";
@@ -229,7 +240,9 @@ public class SqlHelper {
 		return key;
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(SqlHelper.getPrimaryKeyFromSqlWhere("WheRe aa="));
+	public static void main(String[] args) throws SQLException {
+		ResultSet rs=SqlHelper.executeQuery("select count(*) from T_User");
+		System.out.println(rs.next());
+		System.out.println(rs.getInt(1));
 	}
 }

@@ -47,4 +47,18 @@ public class ProductDao {
 				"select * from " + TABLENAME + " where productId=" + productId);
 	}
 
+	/**
+	 * 通过商品类别id查询已上架的商品
+	 * @param lineStartIndex 分页的开始索引值 
+	 * @param size 单页内商品的数量
+	 * @return
+	 */
+	public List<Product> selectOnlineProductsByCategoryId(Integer categoryId,Integer lineStartIndex,Integer lineSize) {
+		String limitString="";
+		if(lineStartIndex!=null&&lineStartIndex>-1&&lineSize!=null&&lineSize>0) {
+			limitString="and productId BETWEEN  "+lineStartIndex+" and "+lineSize;
+		}
+		
+		return SqlHelper.executeQuery(Product.class, "select p.*,c.* from " + TABLENAME + " p,T_Category c where c.categoryId=p.categoryId and p.categoryId="+categoryId +" and p.productState='上架' "+limitString);
+	}
 }

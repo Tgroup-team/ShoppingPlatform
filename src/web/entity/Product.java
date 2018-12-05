@@ -1,12 +1,15 @@
 package web.entity;
 
+import java.math.BigDecimal;
+
 public class Product {
 	private Integer productId;
 	private Integer categoryId;
 	private Category category;
 	private String productName;
-	private Float productPrice;
-	private String productImge;
+	private BigDecimal productPrice;
+	private String productImages;
+	private String productDescriptionImages;
 	private Integer inventory;
 	private String productState;
 
@@ -44,20 +47,28 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public Float getProductPrice() {
+	public BigDecimal getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(Float productPrice) {
+	public void setProductPrice(BigDecimal productPrice) {
 		this.productPrice = productPrice;
 	}
 
-	public String getProductImge() {
-		return productImge;
+	public String getProductImages() {
+		return productImages;
 	}
 
-	public void setProductImge(String productImge) {
-		this.productImge = productImge;
+	public void setProductImages(String productImages) {
+		this.productImages = productImages;
+	}
+
+	public String getProductDescriptionImages() {
+		return productDescriptionImages;
+	}
+
+	public void setProductDescriptionImages(String productDescriptionImages) {
+		this.productDescriptionImages = productDescriptionImages;
 	}
 
 	public Integer getInventory() {
