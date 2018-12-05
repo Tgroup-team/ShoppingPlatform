@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.impl.CategoryDao;
+import web.dao.impl.CategoryDaoImpl;
 import web.dao.impl.ProductDao;
 import web.entity.Category;
 import web.entity.Product;
@@ -19,7 +19,7 @@ import web.entity.Product;
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static ProductDao productDao=new ProductDao();
-	private static CategoryDao categoryDao=new CategoryDao();
+	private static CategoryDaoImpl categoryDao=new CategoryDaoImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//商品类别->该类商品列表

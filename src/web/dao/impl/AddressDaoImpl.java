@@ -2,10 +2,10 @@ package web.dao.impl;
 
 import java.util.List;
 
-import web.dao.IAddress;
+import web.dao.IAddresDao;
 import web.dao.util.SqlHelper;
 import web.entity.Address;
-public class AddressDaoImpl implements IAddress{
+public class AddressDaoImpl implements IAddresDao{
 	
 	 /*
 	 * 添加地址

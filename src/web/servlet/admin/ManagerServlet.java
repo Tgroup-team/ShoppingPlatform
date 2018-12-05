@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.impl.ManagerDao;
+import web.dao.impl.ManagerDaoImpl;
 import web.entity.Managers;
 
 /**
@@ -17,7 +17,7 @@ import web.entity.Managers;
 public class ManagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private ManagerDao managerDao=new ManagerDao();
+	private ManagerDaoImpl managerDao=new ManagerDaoImpl();
        
     public ManagerServlet() {
         super();    

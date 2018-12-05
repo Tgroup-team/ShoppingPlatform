@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.impl.CommunityDao;
+import web.dao.impl.CommunityDaoImpl;
 import web.entity.Community;
 
 /**
@@ -19,7 +19,7 @@ import web.entity.Community;
 public class CommunityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private CommunityDao communityDao=new CommunityDao();
+	private CommunityDaoImpl communityDao=new CommunityDaoImpl();
        
     
     public CommunityServlet() {

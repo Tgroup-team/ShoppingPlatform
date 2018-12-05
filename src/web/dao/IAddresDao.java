@@ -3,7 +3,7 @@ package web.dao;
 import java.util.List;
 import web.entity.Address;
 
-public interface IAddress {
+public interface IAddresDao {
 	public int insertAddress(Address address);
 	
 	 /*
