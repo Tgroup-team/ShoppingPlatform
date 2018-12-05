@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.impl.UserDao;
+import web.dao.impl.UserDaoImpl;
 import web.entity.User;
 
 /**
@@ -46,7 +46,7 @@ public class UserLoginServlet extends HttpServlet {
 		System.out.println("11111");
 		System.out.println(uname);
 		System.out.println(pwd);
-		UserDao userDao=new UserDao();
+		UserDaoImpl userDao=new UserDaoImpl();
 		User user=userDao.selectByVipName(uname);
 		if(user!=null) {
 			System.out.println(user.getPassword());

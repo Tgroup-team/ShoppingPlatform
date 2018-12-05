@@ -7,20 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.impl.UserDaoImpl;
-import web.entity.User;
-
 /**
- * Servlet implementation class UserRegisterServlet
+ * Servlet implementation class AddAddressServlet
  */
-@WebServlet("/userRegisterServlet")
-public class UserRegisterServlet extends HttpServlet {
+@WebServlet("/AddAddressServlet")
+public class AddAddressServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserRegisterServlet() {
+    public AddAddressServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +27,6 @@ public class UserRegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 	}
 
@@ -39,18 +35,13 @@ public class UserRegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String vname=request.getParameter("vname");
-		String vpwd=request.getParameter("vpwd");
-		String vtel=request.getParameter("vtel");
-		String vaddress=request.getParameter("vaddress");
-		System.out.println(vname);
-		System.out.println(vpwd);
-		System.out.println(vtel);
-		System.out.println(vaddress);
-		User user=new User(vname, vpwd, vtel, vaddress);
-		UserDaoImpl uDao=new UserDaoImpl();
-		
-		
+		String aName=request.getParameter("uaname");
+		String aTel=request.getParameter("uatel");
+		String aProvince=request.getParameter("uaprovince");
+		String aCity=request.getParameter("uacity");
+		String aArea=request.getParameter("uaarea");
+		String aDetailAddr=request.getParameter("uadetail");
+	
 	}
 
 }
