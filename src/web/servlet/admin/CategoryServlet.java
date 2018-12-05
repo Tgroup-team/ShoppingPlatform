@@ -31,6 +31,7 @@ public class CategoryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Category> listCategory = categoryDao.selectCategory();
 		request.setAttribute("listCategory", listCategory);
+		request.getRequestDispatcher("/admin/ahome1.jsp").forward(request, response);
 	}
 
 	/*
