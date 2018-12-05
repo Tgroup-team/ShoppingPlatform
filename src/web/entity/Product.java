@@ -8,8 +8,10 @@ public class Product {
 	private Category category;
 	private String productName;
 	private BigDecimal productPrice;
+
 	private String productImages;
 	private String productDescriptionImages;
+
 	private Integer inventory;
 	private String productState;
 

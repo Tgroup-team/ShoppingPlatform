@@ -5,9 +5,6 @@ import java.util.Date;
 public class Order {
 	private Integer orderId;
 
-	private Orderdetails orderdetails;
-	private Integer detailsId;
-
 	private User user;
 	private Integer vipId;
 
@@ -21,22 +18,6 @@ public class Order {
 
 	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
-	}
-
-	public Orderdetails getOrderdetails() {
-		return orderdetails;
-	}
-
-	public void setOrderdetails(Orderdetails orderdetails) {
-		this.orderdetails = orderdetails;
-	}
-
-	public Integer getDetailsId() {
-		return detailsId;
-	}
-
-	public void setDetailsId(Integer detailsId) {
-		this.detailsId = detailsId;
 	}
 
 	public User getUser() {
