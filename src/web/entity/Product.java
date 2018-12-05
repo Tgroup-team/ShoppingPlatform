@@ -50,10 +50,14 @@ public class Product {
 	}
 
 	public BigDecimal getProductPrice() {
-		return productPrice;
+		return productPrice.setScale(2,BigDecimal.ROUND_HALF_UP);
 	}
 
 	public void setProductPrice(BigDecimal productPrice) {
+		if(productPrice!=null) {
+			this.productPrice=productPrice.setScale(2,BigDecimal.ROUND_HALF_UP);
+			return ;
+		}
 		this.productPrice = productPrice;
 	}
 

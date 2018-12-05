@@ -1,5 +1,9 @@
 package web.dao;
 
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import web.dao.util.SqlHelper;
@@ -45,6 +49,37 @@ public class OrderdetailsDao {
 	public Orderdetails selectOrderdetails(Integer detailsId) {
 		return SqlHelper.executeQueryOne(Orderdetails.class,
 				"select * from " + TABLENAME + " where detailsId=" + detailsId);
+	}
+	
+	/**
+	 * 获取商品月销量
+	 */
+	public Integer selectMonthSellCountByProductId(Integer productId) {
+		Calendar calendar=Calendar.getInstance();
+		calendar.add(Calendar.MONTH, -1);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
+		ResultSet rs=SqlHelper.executeQuery("select count(*) from " + TABLENAME + " where productId="+productId+" and CONVERT(varchar(100), ordertime, 112)>'"+sdf.format(calendar.getTime())+"'");
+		Integer count=0;
+		try {
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+		} catch (Exception e) {}
+		return count;
+	}
+	
+	/**
+	 * 获取商品总销量
+	 */
+	public Integer selectAllSellCountByProductId(Integer productId) {
+		ResultSet rs=SqlHelper.executeQuery("select count(*) from " + TABLENAME + " where productId="+productId);
+		Integer count=0;
+		try {
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+		} catch (Exception e) {}
+		return count;
 	}
 
 }

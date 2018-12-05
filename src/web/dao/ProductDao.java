@@ -36,7 +36,7 @@ public class ProductDao {
 	 * 查询所有商品
 	 */
 	public List<Product> selectProduct() {
-		return SqlHelper.executeQuery(Product.class, "select * from " + TABLENAME);
+		return SqlHelper.executeQuery(Product.class, "select p.*,c.* from " + TABLENAME + " p,T_Category c where p.categoryId=c.categoryId");
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class ProductDao {
 	 */
 	public Product selectProduct(Integer productId) {
 		return SqlHelper.executeQueryOne(Product.class,
-				"select * from " + TABLENAME + " where productId=" + productId);
+				"select p.*,c.* from " + TABLENAME + " p,T_Category c where p.categoryId=c.categoryId and p.productId=" + productId);
 	}
 
 	/**
@@ -58,7 +58,6 @@ public class ProductDao {
 		if(lineStartIndex!=null&&lineStartIndex>-1&&lineSize!=null&&lineSize>0) {
 			limitString="and productId BETWEEN  "+lineStartIndex+" and "+lineSize;
 		}
-		
 		return SqlHelper.executeQuery(Product.class, "select p.*,c.* from " + TABLENAME + " p,T_Category c where c.categoryId=p.categoryId and p.categoryId="+categoryId +" and p.productState='上架' "+limitString);
 	}
 }
