@@ -25,7 +25,7 @@ public class IndexServlet extends HttpServlet {
 		//商品类别->该类商品列表
 		List<List<Product>> productMap=new ArrayList<List<Product>>();
 		//查询类别
-		List<Category> categories=categoryDao.seleteCategory();
+		List<Category> categories=categoryDao.selectCategory();
 		//分页查询：当前页开始值，页内商品数量
 		int lineStartIndex=0,lineSize=11;
 		Category category=null;

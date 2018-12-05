@@ -47,7 +47,8 @@ public class ProductServlet extends HttpServlet {
 		product.setCategoryId(2);
 		product.setProductName("");
 		product.setProductPrice(new BigDecimal(100));
-		product.setProductImge("");
+		product.setProductImages("");
+		product.setProductDescriptionImages("");
 		product.setInventory(1);
 		product.setProductState("");
 		product.setSuppliers("");
@@ -63,7 +64,8 @@ public class ProductServlet extends HttpServlet {
 		product.setCategoryId(2);
 		product.setProductName("");
 		product.setProductPrice(new BigDecimal(100));
-		product.setProductImge("");
+		product.setProductImages("");
+		product.setProductDescriptionImages("");
 		product.setInventory(1);
 		product.setProductState("");
 		product.setSuppliers("");
