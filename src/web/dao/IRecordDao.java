@@ -2,7 +2,6 @@ package web.dao;
 
 import java.util.List;
 
-import web.dao.util.SqlHelper;
 import web.entity.Record;
 
 public interface IRecordDao {
