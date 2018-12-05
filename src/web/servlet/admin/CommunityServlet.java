@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.CommunityDao;
+import web.dao.impl.CommunityDao;
 import web.entity.Community;
 
 /**

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.ProductDao;
+import web.dao.impl.ProductDao;
 import web.entity.Product;
 
 /**

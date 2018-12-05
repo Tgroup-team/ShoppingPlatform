@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.CategoryDao;
-import web.dao.OrderdetailsDao;
-import web.dao.ProductDao;
+import web.dao.impl.CategoryDao;
+import web.dao.impl.OrderdetailsDao;
+import web.dao.impl.ProductDao;
 import web.entity.Category;
 import web.entity.Product;
 
@@ -25,19 +25,19 @@ public class IntroductionServlet extends HttpServlet {
 	private OrderdetailsDao orderdetailsDao=new OrderdetailsDao();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer productId=1;
+		Integer productId=null;
 		try {
 			productId=Integer.parseInt(request.getParameter("productId"));
 		} catch (Exception e) {}
 		if(productId==null||productId<1) {
 			request.setAttribute("msg", "商品不存在");
-			request.getRequestDispatcher("/404.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
 			return;
 		}
 		Product product=productDao.selectProduct(productId);
 		if(product==null) {
 			request.setAttribute("msg", "商品不存在");
-			request.getRequestDispatcher("/404.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
 			return;
 		}
 		request.setAttribute("product", product);

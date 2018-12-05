@@ -1,4 +1,4 @@
-package web.dao;
+package web.dao.impl;
 
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;

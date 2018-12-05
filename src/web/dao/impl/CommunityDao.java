@@ -1,4 +1,4 @@
-package web.dao;
+package web.dao.impl;
 
 import java.util.List;
 

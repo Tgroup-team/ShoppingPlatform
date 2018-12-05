@@ -5,25 +5,25 @@ import java.io.Serializable;
 public class Page implements Serializable{
 	 private static final long serialVersionUID = -3198048449643774660L; 
      
-	    private int pageNow = 1; // µ±Ç°Ò³Êı 
+	    private int pageNow = 1; // å½“å‰é¡µæ•° 
 	   
-	    private int pageSize = 4; // Ã¿Ò³ÏÔÊ¾¼ÇÂ¼µÄÌõÊı 
+	    private int pageSize = 4; // æ¯é¡µæ˜¾ç¤ºè®°å½•çš„æ¡æ•° 
 	   
-	    private int totalCount; // ×ÜµÄ¼ÇÂ¼ÌõÊı 
+	    private int totalCount; // æ€»çš„è®°å½•æ¡æ•° 
 	   
-	    private int totalPageCount; // ×ÜµÄÒ³Êı 
+	    private int totalPageCount; // æ€»çš„é¡µæ•° 
 	   /*
 	    * @SuppressWarnings("unused") 
-	    * ÆÁ±Îjava±àÒëÖĞµÄÒ»Ğ©¾¯¸æĞÅÏ¢¡£unusedÕâ¸ö²ÎÊıÊÇÆÁ±Î£º¶¨ÒåµÄ±äÁ¿ÔÚ´úÂëÖĞÈô»¹Î´Ê¹ÓÃÇÒÎŞ·¨·ÃÎÊÊ±¡£
-	    * javaÔÚ±àÒëµÄÊ±ºò»á³öÏÖÕâÑùµÄ¾¯¸æ£¬¼ÓÉÏÕâ¸ö×¢½âÖ®ºó¾ÍÊÇ¸æËß±àÒëÆ÷£¬ºöÂÔÕâĞ©¾¯¸æ£¬
-	    * ±àÒëµÄ¹ı³ÌÖĞ½«²»»á³öÏÖÕâÖÖÀàĞÍµÄ¾¯¸æ 
+	    * å±è”½javaç¼–è¯‘ä¸­çš„ä¸€äº›è­¦å‘Šä¿¡æ¯ã€‚unusedè¿™ä¸ªå‚æ•°æ˜¯å±è”½ï¼šå®šä¹‰çš„å˜é‡åœ¨ä»£ç ä¸­è‹¥è¿˜æœªä½¿ç”¨ä¸”æ— æ³•è®¿é—®æ—¶ã€‚
+	    * javaåœ¨ç¼–è¯‘çš„æ—¶å€™ä¼šå‡ºç°è¿™æ ·çš„è­¦å‘Šï¼ŒåŠ ä¸Šè¿™ä¸ªæ³¨è§£ä¹‹åå°±æ˜¯å‘Šè¯‰ç¼–è¯‘å™¨ï¼Œå¿½ç•¥è¿™äº›è­¦å‘Šï¼Œ
+	    * ç¼–è¯‘çš„è¿‡ç¨‹ä¸­å°†ä¸ä¼šå‡ºç°è¿™ç§ç±»å‹çš„è­¦å‘Š 
 	    */
 	    @SuppressWarnings("unused") 
-	    private int startPos; // ¿ªÊ¼Î»ÖÃ£¬´Ó0¿ªÊ¼ 
+	    private int startPos; // å¼€å§‹ä½ç½®ï¼Œä»0å¼€å§‹ 
 	 
 	       
 	    /**
-	     * Í¨¹ı¹¹Ôìº¯Êı ´«Èë  ×Ü¼ÇÂ¼Êı  ºÍ  µ±Ç°Ò³
+	     * é€šè¿‡æ„é€ å‡½æ•° ä¼ å…¥  æ€»è®°å½•æ•°  å’Œ  å½“å‰é¡µ
 	     * @param totalCount
 	     * @param pageNow
 	     */ 
@@ -34,12 +34,12 @@ public class Page implements Serializable{
 	    } 
 	       
 	    /**
-	     * È¡µÃ×ÜÒ³Êı£¬×ÜÒ³Êı=×Ü¼ÇÂ¼Êı/Ã¿Ò³ÏÔÊ¾¼ÇÂ¼µÄÌõÊı  
+	     * å–å¾—æ€»é¡µæ•°ï¼Œæ€»é¡µæ•°=æ€»è®°å½•æ•°/æ¯é¡µæ˜¾ç¤ºè®°å½•çš„æ¡æ•°  
 	     * @return
 	     */ 
 	    public int getTotalPageCount() { 
 	        totalPageCount = getTotalCount() / getPageSize(); 
-	        return (totalCount % pageSize == 0) ? totalPageCount  //×ÜÒ³Êı
+	        return (totalCount % pageSize == 0) ? totalPageCount  //æ€»é¡µæ•°
 	                : totalPageCount + 1; 
 	    } 
 	   
@@ -71,7 +71,7 @@ public class Page implements Serializable{
 	        this.totalCount = totalCount; 
 	    } 
 	    /**
-	     * È¡µÃÑ¡Ôñ¼ÇÂ¼µÄ³õÊ¼Î»ÖÃ
+	     * å–å¾—é€‰æ‹©è®°å½•çš„åˆå§‹ä½ç½®
 	     * @return
 	     */ 
 	    public int getStartPos() { 

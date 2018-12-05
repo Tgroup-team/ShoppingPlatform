@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.ManagerDao;
+import web.dao.impl.ManagerDao;
 import web.entity.Managers;
 
 /**

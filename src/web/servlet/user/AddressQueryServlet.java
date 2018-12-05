@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.AddressDao;
+import web.dao.impl.AddressDaoImpl;
 import web.entity.Address;
 import web.entity.Page;
 
@@ -38,7 +38,7 @@ public class AddressQueryServlet extends HttpServlet {
 		System.out.println("pageNow:"+pageNow);
 		
         Page page = null; 
-        AddressDao addressDao=new AddressDao();
+        AddressDaoImpl addressDao=new AddressDaoImpl();
         List<Address> addresses = new ArrayList<Address>(); 
         List<Address> addressCount = addressDao.selectAddress();
         

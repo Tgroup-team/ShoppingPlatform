@@ -114,6 +114,7 @@
 		<ol class="am-breadcrumb am-breadcrumb-slash">
 			<li><a href="#">首页</a></li>
 			<li><a href="#">页面不存在</a></li>
+			
 		</ol>
 			
 		<!-- introduce-->
@@ -148,40 +149,6 @@
 								<strong>￥35.90</strong>
 							</div>
 						</li>
-						<li>
-							<div class="p-img">
-								<a href="#"> <img class="" src="images/browse1.jpg"></a>
-							</div>
-							<div class="p-name">
-								<a href="#"> 【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味 </a>
-							</div>
-							<div class="p-price">
-								<strong>￥35.90</strong>
-							</div>
-						</li>
-						<li>
-							<div class="p-img">
-								<a href="#"> <img class="" src="images/browse1.jpg"></a>
-							</div>
-							<div class="p-name">
-								<a href="#"> 【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味 </a>
-							</div>
-							<div class="p-price">
-								<strong>￥35.90</strong>
-							</div>
-						</li>
-						<li>
-							<div class="p-img">
-								<a href="#"> <img class="" src="images/browse1.jpg"></a>
-							</div>
-							<div class="p-name">
-								<a href="#"> 【三只松鼠_开口松子218g】零食坚果特产炒货东北红松子原味 </a>
-							</div>
-							<div class="p-price">
-								<strong>￥35.90</strong>
-							</div>
-						</li>
-
 					</ul>
 				</div>
 			</div>
@@ -191,9 +158,9 @@
 				<center><h3>
 				${msg }
 				</h3></center>
-				
+				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 				</div>
-				
 				<div class="clear"></div>
 
 				<div class="footer">

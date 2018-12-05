@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.CategoryDao;
-import web.dao.ProductDao;
+import web.dao.impl.CategoryDao;
+import web.dao.impl.ProductDao;
 import web.entity.Category;
 import web.entity.Product;
 

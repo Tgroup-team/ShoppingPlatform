@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.CategoryDao;
+import web.dao.impl.CategoryDao;
 import web.entity.Category;
 
 /**
