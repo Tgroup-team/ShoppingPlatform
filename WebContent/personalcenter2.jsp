@@ -77,131 +77,100 @@
 											<a href="editor.jsp"><i class="am-icon-bell-o"></i>设置</a>
 										</div>
 										<div class="m-address">
-											<a href="address2.jsp" class="i-trigger">我的收货地址</a>
+											<a href="page" class="i-trigger">我的收货地址</a>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="box-container-bottom"></div>
-						
-						
-						
-						
 					</div>
-				</div>
 			</article>
 		</header>
 		
-                
-                
-                
+
         <div class="center">
 			<div class="col-main">
                      
-                     
-                     
-                            
 				<!--浮动框架-->
-                    <div class="main-wrap">
-                                    <iframe width="1020" height="700px" name="main" style="background-color: white;" src="page" scrolling="no" allowTransparency="true"></iframe>
-                                    
-				    </div>
-			
-                            
-                            
-                            <!--底部-->
+                <div class="main-wrap">
+                    <iframe width="1020" height="700px" name="main" style="background-color: white;" src="page" scrolling="no" allowTransparency="true"></iframe>           
+			    </div>
+
+                 <!--底部-->
 				<div class="footer" style="margin-bottom: -24px;">
 					
 					<div class="m-user">
-								<!--个人信息 -->
-								<div class="m-bg"></div>
-								<div class="m-userinfo">
-									<div class="footer-hd" >
-											<p>
-												<span><a href="#">恒望科技</a></span>
-												<b>|</b>
-												<a href="#">商城首页</a>
-												<b>|</b>
-												<a href="#">支付宝</a>
-												<b>|</b>
-												<a href="#">物流信息</a>
-												<b>|</b>
-												<a href="#">微信</a>
-												<b>|</b>
-												<a href="#">联系我们</a>
-										
-										
-												<a href="#" style="margin-left: 245px;">关于恒望</a>
-												<a href="#">合作伙伴</a>
-												<a href="#">联系我们</a>
-												<a href="#">网站地图</a>
-												<em>© 2015-2025 Hengwang.com 版权所有</em>
-											</p>
-					                </div>
-					                
-					              
-					                
-									
-								</div>
-							</div>
-					
-
-					
-					
-					
-					
+						<!--个人信息 -->
+						<div class="m-bg"></div>
+						<div class="m-userinfo">
+							<div class="footer-hd" >
+								<p>
+									<span><a href="#">恒望科技</a></span>
+									<b>|</b>
+									<a href="#">商城首页</a>
+									<b>|</b>
+									<a href="#">支付宝</a>
+									<b>|</b>
+									<a href="#">物流信息</a>
+									<b>|</b>
+									<a href="#">微信</a>
+									<b>|</b>
+									<a href="#">联系我们</a>
+									<a href="#" style="margin-left: 245px;">关于恒望</a>
+									<a href="#">合作伙伴</a>
+									<a href="#">联系我们</a>
+									<a href="#">网站地图</a>
+									<em>© 2015-2025 Hengwang.com 版权所有</em>
+								</p>
+			                </div>
+						</div>
+					</div>
 				</div>
 			</div>
-                    
-                    
-                    
-                          <!--左导航栏-->
+             <!--左导航栏-->
           <aside class="menu">
 				<ul>
 					<li class="person active">
-                                            <a href="#">个人中心</a>
+                        <a href="#">个人中心</a>
 					</li>
 					<li class="person">
 						<a href="#">个人资料</a>
 						<ul>
-                                                    <li><a href="address2.jsp" target="main">收货地址</a></li>   
-                                                    <li><a href="newadd.jsp" target="main">新增地址</a></li>   
+                             <li><a href="page" target="main">收货地址</a></li>   
+                             <li><a href="newaddress.jsp" target="main">新增地址</a></li>   
 						</ul>
 					</li>
                      <li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							                        <li><a href="shopcar1.jsp" target="main">订单管理</a></li>
-                                                    <li><a href="orderinfo2.jsp" target="main">订单详情</a></li>  
-                                                    <li><a href="shopcar2.jsp" target="main">购物车</a></li>  
-	                                           
+	                        <li><a href="shopcar1.jsp" target="main">订单管理</a></li>
+                            <li><a href="orderinfo2.jsp" target="main">订单详情</a></li>  
+                            <li><a href="shopcar2.jsp" target="main">购物车</a></li>    
 						</ul>
 					</li>
 		            <li class="person">
 						<a href="#">我的资产</a>
 						<ul>
-                                                    <li><a href="balance2.jsp" target="main">账户余额</a></li>   
+                            <li><a href="balance2.jsp" target="main">账户余额</a></li>   
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的管理</a>
 						<ul>
-                                                    <li><a href="manage.jsp" target="main">收货管理</a></li>   
+                            <li><a href="manage.jsp" target="main">收货管理</a></li>   
 						</ul>
 					</li><li class="person">
 						<a href="#">小区成员</a>
 						<ul>
-                                                    <li><a href="userinfo.jsp" target="main">查看成员</a></li>   
+                            <li><a href="userinfo.jsp" target="main">查看成员</a></li>   
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的申请</a>
 						<ul>
-                                                    <li><a href="request.jsp" target="main">申请团长</a></li>   
+                            <li><a href="request.jsp" target="main">申请团长</a></li>   
 						</ul>
 					</li>
 				</ul>
-
 			</aside>
 		</div>
 
