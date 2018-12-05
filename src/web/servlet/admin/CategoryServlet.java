@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.impl.CategoryDao;
+import web.dao.impl.CategoryDaoImpl;
 import web.entity.Category;
 
 /**
@@ -19,7 +19,7 @@ import web.entity.Category;
 public class CategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	private CategoryDao categoryDao=new CategoryDao();
+	private CategoryDaoImpl categoryDao=new CategoryDaoImpl();
     public CategoryServlet() {
         super();
     }

@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.dao.impl.CategoryDao;
 import web.dao.impl.OrderdetailsDaoImpl;
 import web.dao.impl.ProductDaoImpl;
+import web.dao.impl.CategoryDaoImpl;
 import web.entity.Category;
 import web.entity.Product;
 
