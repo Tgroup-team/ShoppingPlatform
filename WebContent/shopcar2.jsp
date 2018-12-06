@@ -47,7 +47,7 @@
 			<tr class="item-list">
 				<div class="bundle  bundle-last ">
 					<div class="bundle-hd">
-						<div class="bd-promos"</div>
+						<div class="bd-promos"></div>
 							<span class="list-change theme-login">编辑</span>
 					</div>
 				</div>
