@@ -10,17 +10,22 @@
 
 <title>后台管理</title>
 
-<link href="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet"
-	type="text/css">
-<link href="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet"
-	type="text/css">
+<link
+	href="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/css/admin.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/css/amazeui.css"
+	rel="stylesheet" type="text/css">
 
 <link href="css/personal.css" rel="stylesheet" type="text/css">
 
 <link href="css/systyle.css" rel="stylesheet" type="text/css">
-<script src="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/js/jquery.min.js"
+<script
+	src="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/js/jquery.min.js"
 	type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+<script
+	src="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/js/amazeui.js"
+	type="text/javascript"></script>
 
 </head>
 <body style="background: transparent; height: 1000px;">
@@ -42,28 +47,32 @@
 
 						<div class="topMessage my-shangcheng">
 							<div class="menu-hd MyShangcheng">
-								<a href="${pageContext.request.contextPath}/admin/personalcenter2.jsp" target="_top"><i
-									class="am-icon-user am-icon-fw"></i>个人中心</a>
+								<a
+									href="${pageContext.request.contextPath}/admin/personalcenter2.jsp"
+									target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
 							</div>
 						</div>
 
 						<div class="topMessage home">
 							<div class="menu-hd">
-								<a href="${pageContext.request.contextPath}/admin/index.jsp" target="_top" class="h">商城首页</a>
+								<a href="${pageContext.request.contextPath}/admin/index.jsp"
+									target="_top" class="h">商城首页</a>
 							</div>
 						</div>
 
 						<div class="  topMessage mini-cart">
 							<div class="menu-hd">
-								<a id="mc-menu-hd" href="${pageContext.request.contextPath}/admin/shopcart2.jsp" target="_top"><i
-									class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong
+								<a id="mc-menu-hd"
+									href="${pageContext.request.contextPath}/admin/shopcart2.jsp"
+									target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong
 									id="J_MiniCartNum" class="h"></strong></a>
 							</div>
 						</div>
 
 						<div class="topMessage favorite1">
 							<div class="menu-hd">
-								<a href="${pageContext.request.contextPath}/admin/ahome1.jsp" target="_top"><span>管理员中心</span></a>
+								<a href="${pageContext.request.contextPath}/admin/ahome1.jsp"
+									target="_top"><span>管理员中心</span></a>
 							</div>
 						</div>
 
@@ -77,13 +86,16 @@
 					<div class="m-bg"></div>
 					<div class="m-userinfo">
 						<div class="m-baseinfo">
-							<a href="${pageContext.request.contextPath}/admin/information.jsp"> <img
+							<a
+								href="${pageContext.request.contextPath}/admin/information.jsp">
+								<img
 								src="${pageContext.request.contextPath}/images/getAvatar.do.jpg">
 							</a> <em class="s-name">管理员</em>
 						</div>
 						<div class="m-right">
 							<div class="m-new">
-								<a href="${pageContext.request.contextPath}/admin/news.jsp"><i class="am-icon-bell-o"></i>消息</a>
+								<a href="${pageContext.request.contextPath}/admin/news.jsp"><i
+									class="am-icon-bell-o"></i>消息</a>
 							</div>
 						</div>
 					</div>
@@ -101,7 +113,8 @@
 
 			<!--浮动框架-->
 			<div class="main-wrap" style="background-color: #ffffff;">
-				<iframe width="1000" height="800" name="main" src="${pageContext.request.contextPath}/admin/catagory1.jsp"
+				<iframe width="1000" height="800" name="main"
+					src="${pageContext.request.contextPath}/admin/catagory1.jsp"
 					scrolling="no" allowTransparency="true"></iframe>
 
 			</div>
@@ -129,29 +142,52 @@
 				<li class="person active"><a href="#">社区管理员系统</a></li>
 				<li class="person"><a href="#">产品类别管理</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/admin/catagory1.jsp" target="main">产品类别</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/admin/catagory1.jsp"
+							target="main">产品类别</a></li>
 
 					</ul></li>
 				<li class="person"><a href="#">产品管理</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/admin/product1.jsp" target="main">添加产品</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/admin/product1.jsp"
+							target="main">添加产品</a></li>
 
 					</ul></li>
 				<li class="person"><a href="#">订单管理</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/admin/porder1.jsp" target="main">查看订单</a></li>
-						<li><a href="${pageContext.request.contextPath}/admin/return1.jsp" target="main">退货</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/admin/porder1.jsp"
+							target="main">查看订单</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/admin/return1.jsp"
+							target="main">退货</a></li>
 					</ul></li>
 				<li class="person"><a href="#">社区管理</a>
 					<ul>
+<<<<<<< HEAD
 						<li><a href="${pageContext.request.contextPath}/admin/community1.jsp" target="main">团长审核</a></li>
 						<li><a href="communityservlet" target="main">添加社区</a></li>
+=======
+						<li><a
+							href="${pageContext.request.contextPath}/admin/community1.jsp"
+							target="main">团长审核</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/admin/community2.jsp"
+							target="main">添加社区</a></li>
+>>>>>>> 446ab84... 首页基本完成，购物页缺购物车和购买，搜索页基本完成
 
 					</ul></li>
 				<li class="person"><a href="#">我的账户</a>
 					<ul>
 
+<<<<<<< HEAD
 						<li><a href="scanbaccounts" target="main">余额账户</a></li>
+=======
+						<li><a
+							href="${pageContext.request.contextPath}/admin/baccounts1.jsp"
+							target="main">余额账户</a></li>
+>>>>>>> 446ab84... 首页基本完成，购物页缺购物车和购买，搜索页基本完成
 
 					</ul></li>
 
