@@ -64,5 +64,11 @@ public class UserDaoImpl implements IUserDao{
 
 		return user;
 	}
+	public static void main(String[] args) {
+		User user=new User("小猫", "111111", "123456789", "天使大街");
+		IUserDao uDao=new UserDaoImpl();
+		int i=uDao.insertUser(user);
+		System.out.println(i);
+	}
 
 }

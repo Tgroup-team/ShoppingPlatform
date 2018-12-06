@@ -1,13 +1,22 @@
 package web.entity;
 
 public class Address {
-	private int aId;
+	private Integer aId;
 	private String aName;
 	private String aTel;
 	private String aProvince;
 	private String aCity;
 	private String aArea;
 	private String aDetailAddr;
+	public Address(String aName, String aTel, String aProvince, String aCity, String aArea, String aDetailAddr) {
+		super();
+		this.aName = aName;
+		this.aTel = aTel;
+		this.aProvince = aProvince;
+		this.aCity = aCity;
+		this.aArea = aArea;
+		this.aDetailAddr = aDetailAddr;
+	}
 	@Override
 	public String toString() {
 		return "Address [aId=" + aId + ", aName=" + aName + ", aTel=" + aTel + ", aProvince=" + aProvince + ", aCity="
@@ -17,7 +26,7 @@ public class Address {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Address(int aId, String aName, String aTel, String aProvince, String aCity, String aArea,
+	public Address(Integer aId, String aName, String aTel, String aProvince, String aCity, String aArea,
 			String aDetailAddr) {
 		super();
 		this.aId = aId;

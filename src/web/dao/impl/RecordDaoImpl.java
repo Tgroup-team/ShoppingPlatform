@@ -4,6 +4,7 @@ import java.util.List;
 
 import web.dao.IRecordDao;
 import web.dao.util.SqlHelper;
+import web.entity.Address;
 import web.entity.Record;
 
 /**
@@ -52,5 +53,14 @@ public class RecordDaoImpl implements IRecordDao{
 		return SqlHelper.executeQueryOne(Record.class,
 				"select * from " + TABLENAME + " where mPaymentId=" + mPaymentId);
 	}
+	
+	/*
+	 * 分页查询
+	 */
+	@Override
+	public List<Record> selectRecordByPage(int pageSize,int pageNow){
+		return SqlHelper.executeQuery(Record.class,"select top "+pageSize+" * from T_Record where mPaymentId not in(select top "+pageNow+" mPaymentId from T_Record)");
+	}
+	
 
 }

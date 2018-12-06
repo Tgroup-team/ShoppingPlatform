@@ -31,4 +31,6 @@ public interface IRecordDao {
 	 */
 	public Record selectRecord(Integer mPaymentId);
 
+	public List<Record> selectRecordByPage(int pageSize, int pageNow);
+
 }

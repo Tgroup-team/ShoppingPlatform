@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import web.dao.impl.UserDaoImpl;
 import web.entity.User;
@@ -51,7 +52,10 @@ public class UserLoginServlet extends HttpServlet {
 		if(user!=null) {
 			System.out.println(user.getPassword());
 			if(user.getPassword().equals(pwd)) {
-				request.getRequestDispatcher("/personalcenter2.html").forward(request, response);
+				HttpSession session = request.getSession();
+				System.out.println("session:"+session);
+				session.setAttribute("username", uname);
+				request.getRequestDispatcher("/personalcenter2.jsp").forward(request, response);
 			}else {
 				System.out.println("密码错误");
 				response.sendRedirect("/UsersLogin.jsp");

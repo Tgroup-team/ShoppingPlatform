@@ -8,6 +8,12 @@ public class Record {
 	private String recordtype;
 	private String recordAmount;
 
+	@Override
+	public String toString() {
+		return "Record [mPaymentId=" + mPaymentId + ", recordTime=" + recordTime + ", recordtype=" + recordtype
+				+ ", recordAmount=" + recordAmount + "]";
+	}
+
 	public Integer getmPaymentId() {
 		return mPaymentId;
 	}

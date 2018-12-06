@@ -40,17 +40,19 @@
 						<span class="province">${ad.aProvince }</span>
 						<span class="city">${ad.aCity }</span>
 						<span class="dist">${ad.aArea }</span>
-						<span class="street">${ad.aDetailAddr}</span></p>
+						<span class="street">${ad.aDetailAddr}</span>
+					</p>
 				</div>
 				<div class="new-addr-btn">
-					<a href="editor.html"><i class="am-icon-edit"></i>编辑</a>
+					<a href="editor?id=${ad.aId }"><i class="am-icon-edit"></i>编辑</a>
 					<span class="new-addr-bar">|</span>
-					<a href="javascript:void(0);" onClick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
+					<a href="DeleteAddressServlet?id=${ad.aId }"><i class="am-icon-trash"></i>删除</a>
 				</div>
 			</li>
 		  </c:forEach>
-		  <br /> <br /> 
-		  <center>
+		  </ul>
+	
+		  	<center>
 				<font size="2">共 ${page.totalPageCount} 页</font> <font size="2">第
 					${page.pageNow} 页</font> <a
 					href="${pageContext.request.contextPath}/page?pageNow=1">首页</a>
@@ -87,7 +89,7 @@
 					</c:otherwise>
 				</c:choose>
 			</center>
-
+	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {							
 			$(".new-option-r").click(function() {

@@ -47,23 +47,23 @@
 						<div class="am-form-group">
 							<label for="user-phone" class="am-form-label">手机号码</label>
 							<div class="am-form-content">
-								<input id="user-phone" name="uatel"placeholder="手机号必填" type="email">
+								<input id="user-phone"  name="uatel" placeholder="手机号必填" type="text">
 							</div>
 						</div>
 						<div class="am-form-group">
 							<label for="user-address" class="am-form-label">所在地</label>
 							<div class="am-form-content address">
 								<select data-am-selected name="uaprovince">
-									<option value="a">浙江省</option>
-									<option value="b" selected>湖北省</option>
+									<option value="浙江省">浙江省</option>
+									<option value="湖北省" selected>湖北省</option>
 								</select>
 								<select data-am-selected name="uacity">
-									<option value="a">温州市</option>
-									<option value="b" selected>武汉市</option>
+									<option value="温州市">温州市</option>
+									<option value="武汉市" selected>武汉市</option>
 								</select>
 								<select data-am-selected name="uaarea">
-									<option value="a">瑞安区</option>
-									<option value="b" selected>洪山区</option>
+									<option value="瑞安区">瑞安区</option>
+									<option value="洪山区" selected>洪山区</option>
 								</select>
 							</div>
 						</div>

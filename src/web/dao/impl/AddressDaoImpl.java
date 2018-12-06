@@ -2,10 +2,10 @@ package web.dao.impl;
 
 import java.util.List;
 
-import web.dao.IAddresDao;
+import web.dao.IAddressDao;
 import web.dao.util.SqlHelper;
 import web.entity.Address;
-public class AddressDaoImpl implements IAddresDao{
+public class AddressDaoImpl implements IAddressDao{
 	
 	 /*
 	 * 添加地址
@@ -28,7 +28,7 @@ public class AddressDaoImpl implements IAddresDao{
 	 */
 	@Override
 	public int updateByAddressId(Address address) {
-		return SqlHelper.executeUpdate("T_Address", address, "where applyId="+address.getaId());
+		return SqlHelper.executeUpdate("T_Address", address, "where aId="+address.getaId());
 	}
 	
 	/*
@@ -52,7 +52,7 @@ public class AddressDaoImpl implements IAddresDao{
 	 */
 	@Override
 	public Address selectAddressById(Integer aId) {
-		return SqlHelper.executeQueryOne(Address.class, "select aId,aName,aName,aProvince,aCity,aArea,aDetailAddr from T_Address where"+aId);
+		return SqlHelper.executeQueryOne(Address.class, "select * from T_Address where aId="+aId);
 	}
 	
 	/*
@@ -61,5 +61,10 @@ public class AddressDaoImpl implements IAddresDao{
 	@Override
 	public int countAddress() {
 		return SqlHelper.executeNoQuery("select Count(*) from T_Address");
+	}
+	public static void main(String[] args) {
+		Address address=new Address("1010", "1010", "1010", "1010", "1010", "1010");
+		IAddressDao addresDao=new AddressDaoImpl();
+		addresDao.insertAddress(address);
 	}
 }

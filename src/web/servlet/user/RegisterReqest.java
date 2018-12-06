@@ -1,11 +1,17 @@
 package web.servlet.user;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import web.dao.ICommunityDao;
+import web.dao.impl.CommunityDaoImpl;
+import web.entity.Community;
 
 /**
  * Servlet implementation class RegisterReqest
@@ -27,6 +33,13 @@ public class RegisterReqest extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		ICommunityDao cd=new CommunityDaoImpl();
+	    List<Community> communitys =cd.selectCommunity();
+	    for (Community community : communitys) {
+			System.out.println(community.toString());
+		}
+	    request.setAttribute("communitys", communitys);
+	    request.getRequestDispatcher("/registerTest.jsp").forward(request, response);
 		
 	}
 
