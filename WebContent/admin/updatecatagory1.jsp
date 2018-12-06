@@ -13,30 +13,30 @@
 	<div class="i_bg bg_color">
 		<div class="m_right">
 			<div style="float: right;">
-				<a href="catagory1.html">返回</a>
+				<a href="catagory1.jsp">返回</a>
 			</div>
 			<div align="center">
-				<form method="post" action="DoAddcatagoryServlet">
+				<form method="post" action="updatecategory1">
 					<table border="1" class="order_tab"
 						style="width: 500px; text-align: margin-bottom:30px;"
 						cellspacing="0" cellpadding="0">
 						<tr>
 							<td colspan="2"><div align="center">修改产品类别</div></td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td width="23%">编号：</td>
 							<td width="77%"><label for="categoryName"></label> <input
 								type="text" name="" id="" /></td>
-						</tr>
+						</tr> -->
 						<tr>
 							<td width="23%">类别名称：</td>
 							<td width="77%"><label for="categoryName"></label> <input
-								type="text" name="categoryName" id="categoryName" /></td>
+								type="text" value="${selectByCategory.categoryName }" name="categoryName" id="categoryName" /></td>
 						</tr>
 						<tr>
 							<td width="23%">类别描述：</td>
 							<td width="77%"><label for="cdescribe"></label> <textarea
-									name="cdescribe" id="cdescribe" cols="45" rows="5"></textarea>
+									name="cdescribe" id="cdescribe" cols="45" rows="5">${selectByCategory.cdescribe }</textarea>
 							</td>
 						</tr>
 						<tr>

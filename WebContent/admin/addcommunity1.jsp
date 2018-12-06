@@ -13,10 +13,10 @@
 	<div class="i_bg bg_color">
 		<div class="m_right">
 			<div style="float: right;">
-				<a href="community2.html">返回</a>
+				<a href="community2.jsp">返回</a>
 			</div>
 
-			<form action="DoAddcommunityServlet" method="post">
+			<form action="../addcommunity" method="post">
 				<table border="1" class="order_tab"
 					style="width: 450px; text-align: margin-bottom:30px;"
 					cellspacing="0" cellpadding="0">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.dao.IProductDao;
 import web.dao.impl.ProductDaoImpl;
 import web.entity.Community;
 import web.entity.Product;
@@ -21,7 +22,7 @@ import web.entity.Product;
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private ProductDaoImpl productDao=new ProductDaoImpl();
+	private IProductDao productDao=new ProductDaoImpl();
        
     public ProductServlet() {
         super();

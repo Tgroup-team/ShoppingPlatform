@@ -8,7 +8,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
-<title>框架</title>
+<title>后台管理</title>
 
 <link href="${pageContext.request.contextPath}/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet"
 	type="text/css">
@@ -145,13 +145,13 @@
 				<li class="person"><a href="#">社区管理</a>
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/admin/community1.jsp" target="main">团长审核</a></li>
-						<li><a href="${pageContext.request.contextPath}/admin/community2.jsp" target="main">添加社区</a></li>
+						<li><a href="communityservlet" target="main">添加社区</a></li>
 
 					</ul></li>
 				<li class="person"><a href="#">我的账户</a>
 					<ul>
 
-						<li><a href="${pageContext.request.contextPath}/admin/baccounts1.jsp" target="main">余额账户</a></li>
+						<li><a href="scanbaccounts" target="main">余额账户</a></li>
 
 					</ul></li>
 

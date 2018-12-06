@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +16,7 @@
 		<div class="m_right">
 			<div class="mem_tit">余额账户</div>
 			<div align="right">
-				<a href="withdrawal1.html" style="padding: 10px 20px;">提现</a>
+				<a href="admin/withdrawal1.jsp" style="padding: 10px 20px;">提现</a>
 			</div>
 			<table border="0" class="order_tab"
 				style="width: 930px; text-align: center; margin-bottom: 30px;"
@@ -25,41 +26,15 @@
 					<td width="25%">时间</td>
 					<td width="15%">金额</td>
 				</tr>
-				<tr>
-					<td>收入</td>
-					<td><div align="center">2018/2/20</div></td>
-					<td>80.00</td>
-				</tr>
-				<tr>
-					<td>收入</td>
-					<td><div align="center">2018/2/20</div></td>
-					<td>80.00</td>
-				</tr>
-				<tr>
-					<td>收入</td>
-					<td><div align="center">2018/2/20</div></td>
-					<td>80.00</td>
-				</tr>
-				<tr>
-					<td><div align="center">退款</div></td>
-					<td><div align="center">2018/2/20</div></td>
-					<td>80.00</td>
-				</tr>
-				<tr>
-					<td><div align="center">退款</div></td>
-					<td><div align="center">2018/2/20</div></td>
-					<td>80.00</td>
-				</tr>
-				<tr>
-					<td><div align="center">提现</div></td>
-					<td><div align="center">2018/2/20</div></td>
-					<td>80.00</td>
-				</tr>
-				<tr>
-					<td><div align="center">提现</div></td>
-					<td><div align="center">2018/2/20</div></td>
-					<td>80.00</td>
-				</tr>
+				
+				<c:forEach items="${listRecord }" var="lr">
+				   <tr>
+				        <td><div align="center">${lr.recordtype }</div></td>
+						<td>${lr.recordTime }</td>
+						<td>${lr.recordAmount }</td>
+				    </tr>
+				</c:forEach>
+				
 			</table>
 		</div>
 	</div>
