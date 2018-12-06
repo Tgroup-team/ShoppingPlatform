@@ -13,9 +13,9 @@
 	<div class="i_bg bg_color">
 		<div class="m_right">
 			<div style="float: right;">
-				<a href="community2.html">返回</a>
+				<a href="admin/community2.jsp">返回</a>
 			</div>
-			<form action="DoAddcommunityServlet" method="post">
+			<form action="updatecommunity1" method="post">
 				<table border="1" class="order_tab"
 					style="width: 450px; text-align: margin-bottom:30px;"
 					cellspacing="0" cellpadding="0">
@@ -25,7 +25,7 @@
 					<tr>
 						<td width="33%">社区名称：</td>
 						<td width="67%"><label for="textfield"></label> <input
-							type="text" name="communityName" id="communityName" /></td>
+							type="text" name="communityName" value="${selectByCommunity.communityName }" id="communityName" /></td>
 					</tr>
 					<tr>
 						<td colspan="2">

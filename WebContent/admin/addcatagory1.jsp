@@ -16,18 +16,18 @@
 				<a href="catagory1.jsp">返回</a>
 			</div>
 			<div align="center">
-				<form method="post" action="DoAddcatagoryServlet">
+				<form  action="../addcategory" method="post">
 					<table border="1" class="order_tab"
 						style="width: 500px; text-align: margin-bottom:30px;"
 						cellspacing="0" cellpadding="0">
 						<tr>
 							<td colspan="2"><div align="center">添加产品类别</div></td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td width="23%">编号：</td>
 							<td width="77%"><label for="categoryName"></label> <input
 								type="text" name="" id="" /></td>
-						</tr>
+						</tr> -->
 						<tr>
 							<td width="23%">类别名称：</td>
 							<td width="77%"><label for="categoryName"></label> <input
