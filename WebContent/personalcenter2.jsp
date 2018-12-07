@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,77 +95,11 @@
 
                 <!--底部-->
 			<div class="footer" style="margin-bottom: -24px;">
-							</div>
-						</div>
-					</ul>
-					<ul class="message-r">
-
-
-						<div class="topMessage my-shangcheng">
-							<div class="menu-hd MyShangcheng">
-								<a href="personalcenter2.jsp" target="_top"><i
-									class="am-icon-user am-icon-fw"></i>个人中心</a>
-							</div>
-						</div>
-
-						<div class="topMessage home">
-							<div class="menu-hd">
-								<a href="index.jsp" target="_top" class="h"><i
-									class="am-icon-shopping-cart  am-icon-fw"></i>商城首页</a>
-							</div>
-						</div>
-
-						<!--<div class="  topMessage mini-cart">
-						<div class="menu-hd"><a id="mc-menu-hd" href="shopcart2.html" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
-					</div>
-                                 -->
-						<div class="topMessage favorite1">
-							<div class="menu-hd">
-								<a href="ahome1.jsp" target="_top"><span>管理员中心</span></a>
-							</div>
-						</div>
-					</ul>
-				</div>
-
-
+				
 				<div class="m-user">
 					<!--个人信息 -->
 					<div class="m-bg"></div>
 					<div class="m-userinfo">
-						<div class="m-baseinfo">
-							<a href="#"> <img src="images/getAvatar.do.jpg">
-							</a> <em class="s-name">(小叮当)<span class="vip1"></em>
-							<div class="s-prestige am-btn am-round">
-								</span>会员福利
-							</div>
-						</div>
-						<div class="m-right">
-							<div class="m-new">
-								<a href="editor.jsp"><i class="am-icon-bell-o"></i>设置</a>
-							</div>
-							<div class="m-address">
-								<a href="page" class="i-trigger">我的收货地址</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</article>
-	</header>
-
-
-	<div class="center">
-		<div class="col-main">
-
-			<!--浮动框架-->
-			<div class="main-wrap">
-				<iframe width="1020" height="700px" name="main"
-					style="background-color: white;" src="page" scrolling="no"
-					allowTransparency="true"></iframe>
-			</div>
-
-			<!--底部-->
-			<div class="footer" style="margin-bottom: -24px;">
 						<div class="footer-hd" >
 							<p>
 								<span><a href="#">恒望科技</a></span>

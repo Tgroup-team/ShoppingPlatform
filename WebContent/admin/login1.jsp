@@ -46,13 +46,12 @@
 								type="password" name="password" id="password"
 								placeholder="请输入密码">
 						</div>
-
+						
 						<div class="am-cf">
-							<!-- <a href="ahome1.html"> -->
-							<input type="submit" name="" value="登 录"
-								class="am-btn am-btn-primary am-btn-sm"> </a>
-						</div>
-
+					     <!-- <a href="ahome1.html"> --><input type="submit" name="" value="登 录"
+						class="am-btn am-btn-primary am-btn-sm"> </a>
+				</div>
+						
 					</form>
 				</div>
 
