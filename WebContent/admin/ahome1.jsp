@@ -165,29 +165,19 @@
 					</ul></li>
 				<li class="person"><a href="#">社区管理</a>
 					<ul>
-<<<<<<< HEAD
-						<li><a href="${pageContext.request.contextPath}/admin/community1.jsp" target="main">团长审核</a></li>
-						<li><a href="communityservlet" target="main">添加社区</a></li>
-=======
 						<li><a
 							href="${pageContext.request.contextPath}/admin/community1.jsp"
 							target="main">团长审核</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/admin/community2.jsp"
 							target="main">添加社区</a></li>
->>>>>>> 446ab84... 首页基本完成，购物页缺购物车和购买，搜索页基本完成
 
 					</ul></li>
 				<li class="person"><a href="#">我的账户</a>
 					<ul>
-
-<<<<<<< HEAD
-						<li><a href="scanbaccounts" target="main">余额账户</a></li>
-=======
 						<li><a
 							href="${pageContext.request.contextPath}/admin/baccounts1.jsp"
 							target="main">余额账户</a></li>
->>>>>>> 446ab84... 首页基本完成，购物页缺购物车和购买，搜索页基本完成
 
 					</ul></li>
 

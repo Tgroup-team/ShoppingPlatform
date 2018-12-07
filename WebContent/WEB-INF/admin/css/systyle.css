@@ -3,7 +3,7 @@
 .col-main {
 	padding-top: 0;
 }
-/*个人信息*/
+/*涓汉淇℃伅*/
 .m-userinfo {
 	position: relative;
 	padding-top: 20px;
@@ -88,7 +88,7 @@ a.i-trigger {
 .am-icon-bell-o {
 	margin-right: 10px;
 }
-/*资产*/
+/*璧勪骇*/
 .m-userproperty {
 	overflow: hidden;
 	padding: 15px 10px;
@@ -122,7 +122,7 @@ a.i-trigger {
 .m-big {
 	display: none;
 }
-/*订单*/
+/*璁㈠崟*/
 .m-order {
 	overflow: hidden;
 	margin-bottom: 15px;
@@ -186,7 +186,7 @@ a em.m-num {
 	color: #4B4B4B;
 }
 
-/*九宫格*/
+/*涔濆鏍�*/
 .user-patternIcon, .user-squaredIcon {
 	display: block;
 	background: #fff;
@@ -237,7 +237,7 @@ a em.m-num {
 	width: 100%;
 }
 
-/*第二套九宫格*/
+/*绗簩濂椾節瀹牸*/
 .user-squaredIcon ul li {
 	text-align: center;
 	margin: 10px 0px;
@@ -248,7 +248,7 @@ a em.m-num {
 	color: #F03726;
 }
 
-/*导航*/
+/*瀵艰埅*/
 .navCir {
 	position: fixed;
 	bottom: 0px;
@@ -281,7 +281,7 @@ a em.m-num {
 }
 
 @media only screen and (min-width:640px) {
-	/*布局*/
+	/*甯冨眬*/
 	.m-user {
 		background: none
 	}
@@ -324,7 +324,7 @@ a em.m-num {
 		padding-left: 10px;
 	}
 
-	/*个人信息*/
+	/*涓汉淇℃伅*/
 	.m-userinfo {
 		height: 100px;
 		padding: 20px 0px;
@@ -350,7 +350,7 @@ a em.m-num {
 		border: none;
 	}
 
-	/*个人资产*/
+	/*涓汉璧勪骇*/
 	.m-userproperty .s-bar {
 		display: block;
 	}
@@ -364,7 +364,7 @@ a em.m-num {
 	.m-big {
 		display: block;
 	}
-	/*主题*/
+	/*涓婚*/
 	.main-wrap {
 		position: relative;
 		background: #F5F8FA;
@@ -377,7 +377,7 @@ a em.m-num {
 		border-top: 1px solid #E8EEF2;
 	}
 
-	/*物流*/
+	/*鐗╂祦*/
 	.m-logistics {
 		display: block;
 		background: #fff;
@@ -433,7 +433,7 @@ a em.m-num {
 		border: 1px solid #D1D1D1;
 	}
 
-	/*收藏夹*/
+	/*鏀惰棌澶�*/
 	.you-like {
 		display: block;
 		margin-bottom: 5px;
@@ -512,7 +512,7 @@ a em.m-num {
 		font-weight: 400;
 	}
 
-	/*省略号*/
+	/*鐪佺暐鍙�*/
 	.s-item .s-title {
 		font-size: 12px;
 		overflow: hidden;
@@ -572,7 +572,7 @@ a em.m-num {
 	.wrap-list {
 		width: 80%;
 	}
-	/*右边栏*/
+	/*鍙宠竟鏍�*/
 	.wrap-right {
 		display: block;
 		width: 20%;
@@ -591,7 +591,7 @@ a em.m-num {
 		right: 0px;
 	}
 
-	/*日历*/
+	/*鏃ュ巻*/
 	.day-list .s-bar {
 		font-size: 15px;
 		text-align: center;
@@ -626,7 +626,7 @@ a em.m-num {
 		font-size: 15px;
 	}
 
-	/*新品*/
+	/*鏂板搧*/
 	.new-goods {
 		background: #fff;
 		overflow: hidden;

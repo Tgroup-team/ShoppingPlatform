@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-/*公共*/
+/*鍏叡*/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
 	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
@@ -40,7 +40,7 @@ html {
 	-moz-text-size-adjust: none;
 	-o-text-size-adjust: none;
 }
-/*text-size-adjust不管屏幕怎么变文字大小不变*/
+/*text-size-adjust涓嶇灞忓箷鎬庝箞鍙樻枃瀛楀ぇ灏忎笉鍙�*/
 body {
 	margin: 0;
 	padding: 0;
@@ -55,20 +55,20 @@ a:link, a:visited {
 	outline: none;
 	color: #000;
 }
-/*所有超链接不要下划线*/
+/*鎵�鏈夎秴閾炬帴涓嶈涓嬪垝绾�*/
 * {
 	padding: 0;
 	margin: 0;
 }
 
-； 	
+锛� 	
 *, *:after, *:before {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
 }
-/*任何标签、包括它前面、后面生成的内容都不要影响盒子的边框*/
+/*浠讳綍鏍囩銆佸寘鎷畠鍓嶉潰銆佸悗闈㈢敓鎴愮殑鍐呭閮戒笉瑕佸奖鍝嶇洅瀛愮殑杈规*/
 .am-form textarea, .am-form select, .am-form textarea, .am-form input[type="text"],
 	.am-form input[type="password"], .am-form input[type="datetime"],
 	.am-form input[type="datetime-local"], .am-form input[type="date"],
@@ -87,7 +87,7 @@ header {
 	display: none;
 }
 
-/*选项卡样式定义*/
+/*閫夐」鍗℃牱寮忓畾涔�*/
 .am-nav-tabs, .am-tabs-bd {
 	border-color: transparent;
 }
@@ -111,7 +111,7 @@ header {
 .am-tabs-d2 .am-tabs-nav li {
 	max-width: 216px;
 }
-/*选项卡样式*/
+/*閫夐」鍗℃牱寮�*/
 .am-nav-tabs>li {
 	cursor: pointer;
 }
@@ -125,7 +125,7 @@ header {
 .nav-table {
 	display: none;
 }
-/*主体部分*/
+/*涓讳綋閮ㄥ垎*/
 .center {
 	width: 100%;
 	margin: 0px auto;
@@ -140,7 +140,7 @@ aside, .wrap-right, .m-logistics, .you-like {
 .col-main {
 	padding-bottom: 50px;
 }
-/*标题*/
+/*鏍囬*/
 .am-text-lg {
 	font-size: 18px;
 }
@@ -157,7 +157,7 @@ hr {
 	margin: 5px 0px;
 }
 
-/*表单布局*/
+/*琛ㄥ崟甯冨眬*/
 .am-form-label {
 	width: 50px;
 	float: left;
@@ -173,7 +173,7 @@ hr {
 	background-color: #fff;
 }
 
-/*博客*/
+/*鍗氬*/
 .bloglist .am-u-md-9 {
 	background: #fff;
 }
@@ -192,7 +192,7 @@ hr {
 }
 
 .blog-list li p {
-	white-space: nowrap; /* 不换行 */
+	white-space: nowrap; /* 涓嶆崲琛� */
 	overflow: hidden;
 	text-overflow: ellipsis
 }
@@ -239,7 +239,7 @@ hr {
 	color: rgb(192, 0, 0);
 	font-size: 18px;
 }
-/*底部*/
+/*搴曢儴*/
 .footer {
 	display: none;
 	text-align: center;
@@ -263,7 +263,7 @@ hr {
 		font-size: 14px;
 	}
 
-	/*头*/
+	/*澶�*/
 	header {
 		display: block;
 	}
@@ -293,7 +293,7 @@ hr {
 		height: 35px;
 		line-height: 35px;
 	}
-	/*浮动框*/
+	/*娴姩妗�*/
 	.nav.white {
 		width: 100%;
 		margin: 0px auto;
@@ -329,7 +329,7 @@ hr {
 		z-index: 0;
 	}
 
-	/*搜索框*/
+	/*鎼滅储妗�*/
 	.search-bar {
 		height: 51px;
 		margin: 0px 50px 0 120px;
@@ -358,7 +358,7 @@ hr {
 		cursor: pointer;
 	}
 
-	/*固定框架*/
+	/*鍥哄畾妗嗘灦*/
 	.center {
 		width: 96%;
 		max-width: 1000px;
@@ -367,7 +367,7 @@ hr {
 		margin-top: 15px;
 	}
 
-	/*表单布局*/
+	/*琛ㄥ崟甯冨眬*/
 	.am-form-label {
 		width: 100px;
 		float: left;
@@ -376,7 +376,7 @@ hr {
 		margin-left: 85px;
 	}
 
-	/*侧边栏*/
+	/*渚ц竟鏍�*/
 	aside {
 		display: block;
 		width: 130px;
@@ -422,7 +422,7 @@ hr {
 	.person ul li a {
 		color: #666;
 	}
-	/*主题*/
+	/*涓婚*/
 	.col-main {
 		float: left;
 		width: 100%;
@@ -446,7 +446,7 @@ hr {
 	.am-text-danger {
 		color: #000
 	}
-	/*底部*/
+	/*搴曢儴*/
 	.footer {
 		text-align: left;
 		display: block;
@@ -479,7 +479,7 @@ hr {
 		display: block;
 	}
 
-	/*博客*/
+	/*鍗氬*/
 	.blog-main {
 		margin-top: 10px;
 	}
@@ -510,7 +510,7 @@ hr {
 		margin: auto;
 	}
 
-	/*分类*/
+	/*鍒嗙被*/
 	.nav-table {
 		max-width: 1000px;
 		margin: 0px auto;
@@ -620,7 +620,7 @@ hr {
 }
 
 @media only screen and (min-width: 1260px) {
-	/*分类*/
+	/*鍒嗙被*/
 	.nav-table, .footer {
 		max-width: 1200px;
 	}
@@ -630,7 +630,7 @@ hr {
 	.nav-cont {
 		padding-left: 180px;
 	}
-	/*固定框架*/
+	/*鍥哄畾妗嗘灦*/
 	.center {
 		width: 96%;
 		max-width: 1200px;
@@ -647,7 +647,7 @@ hr {
 	.am-container, .bloglist {
 		max-width: 1200px;
 	}
-	/*博客*/
+	/*鍗氬*/
 	.blog-main {
 		margin-top: 30px;
 	}

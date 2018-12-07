@@ -55,19 +55,13 @@
 						<div class="am-form-group">
 							<label for="user-phone" class="am-form-label">手机号码</label>
 							<div class="am-form-content">
-<<<<<<< HEAD
 								<input id="user-phone"  name="uatel" placeholder="手机号必填" type="text">
-=======
-								<input id="user-phone" name="uatel" placeholder="手机号必填"
-									type="email">
->>>>>>> 446ab84... 首页基本完成，购物页缺购物车和购买，搜索页基本完成
 							</div>
 						</div>
 						<div class="am-form-group">
 							<label for="user-address" class="am-form-label">所在地</label>
 							<div class="am-form-content address">
 								<select data-am-selected name="uaprovince">
-<<<<<<< HEAD
 									<option value="浙江省">浙江省</option>
 									<option value="湖北省" selected>湖北省</option>
 								</select>
@@ -78,16 +72,6 @@
 								<select data-am-selected name="uaarea">
 									<option value="瑞安区">瑞安区</option>
 									<option value="洪山区" selected>洪山区</option>
-=======
-									<option value="a">浙江省</option>
-									<option value="b" selected>湖北省</option>
-								</select> <select data-am-selected name="uacity">
-									<option value="a">温州市</option>
-									<option value="b" selected>武汉市</option>
-								</select> <select data-am-selected name="uaarea">
-									<option value="a">瑞安区</option>
-									<option value="b" selected>洪山区</option>
->>>>>>> 446ab84... 首页基本完成，购物页缺购物车和购买，搜索页基本完成
 								</select>
 							</div>
 						</div>
