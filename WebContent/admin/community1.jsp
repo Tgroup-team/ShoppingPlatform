@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,35 +29,19 @@
 
 					<td width="10%">操作处理</td>
 				</tr>
-				<tr>
-					<td>雨花小区</td>
-					<td>小明</td>
-					<td>2018/5/20</td>
-					<td>未审核</td>
-
-					<td><a class="c0085d0" href="#">审核通过</a>&nbsp;&nbsp;<a
-						class="c0085d0" href="#">不通过</a></td>
-
+				
+				<c:forEach items="${listApply }" var="la">
+				   <tr>
+					<td>${la.community.communityName }</td>
+					<td>${la.user.vipName }</td>
+					<td><fmt:formatDate value="${la.rappl }" pattern="yyyy-MM-dd"/></td>
+					<td>${la.deal }</td>
+					<td><a class="c0085d0" href="applypass?applyId=${la.applyId }">审核通过</a>&nbsp;&nbsp;<a
+						class="c0085d0" href="applynpass?applyId=${la.applyId }">不通过</a></td>
 				</tr>
-				<tr>
-					<td>雨花小区</td>
-					<td>小明</td>
-					<td>2018/5/20</td>
-					<td>未审核</td>
-
-					<td><a class="c0085d0" href="#">审核通过</a>&nbsp;&nbsp;<a
-						class="c0085d0" href="#">不通过</a></td>
-
-				</tr>
-				<tr>
-					<td>雨花小区</td>
-					<td>小明</td>
-					<td>2018/5/20</td>
-					<td>未审核</td>
-
-					<td><a class="c0085d0" href="#">审核通过</a>&nbsp;&nbsp;<a
-						class="c0085d0" href="#">不通过</a></td>
-				</tr>
+				
+				</c:forEach>
+				
 			</table>
 		</div>
 	</div>

@@ -13,55 +13,54 @@
 	<div class="i_bg bg_color">
 		<div class="m_right">
 			<div style="float: right;">
-				<a href="product1.html">返回</a>
+				<a href="productservlet">返回</a>
 			</div>
 			<div align="center">
-				<form method="post" action="DoAddproductServlet">
+				<form method="get" action="updateproduct1">
 					<table border="1" class="order_tab"
 						style="width: 500px; text-align: margin-bottom:30px;"
 						cellspacing="0" cellpadding="0">
 						<tr>
 							<td colspan="2"><div align="center">修改产品</div></td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td>所属类别：</td>
 							<td><select name="categoryId" id="categoryId">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
 									<option>4</option>
-							</select></td>
-						<tr>
+							</select></td>-->
+						<tr> 
 							<td width="33%">产品名称：</td>
 							<td width="67%"><input type="text" name="productName"
-								id="productName" /></td>
+								id="productName" value="${selectProduct.productName }" /></td>
 						</tr>
 						<tr>
 							<td width="33%">产品单价：</td>
 							<td width="67%"><input type="text" name="productPrice"
-								id="productPrice" /></td>
+								id="productPrice" value="${selectProduct.productPrice }" /></td>
+						</tr>
+						<%-- <tr>
+							<td width="33%">产品图片：</td>
+							<td width="67%"><input type="text" name="productDescriptionImages"
+								id="productDescriptionImages" value="${selectProduct.productDescriptionImages }" /></td>
 						</tr>
 						<tr>
-							<td width="33%">图片地址：</td>
-							<td width="67%"><input type="text" name="productImge"
-								id="productImge" /></td>
-						</tr>
+							<td width="33%">产品介绍图片：</td>
+							<td width="67%"><input type="text" name="productDescriptionImages"
+								id="productDescriptionImages" value="${selectProduct.productDescriptionImages }" /></td>
+						</tr> --%>
+						
 						<tr>
 							<td width="33%">库存量：</td>
 							<td width="67%"><input type="text" name="inventory"
-								id="inventory" /></td>
+								id="inventory" value="${selectProduct.inventory }" /></td>
 						</tr>
 						<tr>
-							<td>产品状态：</td>
-							<td><select name="productState" id="productState">
-									<option>上架</option>
-									<option>下架</option>
-							</select></td>
-						</tr>
-						<tr>
-							<td width="33%">产品描述：</td>
+							<td width="33%">产品产地：</td>
 							<td width="67%"><input type="text" name="suppliers"
-								id="suppliers" /></td>
+								id="suppliers" value="${selectProduct.suppliers }" /></td>
 						</tr>
 
 						<tr>

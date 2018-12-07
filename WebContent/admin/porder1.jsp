@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,29 +21,24 @@
 				<tr>
 
 					<td width="17%">订单编号</td>
-					<td width="9%">订单总金额</td>
+					<td width="9%">用户名称</td>
 					<td width="19%">下单时间</td>
 					<td width="12%">处理状态</td>
 					<td width="19%">操作</td>
 				</tr>
-				<tr>
-					<td width="17%">2</td>
-					<td width="9%">20.0￥</td>
-					<td width="19%">2018-05-04</td>
-					<td width="12%">发货</td>
+				
+				<c:forEach items="${listOrder }" var="lo">
+				   <tr>
+					<td width="17%">${lo.orderId }</td>
+					<td width="9%">${lo.user.vipName }</td>
+					<td width="19%"><fmt:formatDate value="${lo.delivery }" pattern="yyyy-MM-dd"/></td>
+					<td width="12%">${lo.orderstate }</td>
 					<td width="19%"><a
-						href="javascript:if(confirm('您是否确定发货？'))location='DoUpdateOrderServlet?id=2'">发货</a>&nbsp;&nbsp;<a
-						class="c0085d0" href="#" onclick="alert('确定要删除吗？')">删除</a></td>
-				</tr>
-				<tr>
-					<td width="17%">3</td>
-					<td width="9%">20.0￥</td>
-					<td width="19%">2018-11-27</td>
-					<td width="12%">待发货</td>
-					<td width="19%"><a
-						href="javascript:if(confirm('您是否确定发货？'))location='DoUpdateOrderServlet?id=3'">发货</a>&nbsp;&nbsp;<a
-						class="c0085d0" href="#" onclick="alert('确定要删除吗？')">删除</a></td>
-				</tr>
+						href="javascript:if(confirm('您是否确定发货？'))location='delivergoods?orderId=${lo.orderId }'">发货</a>&nbsp;&nbsp;<a
+						class="c0085d0" href="deleteorder?orderId=${lo.orderId }" onclick="alert('确定要删除吗？')">删除</a></td>
+				    </tr>
+				</c:forEach>
+				
 			</table>
 		</div>
 	</div>

@@ -13,11 +13,11 @@
 	<div class="i_bg bg_color">
 		<div class="m_right">
 			<div style="float: right;">
-				<a href="product1.html">返回</a>
+				<a href="product1.jsp">返回</a>
 			</div>
 			<div align="center">
 
-				<form method="post" action="DoAddproductServlet">
+				<form method="post" action="addproduct">
 
 					<table border="1" class="order_tab"
 						style="width: 500px; text-align: margin-bottom:30px;"
@@ -45,10 +45,17 @@
 								id="productPrice" /></td>
 						</tr>
 						<tr>
-							<td width="33%">图片地址：</td>
+							<td width="33%">产品图片地址：</td>
 							<td width="67%"><input type="text" name="productImge"
 								id="productImge" /></td>
 						</tr>
+						
+						<tr>
+							<td width="33%">产品描述图片地址：</td>
+							<td width="67%"><input type="text" name="productDescriptionImages"
+								id="productDescriptionImages" /></td>
+						</tr>
+						
 						<tr>
 							<td width="33%">库存量：</td>
 							<td width="67%"><input type="text" name="inventory"
@@ -63,7 +70,7 @@
 
 						</tr>
 						<tr>
-							<td width="33%">产品描述：</td>
+							<td width="33%">产品产地：</td>
 							<td width="67%"><input type="text" name="suppliers"
 								id="suppliers" /></td>
 						</tr>

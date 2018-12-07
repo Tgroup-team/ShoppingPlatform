@@ -38,5 +38,10 @@ public interface IProductDao {
 	 * @return
 	 */
 	public List<Product> selectOnlineProductsByCategoryId(Integer categoryId,Integer lineStartIndex,Integer lineSize);
+	
+	/*
+	 * 分页
+	 */
+	public List<Product> selectProductByPage(int pageSize,int pageNow);
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import web.dao.IProductDao;
 import web.dao.util.SqlHelper;
+import web.entity.Address;
 import web.entity.Product;
 
 /**
@@ -67,4 +68,21 @@ public class ProductDaoImpl implements IProductDao {
 		}
 		return SqlHelper.executeQuery(Product.class, "select p.*,c.* from " + TABLENAME + " p,T_Category c where c.categoryId=p.categoryId and p.categoryId="+categoryId +" and p.productState='上架' "+limitString);
 	}
+	
+	/*
+	 * 分页查询
+	 */
+	@Override
+	public List<Product> selectProductByPage(int pageSize,int pageNow){
+		return SqlHelper.executeQuery(Product.class,"select top "+pageSize+" T_Product.*,T_Category.* from T_Product,T_Category where T_Product.categoryId=T_Category.categoryId and productId not in(select top "+pageNow+" productId from T_Product)");
+	}
+	
+	public static void main(String[] args) {
+		
+		ProductDaoImpl daoImpl=new ProductDaoImpl();
+		int deleteProduct = daoImpl.deleteProduct(1);	
+		System.out.println(deleteProduct);
+	}
+	
+	
 }
