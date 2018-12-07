@@ -29,7 +29,7 @@
 					style="width: 127px;" />&nbsp; <input type="submit" name="Button1"
 					value="查询产品" id="Button1" /><br />
 				<div align="right">
-					<a href="admin/addproduct1.jsp" style="padding: 10px 20px;">添加产品<!--<input type="button" name=""  value="添加产品"  />--></a>
+					<a href="addproduct1" style="padding: 10px 20px;">添加产品<!--<input type="button" name=""  value="添加产品"  />--></a>
 				</div>
 			</div>
 			<div align="center">

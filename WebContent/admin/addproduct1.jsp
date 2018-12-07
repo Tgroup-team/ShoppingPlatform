@@ -17,7 +17,7 @@
 			</div>
 			<div align="center">
 
-				<form method="post" action="addproduct">
+				<form action="addproduct" method="get">
 
 					<table border="1" class="order_tab"
 						style="width: 500px; text-align: margin-bottom:30px;"
