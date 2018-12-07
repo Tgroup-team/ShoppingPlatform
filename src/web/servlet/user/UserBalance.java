@@ -9,14 +9,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import web.dao.IAddressDao;
 import web.dao.IRecordDao;
+import web.dao.IUserDao;
 import web.dao.impl.AddressDaoImpl;
 import web.dao.impl.RecordDaoImpl;
+import web.dao.impl.UserDaoImpl;
 import web.entity.Address;
 import web.entity.Page;
 import web.entity.Record;
+import web.entity.User;
 
 /**
  * Servlet implementation class UserBalance
@@ -38,30 +43,14 @@ public class UserBalance extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		String pageNow = request.getParameter("pageNow"); 
-		System.out.println("pageNow:"+pageNow);
+		IUserDao uDao=new UserDaoImpl();
+		HttpSession session=request.getSession();
 		
-        Page page = null; 
-        IRecordDao rdDao=new RecordDaoImpl();
-        List<Record> resList = new ArrayList<Record>(); 
-        List<Record> recordsCount = rdDao.selectRecord();
-        
-        //查询用户总数
-        int totalCount=recordsCount.size();
-        System.out.println("一共数据条数："+totalCount);
-        if (pageNow != null) { 
-            page = new Page(totalCount, Integer.parseInt(pageNow),10);  
-            resList=rdDao.selectRecordByPage(page.getPageSize(), page.getStartPos());
-        } else { 
-            page = new Page(totalCount, 1,10); 
-            resList=rdDao.selectRecordByPage(page.getPageSize(), page.getStartPos());
-        } 
-        for (Record record : resList) {
-			System.out.println(record.toString());
-		}
-        request.setAttribute("resList", resList);
-        request.setAttribute("Balancepage", page);  
+		String username=(String) session.getAttribute("username");
+		System.out.println(username);
+		User user=uDao.selectByVipName(username);
+		System.out.println(user.toString());
+		request.setAttribute("user", user);
         request.getRequestDispatcher("/userbalance.jsp").forward(request, response);
 	}
 
@@ -70,6 +59,7 @@ public class UserBalance extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

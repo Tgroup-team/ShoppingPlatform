@@ -4,6 +4,7 @@ import java.util.List;
 
 import web.dao.IUserDao;
 import web.dao.util.SqlHelper;
+import web.entity.Address;
 import web.entity.User;
 
 /**
@@ -34,7 +35,7 @@ public class UserDaoImpl implements IUserDao{
 	public int updateUser(User User) {
 		return SqlHelper.executeUpdate(TABLENAME, User, "where vipId=" + User.getVipId());
 	}
-
+	
 	/**
 	 * 查询所有用户信息
 	 */
@@ -63,6 +64,15 @@ public class UserDaoImpl implements IUserDao{
 		"select * from T_Community where communityId="+user.getCommunityId()));*/
 
 		return user;
+	}
+	
+	
+	/*
+	 * 分页查询
+	 */
+	@Override
+	public List<User> selectUserByPage(int pageSize,int pageNow){
+		return SqlHelper.executeQuery(User.class,"select top "+pageSize+" * from T_User where vipId not in(select top "+pageNow+" vipId from T_User)");
 	}
 	public static void main(String[] args) {
 		User user=new User("小猫", "111111", "123456789", "天使大街");

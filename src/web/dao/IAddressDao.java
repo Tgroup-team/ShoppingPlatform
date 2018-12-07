@@ -27,6 +27,11 @@ public interface IAddressDao {
 	public List<Address> selectAddressByPage(int pageSize,int pageNow);
 	
 	/*
+	 * 分页查询
+	 */
+	public List<Address> selectAddressByPage(int pageSize,int pageNow,int communityId);
+	
+	/*
 	 * 根据id查找地址
 	 */
 	public Address selectAddressById(Integer aId);

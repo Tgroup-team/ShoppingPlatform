@@ -47,6 +47,12 @@ public class AddressDaoImpl implements IAddressDao{
 	public List<Address> selectAddressByPage(int pageSize,int pageNow){
 		return SqlHelper.executeQuery(Address.class,"select top "+pageSize+" * from T_Address where aid not in(select top "+pageNow+" aid from T_Address)");
 	}
+
+	@Override
+	public List<Address> selectAddressByPage(int pageSize, int pageNow, int communityId) {
+		// TODO Auto-generated method stub
+		return SqlHelper.executeQuery(Address.class,"select top "+pageSize+" * from T_Address where communityId="+communityId+" and aid not in(select top "+pageNow+" aid from T_Address where communityId="+communityId+")");
+	}
 	
 	/*
 	 * 根据id查找地址
@@ -75,4 +81,5 @@ public class AddressDaoImpl implements IAddressDao{
 		IAddressDao addresDao=new AddressDaoImpl();
 		addresDao.insertAddress(address);
 	}
+
 }

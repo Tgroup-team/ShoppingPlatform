@@ -18,13 +18,6 @@
 </head>
 
 <body style="background: transparent;">
-<%-- <%String name=(String)Session.getAttribute("username"); %> --%>
-<%-- <%
-	String name = request.getParameter("name");
-	session.setAttribute("name", name);
-	String names = (String) session.getAttribute("name");
-%> --%>
-
 	<!--头 -->
 	<header>
 		<article>
@@ -159,13 +152,13 @@
 				</li><li class="person">
 					<a href="#">小区成员</a>
 					<ul>
-                           <li><a href="userinfo.jsp" target="main">查看成员</a></li>   
+                           <li><a href="BrowseMemberServlet" target="main">查看成员</a></li>   
 					</ul>
 				</li>
 				<li class="person">
 					<a href="#">我的申请</a>
 					<ul>
-                           <li><a href="request.jsp" target="main">申请团长</a></li>   
+                           <li><a href="teamHeader" target="main">申请团长</a></li>   
 					</ul>
 				</li>
 			</ul>
