@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
 <!DOCTYPE html>
 <html>
 
@@ -30,7 +28,6 @@
 		<a class="new-abtn-type" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0}">编辑地址</a>
 		<!--例子-->
 		<div class="am-modal am-modal-no-btn" id="doc-modal-1">
-
 			<div class="add-dress">
 
 				<!--标题 -->

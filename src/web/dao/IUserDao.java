@@ -20,6 +20,11 @@ public interface IUserDao {
 	 * 执行更新用户信息
 	 */
 	public int updateUser(User User);
+	
+	/**
+	 * 执行更新用户信息
+	 */
+	public int updateUserCommunityIdByCommunityId(Integer communityId);
 
 	/**
 	 * 查询所有用户信息
@@ -39,5 +44,7 @@ public interface IUserDao {
 	 * 分页
 	 */
 	List<User> selectUserByPage(int pageSize, int pageNow);
+
+	List<User> selectUserByPage(int pageSize, int pageNow, Integer communityId);
 
 }

@@ -59,12 +59,12 @@ public class UserLoginServlet extends HttpServlet {
 				session.setAttribute("communityId", user.getCommunityId());
 				request.getRequestDispatcher("/personalcenter2.jsp").forward(request, response);
 			}else {
-				System.out.println("密码错误");
-				response.sendRedirect("/UsersLogin.jsp");
+				request.setAttribute("msg", "密码错误");
+				request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
 			}
 		}else {
-			System.out.println("找不到用户");
-			response.sendRedirect("/UsersLogin.jsp");
+			request.setAttribute("msg", "找不到用户");
+			request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
 		}
 	}
 

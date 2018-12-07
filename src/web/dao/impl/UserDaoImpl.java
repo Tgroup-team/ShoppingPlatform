@@ -37,6 +37,14 @@ public class UserDaoImpl implements IUserDao{
 	}
 	
 	/**
+	 * 执行更新用户信息
+	 */
+	@Override
+	public int updateUserCommunityIdByCommunityId(Integer communityId) {
+		return SqlHelper.executeNoQuery("update "+TABLENAME+" set communityId=1 where communityId=" + communityId);
+	}
+	
+	/**
 	 * 查询所有用户信息
 	 */
 	@Override
@@ -60,9 +68,6 @@ public class UserDaoImpl implements IUserDao{
 		
 		User user=SqlHelper.executeQueryOne(User.class, 
 			"select * from T_User where vipName='"+uname+"'");
-		/*user.setCommunity((Community)SqlHelper.executeQueryOne(Community.class, 
-		"select * from T_Community where communityId="+user.getCommunityId()));*/
-
 		return user;
 	}
 	
@@ -73,6 +78,13 @@ public class UserDaoImpl implements IUserDao{
 	@Override
 	public List<User> selectUserByPage(int pageSize,int pageNow){
 		return SqlHelper.executeQuery(User.class,"select top "+pageSize+" * from T_User where vipId not in(select top "+pageNow+" vipId from T_User)");
+	}
+	/*
+	 * 分页查询2
+	 */
+	@Override
+	public List<User> selectUserByPage(int pageSize,int pageNow,Integer communityId){
+		return SqlHelper.executeQuery(User.class,"select top "+pageSize+" * from T_User where communityId="+communityId+" and vipId not in(select top "+pageNow+" vipId from T_Userwhere communityId="+communityId+")");
 	}
 	public static void main(String[] args) {
 		User user=new User("小猫", "111111", "123456789", "天使大街");
