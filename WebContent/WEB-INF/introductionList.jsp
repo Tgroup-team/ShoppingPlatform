@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTMqL 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -10,7 +11,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>未找到相关商品</title>
+<title>商品页面</title>
 
 <link href="AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet"
 	type="text/css" />
@@ -47,7 +48,7 @@
 		<ul class="message-r">
 			<div class="topMessage home">
 				<div class="menu-hd">
-					<a href="#" target="_top" class="h">商城首页</a>
+					<a href="<%=request.getContextPath()%>" target="_top" class="h">商城首页</a>
 				</div>
 			</div>
 			<div class="topMessage my-shangcheng">
@@ -81,10 +82,11 @@
 		<div class="search-bar pr">
 			<a name="index_none_header_sysc" href="#"></a>
 			<form action="<%=request.getContextPath()%>/IntroductionServletList">
-				<input id="searchInput" name="keywords" type="text" value="<%=String.valueOf(request.getAttribute("keywords")==null||"".equals(request.getAttribute("keywords"))?"":request.getAttribute("keywords")) %>"
-					placeholder="搜索" autocomplete="off"> <input
+				<input id="categoryIdInput" type="hidden" name="categoryId" value="${categoryId }" />
+				<input id="searchInput" name="keywords" type="text" value="${keywords }"
+					placeholder="搜索" autocomplete="off" onchange="$('#categoryIdInput').val('')"/> <input
 					id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
-					type="submit">
+					type="submit"/>
 			</form>
 		</div>
 	</div>
@@ -105,52 +107,83 @@
 						<li class="qc"><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=${category.categoryId }">${category.categoryName }</a></li>
 					</c:forEach>
 				</ul>
+				<!-- 				<div class="nav-extra">
+					<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
+					<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
+				</div> -->
 			</div>
 		</div>
 		<ol class="am-breadcrumb am-breadcrumb-slash">
 			<li><a href="<%=request.getContextPath()%>">首页</a></li>
-			<li><a href="#">未找到</a></li>
+			<li><a href="<%=request.getContextPath()%>/IntroductionServletList?keywords=${keywords }">${keywords }</a></li>
 		</ol>
 
 		<!-- introduce-->
 
 		<div class="introduce">
 			<div class="introduceMain" style="width: 100%;">
-				<div>
+				<div class="am-tabs" data-am-tabs>
 
-					<center>
-						<h3>${msg==null?"页面不存在":msg }</h3>
-					</center>
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br /> <br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
+					<div class="am-tabs-bd">
+
+						<div class="am-tab-panel am-fade am-in am-active">
+							<div class="like" style="min-height: 660px;margin-top:0px;">
+								<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
+									<c:forEach items="${list }" var="product">
+										<li>
+											<div class="i-pic limit">
+												<a
+													href="<%=request.getContextPath() %>/IntroductionServlet?productId=${product.productId }"><img
+													src="${fn:split(product.productImages,';')[0] }" /></a>
+												<p>
+													<a
+														href="<%=request.getContextPath() %>/IntroductionServlet?productId=${product.productId }">${product.productName }</a>
+												</p>
+												<p class="price fl">
+													<b>¥</b> <strong>${product.productPrice }</strong>
+												</p>
+											</div>
+										</li>
+									</c:forEach>
+								</ul>
+							</div>
+							<div class="clear"></div>
+
+							<!--分页 -->
+							<ul class="am-pagination am-pagination-right" style="padding-top:20px;">
+								<c:if test="${pagesIndex>1 }">
+									<li><a
+										href="?categoryId=${categoryId }&keywords=${keywords }&pageIndex=${pagesIndex-1 }">&laquo;</a></li>
+								</c:if>
+								<c:if test="${pagesIndex<2 }">
+									<li class="am-disabled"><a href="#">&laquo;</a></li>
+								</c:if>
+								<c:forEach var="pageindexTemp" begin="1" end="${pagesCount }"
+									step="1">
+									<c:if test="${pagesIndex==pageindexTemp }">
+										<li class="am-active"><a
+											href="?categoryId=${categoryId }&keywords=${keywords }&pageIndex=${pageindexTemp }">${pageindexTemp }</a></li>
+									</c:if>
+									<c:if test="${pagesIndex!=pageindexTemp }">
+										<li><a
+											href="?categoryId=${categoryId }&keywords=${keywords }&pageIndex=${pageindexTemp }">${pageindexTemp }</a></li>
+									</c:if>
+								</c:forEach>
+								<c:if test="${pagesIndex<pagesCount }">
+									<li><a
+										href="?categoryId=${categoryId }&keywords=${keywords }&pageIndex=${pagesIndex+1 }">&raquo;</a></li>
+								</c:if>
+								<c:if test="${pagesIndex>=pagesCount }">
+									<li class="am-disabled"><a href="#">&raquo;</a></li>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+
+					<div class="am-tab-panel am-fade"></div>
+
 				</div>
+
 				<div class="clear"></div>
 
 				<div class="footer">
@@ -171,6 +204,17 @@
 
 		</div>
 	</div>
+
+	<!-- 实现自动滚动到猜你喜欢 -->
+	<c:if test="${pagesIndex>1 }">
+		<script type="text/javascript">
+			$(function() {
+				var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+				$body.animate({scrollTop: $('.listMain').offset().top}, 1000);
+			});
+		</script>
+	</c:if>
+
 </body>
 
 </html>

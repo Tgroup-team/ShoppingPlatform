@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.dao.ICategoryDao;
+import web.dao.IProductDao;
 import web.dao.impl.CategoryDaoImpl;
 import web.dao.impl.ProductDaoImpl;
 import web.entity.Category;
@@ -18,12 +20,9 @@ import web.entity.Product;
 @WebServlet("")
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	
-	
-
-	private static ProductDaoImpl productDao=new ProductDaoImpl();
-	private static CategoryDaoImpl categoryDao=new CategoryDaoImpl();
+	private static IProductDao productDao=new ProductDaoImpl();
+	private static ICategoryDao categoryDao=new CategoryDaoImpl();
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

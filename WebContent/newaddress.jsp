@@ -40,14 +40,14 @@
 						<div class="am-form-group">
 							<label for="user-name" class="am-form-label">收货人</label>
 							<div class="am-form-content">
-								<input type="text" name="uaname"id="user-name" placeholder="收货人">
+								<input type="text" name="uaname"id="user-name" placeholder="收货人" maxlength="10">
 							</div>
 						</div>
 
 						<div class="am-form-group">
 							<label for="user-phone" class="am-form-label">手机号码</label>
 							<div class="am-form-content">
-								<input id="user-phone"  name="uatel" placeholder="手机号必填" type="text">
+								<input id="user-phone"  name="uatel" placeholder="手机号必填" type="number" maxlength="11" style="font-size:14px">
 							</div>
 						</div>
 						<div class="am-form-group">
@@ -71,7 +71,7 @@
 						<div class="am-form-group">
 							<label for="user-intro" class="am-form-label">详细地址</label>
 							<div class="am-form-content">
-								<textarea class="" name="uadetail" rows="3" id="user-intro" placeholder="输入详细地址"></textarea>
+								<textarea class="" name="uadetail" rows="3" id="user-intro" placeholder="输入详细地址" maxlength="25"></textarea>
 								<small>100字以内写出你的详细地址...</small>
 							</div>
 						</div>

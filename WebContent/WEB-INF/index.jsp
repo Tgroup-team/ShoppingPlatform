@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page import="web.entity.Product" %>
+<%@ page import="web.entity.Product"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -34,7 +34,7 @@
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
-						<a href="login.html" target="_top" class="h">亲，请登录</a> <a
+						<a href="<%=request.getContextPath()%>/userlogin.jsp" target="_top" class="h">亲，请登录</a> <a
 							href="register.html" target="_top">免费注册</a> <a href="#"
 							target="_top">手机逛商场</a>
 					</div>
@@ -49,13 +49,13 @@
 
 				<div class="topMessage denglu">
 					<div class="menu-hd">
-						<a href="login2.html" target="_top"><span>登录</span></a>
+						<a href="<%=request.getContextPath()%>/userlogin.jsp" target="_top"><span>登录</span></a>
 					</div>
 				</div>
 
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng">
-						<a href="personalcenter2.html" target="_top"><i
+						<a href="<%=request.getContextPath()%>/personalcenter2.jsp" target="_top"><i
 							class="am-icon-user am-icon-fw"></i>个人中心</a>
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 
 				<div class="topMessage favorite1">
 					<div class="menu-hd">
-						<a href="login1.html" target="_top"><span>管理员中心</span></a>
+						<a href="<%=request.getContextPath()%>/LoginServlet" target="_top"><span>管理员中心</span></a>
 					</div>
 				</div>
 
@@ -96,11 +96,11 @@
 
 			<div class="search-bar pr">
 				<a name="index_none_header_sysc" href="#"></a>
-				<form>
-					<input id="searchInput" name="index_none_header_sysc" type="text"
-						placeholder="搜索" autocomplete="off"> <input
-						id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
-						type="submit">
+				<form action="<%=request.getContextPath()%>/IntroductionServletList">
+					<input id="searchInput" name="keywords" type="text"
+					placeholder="搜索" autocomplete="off"> <input
+					id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
+					type="submit">
 				</form>
 			</div>
 		</div>
@@ -112,12 +112,10 @@
 		<div class="am-slider am-slider-default scoll" data-am-flexslider
 			id="demo-slider-0">
 			<ul class="am-slides">
-				<li class="banner1"><a href="introduction.html"><img
-						src="images/ad1.jpg" /></a></li>
-				<li class="banner2"><a><img src="images/ad2.jpg" /></a></li>
-				<li class="banner3"><a><img src="images/ad3.jpg" /></a></li>
-				<li class="banner4"><a><img src="images/ad4.jpg" /></a></li>
-
+				<li class="banner1"><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=2"><img src="images/ad1.jpg" /></a></li>
+				<li class="banner2"><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=1"><img src="images/ad2.jpg" /></a></li>
+				<li class="banner3"><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=4"><img src="images/ad3.jpg" /></a></li>
+				<li class="banner4"><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=3"><img src="images/ad4.jpg" /></a></li>
 			</ul>
 		</div>
 		<div class="clear"></div>
@@ -196,254 +194,53 @@
 
 			<div class="clear "></div>
 			<c:forEach items="${productMap }" var="productList">
-			<c:set var="productListItemIndex" value="0"></c:set>
+				<c:set var="productListItemIndex" value="0"></c:set>
 				<div id="f1">
-				<div class="am-container ">
-					<div class="shopTitle ">
-						<h4>${productList[0].category.categoryName }</h4>
-						<span class="more "> </span>
-					</div>
-				</div>
-				<div class="am-g am-g-fixed floodFour">
-				
-					<div class="am-u-sm-7 am-u-md-4 text-two">
-						<div class="outer-con ">
-							<div class="title ">${productList[0].productName }</div>
-							<div class="sub-title ">¥${productList[0].productPrice }/斤</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+					<div class="am-container ">
+						<div class="shopTitle ">
+							<a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=${productList[0].category.categoryId }"><h4>${productList[0].category.categoryName }</h4></a>
+							<span class="more "> </span>
 						</div>
-						<a href="# "><img src="${fn:split(productList[0].productImages,';')[0] }" /></a>
 					</div>
-					
-					<div class="am-u-sm-3 am-u-md-2 text-three sug">
-						<div class="outer-con ">
-							<div class="title ">${productList[1].productName }</div>
-							<div class="sub-title ">¥${productList[1].productPrice }/斤</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="${fn:split(productList[1].productImages,';')[0] }" /></a>
-					</div>
-					
-					<c:forEach items="${productList }" var="product" begin="2" step="1">
-						<div class="am-u-sm-3 am-u-md-2 text-three big">
+					<div class="am-g am-g-fixed floodFour">
+
+						<div class="am-u-sm-7 am-u-md-4 text-two">
 							<div class="outer-con ">
-							<div class="title ">${product.productName }</div>
-							<div class="sub-title ">¥${product.productPrice }/斤</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+								<div class="title ">${productList[0].productName }</div>
+								<div class="sub-title ">¥${productList[0].productPrice }/斤</div>
+								<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+							</div>
+							<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${productList[0].productId }"><img
+								src="${fn:split(productList[0].productImages,';')[0] }" /></a>
 						</div>
-						<a href="# "><img src="${fn:split(product.productImages,';')[0] }" /></a>
+
+						<div class="am-u-sm-3 am-u-md-2 text-three sug">
+							<div class="outer-con ">
+								<div class="title ">${productList[1].productName }</div>
+								<div class="sub-title ">¥${productList[1].productPrice }/斤</div>
+								<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+							</div>
+							<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${productList[1].productId }"><img
+								src="${fn:split(productList[1].productImages,';')[0] }" /></a>
 						</div>
-					</c:forEach>
+
+						<c:forEach items="${productList }" var="product" begin="2"
+							step="1">
+							<div class="am-u-sm-3 am-u-md-2 text-three big">
+								<div class="outer-con ">
+									<div class="title ">${product.productName }</div>
+									<div class="sub-title ">¥${product.productPrice }/斤</div>
+									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+								</div>
+								<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${product.productId }"><img
+									src="${fn:split(product.productImages,';')[0] }" /></a>
+							</div>
+						</c:forEach>
+					</div>
+					<div class="clear "></div>
 				</div>
-				<div class="clear "></div>
-				</div>
-			
+
 			</c:forEach>
-
-			
-
-
-
-
-
-
-
-
-
-<!-- 
-			<div id="f6">
-				油粮类
-				<div class="am-container ">
-					<div class="shopTitle ">
-						<h4>油粮</h4>
-
-					</div>
-				</div>
-				<div class="am-g am-g-fixed floodFour">
-					<div class="am-u-sm-7 am-u-md-4 text-two">
-						<div class="outer-con ">
-							<div class="title ">米</div>
-							<div class="sub-title ">¥55.6</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/7.jpg" /></a>
-					</div>
-
-
-					<div class="am-u-sm-3 am-u-md-2 text-three big">
-						<div class="outer-con ">
-							<div class="title ">面条</div>
-							<div class="sub-title ">¥55.9</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/10.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three sug">
-						<div class="outer-con ">
-							<div class="title ">花生油</div>
-							<div class="sub-title ">¥149.9</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/8.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three ">
-						<div class="outer-con ">
-							<div class="title ">酱油</div>
-							<div class="sub-title ">¥28.8</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/9.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three last big ">
-						<div class="outer-con ">
-							<div class="title ">鸡精</div>
-							<div class="sub-title ">¥35.5</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/11.jpg" /></a>
-					</div>
-
-				</div>
-				<div class="clear "></div>
-			</div>
-
-
-
-
-			<div id="f7">
-				冷藏类
-				<div class="am-container ">
-					<div class="shopTitle ">
-						<h4>冷冻冷藏</h4>
-
-					</div>
-				</div>
-				<div class="am-g am-g-fixed floodFour">
-					<div class="am-u-sm-7 am-u-md-4 text-two">
-						<div class="outer-con ">
-							<div class="title ">鲜奶</div>
-							<div class="sub-title ">¥69</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/20.jpg" /></a>
-					</div>
-
-
-					<div class="am-u-sm-3 am-u-md-2 text-three big">
-						<div class="outer-con ">
-							<div class="title ">酸奶</div>
-							<div class="sub-title ">¥50</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/21.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three sug">
-						<div class="outer-con ">
-							<div class="title ">肉品类</div>
-							<div class="sub-title ">¥100</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/22.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three ">
-						<div class="outer-con ">
-							<div class="title ">面包</div>
-							<div class="sub-title ">¥30</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/23.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three last big ">
-						<div class="outer-con ">
-							<div class="title ">冰激凌</div>
-							<div class="sub-title ">¥20</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/25.jpg" /></a>
-					</div>
-
-				</div>
-				<div class="clear "></div>
-			</div>
-
-
-
-
-
-
-
-
-			<div id="f3">
-				饮料
-				<div class="am-container ">
-					<div class="shopTitle ">
-						<h4>饮料</h4>
-
-					</div>
-				</div>
-				<div class="am-g am-g-fixed floodFour">
-					<div class="am-u-sm-7 am-u-md-4 text-two">
-						<div class="outer-con ">
-							<div class="title ">苏打水</div>
-							<div class="sub-title ">¥4.5</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/sudashui.jpg" /></a>
-					</div>
-
-
-					<div class="am-u-sm-3 am-u-md-2 text-three big">
-						<div class="outer-con ">
-							<div class="title ">苹果汁</div>
-							<div class="sub-title ">¥10</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/pingguozhi.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three sug">
-						<div class="outer-con ">
-							<div class="title ">金典牛奶</div>
-							<div class="sub-title ">¥45</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/niunai.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three ">
-						<div class="outer-con ">
-							<div class="title ">香飘飘奶茶</div>
-							<div class="sub-title ">¥4.5</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/naicha.jpg" /></a>
-					</div>
-
-					<div class="am-u-sm-3 am-u-md-2 text-three last big ">
-						<div class="outer-con ">
-							<div class="title ">天然矿泉水</div>
-							<div class="sub-title ">¥1.5</div>
-							<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-						</div>
-						<a href="# "><img src="images/shui.jpg" /></a>
-					</div>
-
-				</div>
-				<div class="clear "></div>
-			</div> -->
-
-
-
-
-
-
-
 
 			<div class="footer ">
 				<div class="footer-hd ">

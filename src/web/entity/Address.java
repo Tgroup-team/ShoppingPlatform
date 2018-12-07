@@ -37,10 +37,10 @@ public class Address {
 		this.aArea = aArea;
 		this.aDetailAddr = aDetailAddr;
 	}
-	public int getaId() {
+	public Integer getaId() {
 		return aId;
 	}
-	public void setaId(int aId) {
+	public void setaId(Integer aId) {
 		this.aId = aId;
 	}
 	public String getaName() {

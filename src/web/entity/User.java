@@ -4,15 +4,12 @@ public class User {
 	private Integer vipId;
 	private String vipName;
 	private String password;
-
 	private Integer communityId;
 	private Community community;
-
 	private String vipPhone;
-	private String aBalance;
+	private Integer aBalance;
 	private String isLead;
 	private String address;
-
 	public User() {}
 	
 	public User(String vipName, String password, String vipPhone, String address) {
@@ -23,6 +20,8 @@ public class User {
 		this.vipPhone = vipPhone;
 		this.address = address;
 	}
+	
+	
 	public Integer getVipId() {
 		return vipId;
 	}
@@ -71,13 +70,6 @@ public class User {
 		this.vipPhone = vipPhone;
 	}
 
-	public String getaBalance() {
-		return aBalance;
-	}
-
-	public void setaBalance(String aBalance) {
-		this.aBalance = aBalance;
-	}
 
 	public String getIsLead() {
 		return isLead;
@@ -86,6 +78,15 @@ public class User {
 	public void setIsLead(String isLead) {
 		this.isLead = isLead;
 	}
+	
+	public Integer getaBalance() {
+		return aBalance;
+	}
+
+	public void setaBalance(Integer aBalance) {
+		this.aBalance = aBalance;
+	}
+
 
 	public String getAddress() {
 		return address;

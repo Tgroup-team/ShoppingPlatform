@@ -12,48 +12,44 @@
 	<script type="text/javascript" src="js/select.js"></script>
 		
     </head>
-         <body style="background: transparent;">  
-<div class="i_bg bg_color">
-  <div class="m_right" >
-       <div class="am-cf am-padding" style="font-size: 21px;">
-		<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">充值中心</strong> / <small>Add&nbsp;Money</small></div>
-	   </div>
-     	<hr/>
-      <table border="1" class="order_tab" style="width:450px; text-align: margin-top:30px;" cellspacing="0" cellpadding="0">
-               <tr>                                                                                                                                                    
-                <td colspan="2"><div align="center">充值</div></td>
-              </tr>
-              <tr>
-                <td width="33%">充值金额</td>
-                <td width="67%"><form id="form1" name="form1" method="post" action="">
-                  <label for="textfield"></label>
-                  <input type="text" name="textfield" id="textfield" />
-                </form></td>
-               
-              </tr>
-              <tr>
-                <td width="33%">充值账户</td>
-                <td width="67%"><form id="form1" name="form1" method="post" action="">
-                  <label for="textfield"></label>
-                  <input type="text" name="textfield" id="textfield" />
-                </form></td>
-               
-              </tr>
-              
-             
-                   <tr> <td colspan="2">
-                     <div align="center">
-                       <input type="submit" value="确定" />  
-                       <input type="reset" value="重置" />
-                     </div>    
-                   </td>
-               </tr>
-      </table>
-                   
-
-    </div>
-    </div>
-    
-
+<body style="background: transparent;">  
+	<div class="i_bg bg_color">
+	  <div class="m_right" >
+	       <div class="am-cf am-padding" style="font-size: 21px;">
+			<div class="mem_tit">充值中心</div>
+		   </div>
+	      <hr/><br />
+	      <form id="form1" name="form1" method="post" action="addMoneyServlet">
+	      <table border="1" class="order_tab" style="width:450px; text-align: margin-top:30px;" cellspacing="0" cellpadding="0">
+	              <tr>                                                                                                                                                    
+	                <td colspan="2"><div align="center">充值</div></td>
+	              </tr>
+	              <tr>
+	                <td width="33%">充值金额</td>
+	                <td width="67%">
+	                  <label for="textfield"></label>
+	                  <input type="text" name="usermoney" id="textfield" />
+	               </td>
+	               
+	              </tr>
+	              <tr>
+	                <td width="33%">充值账户</td>
+	                <td width="67%">
+	                  <label for="textfield"></label>
+	                  <input type="text" name="username" id="textfield" />
+	               </td>
+	               
+	              </tr>
+	               <tr><td colspan="2">
+	                     <div align="center">
+	                       <input type="submit" value="确定" />  
+	                       <input type="reset" value="重置" />
+	                     </div>    
+	                   </td>
+	               </tr>
+	      </table>
+	      </form>
+	    </div>
+	</div>
 </body>
 </html>

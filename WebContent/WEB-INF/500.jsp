@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" isErrorPage="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -10,7 +10,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>未找到相关商品</title>
+<title>服务器开小差了</title>
 
 <link href="AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet"
 	type="text/css" />
@@ -109,7 +109,7 @@
 		</div>
 		<ol class="am-breadcrumb am-breadcrumb-slash">
 			<li><a href="<%=request.getContextPath()%>">首页</a></li>
-			<li><a href="#">未找到</a></li>
+			<li><a href="#">服务器错误</a></li>
 		</ol>
 
 		<!-- introduce-->
@@ -119,7 +119,9 @@
 				<div>
 
 					<center>
-						<h3>${msg==null?"页面不存在":msg }</h3>
+						<h3>服务器开小差了，请稍后再试...</h3>
+						<h4><%=exception.getMessage()!=null?exception.getMessage():"" %></h4>
+						<h4><%=exception.getLocalizedMessage()!=null?exception.getLocalizedMessage():"" %></h4>
 					</center>
 					<br />
 					<br />
