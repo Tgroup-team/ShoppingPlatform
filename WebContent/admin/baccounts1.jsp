@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -30,7 +31,7 @@
 				<c:forEach items="${listRecord }" var="lr">
 				   <tr>
 				        <td><div align="center">${lr.recordtype }</div></td>
-						<td>${lr.recordTime }</td>
+						<td><fmt:formatDate value="${lr.recordTime }" pattern="yyyy-MM-dd"/></td>
 						<td>${lr.recordAmount }</td>
 				    </tr>
 				</c:forEach>

@@ -52,4 +52,6 @@ public interface IProductDao {
 	 * 通过关键字查询某商品已上架数量
 	 */
 	public Integer selectOnlineProductsCountByProductName(String productName);
+
+	public List<Product> selectProductByPage(int pageSize, int pageNow);
 }

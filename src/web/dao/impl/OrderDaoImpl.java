@@ -37,7 +37,7 @@ public class OrderDaoImpl implements IOrderDao {
 	 */
 	@Override
     public List<Order> selectOrder(){
-    	List<Order> list=SqlHelper.executeQuery(Order.class, "select orderId,vipName,orderstate,delivery,acceptance from T_Order,T_User where orderId=T_User.vipId");
+    	List<Order> list=SqlHelper.executeQuery(Order.class, "select orderId,vipName,orderstate,delivery,acceptance from T_Order,T_User where T_Order.vipId=T_User.vipId");
     	return list;
     }
     

@@ -134,17 +134,17 @@
 					</ul></li>
 				<li class="person"><a href="#">产品管理</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/admin/product1.jsp" target="main">添加产品</a></li>
+						<li><a href="productservlet" target="main">添加产品</a></li>
 
 					</ul></li>
 				<li class="person"><a href="#">订单管理</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/admin/porder1.jsp" target="main">查看订单</a></li>
-						<li><a href="${pageContext.request.contextPath}/admin/return1.jsp" target="main">退货</a></li>
+						<li><a href="porderservlet" target="main">查看订单</a></li>
+						<li><a href="returnservlet" target="main">退货</a></li>
 					</ul></li>
 				<li class="person"><a href="#">社区管理</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/admin/community1.jsp" target="main">团长审核</a></li>
+						<li><a href="applyservlet" target="main">团长审核</a></li>
 						<li><a href="communityservlet" target="main">添加社区</a></li>
 
 					</ul></li>
