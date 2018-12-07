@@ -37,7 +37,7 @@
 				</div>
                                    
 				<div class="topMessage home">
-					<div class="menu-hd"><a href="index.jsp" target="_top" class="h"><i class="am-icon-shopping-cart  am-icon-fw"></i>商城首页</a></div>
+					<div class="menu-hd"><a href="<%=request.getContextPath() %>" target="_top" class="h"><i class="am-icon-shopping-cart  am-icon-fw"></i>商城首页</a></div>
 				</div>
 				
 				<!--<div class="  topMessage mini-cart">

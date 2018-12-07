@@ -47,7 +47,7 @@
 						<div class="am-form-group">
 							<label for="user-phone" class="am-form-label">手机号码</label>
 							<div class="am-form-content">
-								<input id="user-phone"  name="uatel" placeholder="手机号必填" type="number" maxlength="11" style="font-size:14px">
+								<input id="user-phone"  name="uatel" placeholder="手机号必填" type="number" maxlength=11 style="font-size:14px">
 							</div>
 						</div>
 						<div class="am-form-group">
