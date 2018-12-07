@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTMqL 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -37,22 +37,23 @@
 	<!--顶部导航条 -->
 	<div class="am-container header">
 		<ul class="message-l">
-			<div class="topMessage">
-				<div class="menu-hd">
-					<a href="#" target="_top" class="h">亲，请登录</a> <a href="#"
-						target="_top">免费注册</a>
+				<div class="topMessage">
+					<div class="menu-hd">
+						<a href="<%=request.getContextPath()%>/userlogin.jsp" target="_top" class="h">亲，请登录</a> <a
+							href="register.html" target="_top">免费注册</a> <a href="#"
+							target="_top">手机逛商场</a>
+					</div>
 				</div>
-			</div>
 		</ul>
 		<ul class="message-r">
 			<div class="topMessage home">
 				<div class="menu-hd">
-					<a href="#" target="_top" class="h">商城首页</a>
+					<a href="<%=request.getContextPath()%>" target="_top" class="h">商城首页</a>
 				</div>
 			</div>
 			<div class="topMessage my-shangcheng">
 				<div class="menu-hd MyShangcheng">
-					<a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+					<a href="<%=request.getContextPath()%>/personalcenter2.jsp" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
 				</div>
 			</div>
 			<div class="topMessage mini-cart">
@@ -80,8 +81,8 @@
 		</div>
 		<div class="search-bar pr">
 			<a name="index_none_header_sysc" href="#"></a>
-			<form>
-				<input id="searchInput" name="index_none_header_sysc" type="text"
+			<form action="<%=request.getContextPath()%>/IntroductionServletList">
+				<input id="searchInput" name="keywords" type="text"
 					placeholder="搜索" autocomplete="off"> <input
 					id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
 					type="submit">
@@ -102,7 +103,7 @@
 				<ul>
 					<li class="index"><a href="<%=request.getContextPath()%>">首页</a></li>
 					<c:forEach items="${categories }" var="category">
-						<li class="qc"><a href="#">${category.categoryName }</a></li>
+						<li class="qc"><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=${category.categoryId }">${category.categoryName }</a></li>
 					</c:forEach>
 				</ul>
 				<!-- 				<div class="nav-extra">
@@ -113,7 +114,7 @@
 		</div>
 		<ol class="am-breadcrumb am-breadcrumb-slash">
 			<li><a href="<%=request.getContextPath()%>">首页</a></li>
-			<li><a href="#">${product.category.categoryName }</a></li>
+			<li><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=${product.category.categoryId }">${product.category.categoryName }</a></li>
 			<li><a href="#">${product.productName }</a></li>
 		</ol>
 		<script type="text/javascript">
@@ -300,7 +301,7 @@
 												<dd>
 													<input id="min" class="am-btn am-btn-default" name=""
 														type="button" value="-" /> <input id="text_box" name=""
-														type="text" value="1" style="width: 30px;" /> <input
+														type="number" value="1" style="width: 50px;" min="1" max="${product.inventory }" /> <input
 														id="add" class="am-btn am-btn-default" name=""
 														type="button" value="+" /> <span id="Stock"
 														class="tb-hidden">库存<span class="stock">${product.inventory }</span>件
@@ -361,8 +362,9 @@
 
 				<div class="pay">
 					<div class="pay-opt">
-						<a href="<%=request.getContextPath()%>"><span class="am-icon-home am-icon-fw">首页</span></a>
-						<a><span class="am-icon-heart am-icon-fw">收藏</span></a>
+						<a href="<%=request.getContextPath()%>"><span
+							class="am-icon-home am-icon-fw">首页</span></a> <a><span
+							class="am-icon-heart am-icon-fw">收藏</span></a>
 
 					</div>
 					<li>
@@ -392,63 +394,19 @@
 						<div class="mt">
 							<h2>看了又看</h2>
 						</div>
-
-						<li class="first">
+						<c:forEach items="${likeProducts }" var="likeProduct" begin="0" end="1">
+						<li class="p-img">
 							<div class="p-img">
-								<a href="#"> <img class="" src="images/browse1.jpg"></a>
+								<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }"> <img class="" src="${fn:split(likeProduct.productImages,';')[0] }"></a>
 							</div>
 							<div class="p-name">
-								<a href="#"> 【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味 </a>
+								<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }"> ${likeProduct.productName } </a>
 							</div>
 							<div class="p-price">
-								<strong>￥35.90</strong>
+								<strong>￥${likeProduct.productPrice } </strong>
 							</div>
 						</li>
-						<li>
-							<div class="p-img">
-								<a href="#"> <img class="" src="images/browse1.jpg"></a>
-							</div>
-							<div class="p-name">
-								<a href="#"> 【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味 </a>
-							</div>
-							<div class="p-price">
-								<strong>￥35.90</strong>
-							</div>
-						</li>
-						<li>
-							<div class="p-img">
-								<a href="#"> <img class="" src="images/browse1.jpg"></a>
-							</div>
-							<div class="p-name">
-								<a href="#"> 【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味 </a>
-							</div>
-							<div class="p-price">
-								<strong>￥35.90</strong>
-							</div>
-						</li>
-						<li>
-							<div class="p-img">
-								<a href="#"> <img class="" src="images/browse1.jpg"></a>
-							</div>
-							<div class="p-name">
-								<a href="#"> 【三只松鼠_开口松子】零食坚果特产炒货东北红松子原味 </a>
-							</div>
-							<div class="p-price">
-								<strong>￥35.90</strong>
-							</div>
-						</li>
-						<li>
-							<div class="p-img">
-								<a href="#"> <img class="" src="images/browse1.jpg"></a>
-							</div>
-							<div class="p-name">
-								<a href="#"> 【三只松鼠_开口松子218g】零食坚果特产炒货东北红松子原味 </a>
-							</div>
-							<div class="p-price">
-								<strong>￥35.90</strong>
-							</div>
-						</li>
-
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
@@ -457,10 +415,9 @@
 					<ul class="am-avg-sm-3 am-tabs-nav am-nav am-nav-tabs">
 						<li class="am-active"><a href="#"> <span
 								class="index-needs-dt-txt">宝贝详情</span></a></li>
-
 						</li>
-
-						<li><a href="#"> <span class="index-needs-dt-txt">猜你喜欢</span></a>
+						<li id="mylikelistli">
+							<a id="mylikelista" href="#"> <span class="index-needs-dt-txt">猜你喜欢</span></a>
 						</li>
 					</ul>
 
@@ -481,8 +438,9 @@
 									<li title="">库存量:&nbsp;${product.inventory }</li>
 									<li title="">上架状态:&nbsp;${product.productState }</li>
 									<li title="">产地:&nbsp;${product.suppliers }</li>
-									<li title="">生产许可证编号：&nbsp;QS4201 1801 ${(product.productId*97362)%10000 } </li>
-									<li title="">储存方法：&nbsp;请放置于常温、阴凉、通风、干燥处保存</li>
+									<li title="">生产许可证编号：&nbsp;QS4201 1801
+										${(product.productId*97362)%10000 }</li>
+									<li title="">储存方法：&nbsp;冷藏</li>
 								</ul>
 								<div class="clear"></div>
 							</div>
@@ -503,156 +461,48 @@
 						</div>
 
 						<div class="am-tab-panel am-fade">
-							<div class="like">
+							<div class="like"  style="min-height: 660px;">
 								<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
-									<li>
+								<c:forEach items="${likeProducts }" var="likeProduct">
+								<li>
 										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
+											<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }"><img src="${fn:split(likeProduct.productImages,';')[0] }" /></a>
 											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
+												<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }">${likeProduct.productName }</a>
 											</p>
 											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
+												<b>¥</b> <strong>${likeProduct.productPrice }</strong>
 											</p>
 										</div>
 									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="i-pic limit">
-											<img src="images/imgsearch1.jpg" />
-											<p>
-												【良品铺子_开口松子】零食坚果特产炒货 <span>东北红松子奶油味</span>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>298.00</strong>
-											</p>
-										</div>
-									</li>
+								</c:forEach>
 								</ul>
 							</div>
 							<div class="clear"></div>
 
 							<!--分页 -->
 							<ul class="am-pagination am-pagination-right">
-								<li class="am-disabled"><a href="#">&laquo;</a></li>
-								<li class="am-active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&raquo;</a></li>
+								<c:if test="${pagesIndex>1 }">
+									<li><a href="?productId=${product.productId }&pageIndex=${pagesIndex-1 }&showlike=true">&laquo;</a></li>				
+								</c:if>
+								<c:if test="${pagesIndex<2 }">
+									<li class="am-disabled"><a href="#">&laquo;</a></li>				
+								</c:if>
+								<c:forEach var="pageindexTemp" begin="1" end="${pagesCount }" step="1">
+									<c:if test="${pagesIndex==pageindexTemp }">
+										<li class="am-active"><a href="?productId=${product.productId }&pageIndex=${pageindexTemp }&showlike=true">${pageindexTemp }</a></li>
+									</c:if>
+									<c:if test="${pagesIndex!=pageindexTemp }">
+										<li><a href="?productId=${product.productId }&pageIndex=${pageindexTemp }&showlike=true">${pageindexTemp }</a></li>
+									</c:if>
+								</c:forEach>
+								<c:if test="${pagesIndex<pagesCount }">
+									<li><a href="?productId=${product.productId }&pageIndex=${pagesIndex+1 }&showlike=true">&raquo;</a></li>				
+								</c:if>
+								<c:if test="${pagesIndex>=pagesCount }">
+									<li class="am-disabled"><a href="#">&raquo;</a></li>				
+								</c:if>
 							</ul>
-							<div class="clear"></div>
-
 						</div>
 
 					</div>
@@ -679,7 +529,18 @@
 
 		</div>
 	</div>
-
+	
+<!-- 实现自动滚动到猜你喜欢 -->
+<c:if test="${showlike }">
+<script type="text/javascript">
+$(function(){
+	$("#mylikelistli").trigger('click');
+	$("#mylikelista").trigger('click');
+	var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+	$body.animate({scrollTop: $('#mylikelistli').offset().top}, 1000);
+});
+</script>
+</c:if>
 
 </body>
 

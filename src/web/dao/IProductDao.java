@@ -2,7 +2,6 @@ package web.dao;
 
 import java.util.List;
 
-import web.dao.util.SqlHelper;
 import web.entity.Product;
 
 public interface IProductDao {
@@ -39,4 +38,18 @@ public interface IProductDao {
 	 */
 	public List<Product> selectOnlineProductsByCategoryId(Integer categoryId,Integer lineStartIndex,Integer lineSize);
 
+	/**
+	 * 获取该类商品已上架数量
+	 */
+	public Integer selectOnlineProductsCountByCategoryId(Integer categoryId);
+	
+	/**
+	 * 通过关键字查询某商品
+	 */
+	public List<Product> selectOnlineProductsByProductName(String productName,Integer lineStartIndex,Integer lineSize);
+	
+	/**
+	 * 通过关键字查询某商品已上架数量
+	 */
+	public Integer selectOnlineProductsCountByProductName(String productName);
 }

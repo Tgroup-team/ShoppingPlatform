@@ -119,18 +119,30 @@ $(document).ready(function() {
 	//数量增加操作
 	$("#add").click(function() {
 			t.val(parseInt(t.val()) + 1)
-			if (parseInt(t.val()) != 1) {
+			if (parseInt(t.val()) > 1) {
 				$('#min').attr('disabled', false);
 			}
-
+			if (parseInt(t.val()) < 0) {
+				t.val(1);
+			}
+			if(parseInt(t.val())>=parseInt(t.attr('max'))){
+				$('#add').attr('disabled', true);
+				t.val(t.attr('max'));
+			}
 		})
 		//数量减少操作
 	$("#min").click(function() {
 		t.val(parseInt(t.val()) - 1);
-		if (parseInt(t.val()) == 1) {
+		if (parseInt(t.val()) < 2) {
 			$('#min').attr('disabled', true);
+			t.val(1);
 		}
-
+		if (parseInt(t.val())>parseInt(t.attr('max'))) {
+			t.val(t.attr('max'));
+		}
+		if(parseInt(t.val())<parseInt(t.attr('max'))){
+			$('#add').attr('disabled', false);
+		}
 	})
 
 })
