@@ -40,4 +40,6 @@ public interface IUserDao {
 	 */
 	List<User> selectUserByPage(int pageSize, int pageNow);
 
+	List<User> selectUserByPage(int pageSize, int pageNow, Integer communityId);
+
 }
