@@ -231,7 +231,6 @@
 						</div>
 					</dl>
 					<div class="clear"></div>
-					<div class="clear"></div>
 
 					<!--销量-->
 					<ul class="tm-ind-panel">
@@ -246,7 +245,6 @@
 							</div>
 						</li>
 					</ul>
-					<div class="clear"></div>
 					<div class="clear"></div>
 
 					<!--各种规格-->
@@ -268,7 +266,7 @@
 									<form class="theme-signin" name="loginform" action=""
 										method="post">
 
-										<div class="theme-signin-left">
+										<div class="theme-signin-left" style="padding-top:0px;">
 											<div class="theme-options">
 												<div class="cart-title">规格</div>
 												<ul class="tb-thumb" id="thumblist">
@@ -387,7 +385,7 @@
 
 		<!-- introduce-->
 
-		<div class="introduce">
+		<div class="introduce" style="margin-top:20px;">
 			<div class="browse">
 				<div class="mc">
 					<ul>
