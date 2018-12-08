@@ -1,6 +1,10 @@
 package web.entity;
 
-public class Address {
+public class CommunityAddress {
+	private Integer vipId;
+	private String vipName;
+	private Community community;
+	
 	private Integer aId;
 	private String aName;
 	private String aTel;
@@ -8,37 +12,18 @@ public class Address {
 	private String aCity;
 	private String aArea;
 	private String aDetailAddr;
-	private Integer vipId;
-	public Address(Integer aId, String aName, String aTel, String aProvince, String aCity, String aArea,
-			String aDetailAddr) {
-		super();
-		this.aId = aId;
-		this.aName = aName;
-		this.aTel = aTel;
-		this.aProvince = aProvince;
-		this.aCity = aCity;
-		this.aArea = aArea;
-		this.aDetailAddr = aDetailAddr;
-	}
 	@Override
 	public String toString() {
-		return "Address [aId=" + aId + ", aName=" + aName + ", aTel=" + aTel + ", aProvince=" + aProvince + ", aCity="
-				+ aCity + ", aArea=" + aArea + ", aDetailAddr=" + aDetailAddr + ", vipId=" + vipId + "]";
+		return "CommunityAddress [vipId=" + vipId + ", vipName=" + vipName + ", community=" + community + ", aId=" + aId
+				+ ", aName=" + aName + ", aTel=" + aTel + ", aProvince=" + aProvince + ", aCity=" + aCity + ", aArea="
+				+ aArea + ", aDetailAddr=" + aDetailAddr + "]";
 	}
-	public Address(String aName, String aTel, String aProvince, String aCity, String aArea, String aDetailAddr,
-			Integer vipId) {
+	public CommunityAddress(Integer vipId, String vipName, Community community, Integer aId, String aName, String aTel,
+			String aProvince, String aCity, String aArea, String aDetailAddr) {
 		super();
-		this.aName = aName;
-		this.aTel = aTel;
-		this.aProvince = aProvince;
-		this.aCity = aCity;
-		this.aArea = aArea;
-		this.aDetailAddr = aDetailAddr;
 		this.vipId = vipId;
-	}
-	public Address(Integer aId, String aName, String aTel, String aProvince, String aCity, String aArea,
-			String aDetailAddr, int vipId) {
-		super();
+		this.vipName = vipName;
+		this.community = community;
 		this.aId = aId;
 		this.aName = aName;
 		this.aTel = aTel;
@@ -46,11 +31,28 @@ public class Address {
 		this.aCity = aCity;
 		this.aArea = aArea;
 		this.aDetailAddr = aDetailAddr;
-		this.vipId = vipId;
 	}
-	public Address() {
+	public CommunityAddress() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public Integer getVipId() {
+		return vipId;
+	}
+	public void setVipId(Integer vipId) {
+		this.vipId = vipId;
+	}
+	public String getVipName() {
+		return vipName;
+	}
+	public void setVipName(String vipName) {
+		this.vipName = vipName;
+	}
+	public Community getCommunity() {
+		return community;
+	}
+	public void setCommunity(Community community) {
+		this.community = community;
 	}
 	public Integer getaId() {
 		return aId;
@@ -94,10 +96,5 @@ public class Address {
 	public void setaDetailAddr(String aDetailAddr) {
 		this.aDetailAddr = aDetailAddr;
 	}
-	public int getVipId() {
-		return vipId;
-	}
-	public void setVipId(int vipId) {
-		this.vipId = vipId;
-	}
+
 }

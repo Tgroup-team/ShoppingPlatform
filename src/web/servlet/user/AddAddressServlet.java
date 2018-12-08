@@ -6,10 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import web.dao.IAddressDao;
 import web.dao.impl.AddressDaoImpl;
 import web.entity.Address;
+import web.entity.User;
 
 /**
  * Servlet implementation class AddAddressServlet
@@ -42,6 +44,9 @@ public class AddAddressServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 
+		HttpSession session=request.getSession();
+		User user=(User) session.getAttribute("user");
+		Integer id=Integer.valueOf(user.getVipId());
 		String aName=request.getParameter("uaname");
 		String aTel=request.getParameter("uatel");
 		String aProvince=request.getParameter("uaprovince");
@@ -54,8 +59,7 @@ public class AddAddressServlet extends HttpServlet {
 		System.out.println(aCity);
 		System.out.println(aArea);
 		System.out.println(aDetailAddr);
-	//	Address address=new Address(aName, aTel, aProvince, aCity, aArea, aDetailAddr);
-		Address address=new Address(aName, aTel, aProvince, aCity, aArea, aDetailAddr);
+		Address address=new Address(aName, aTel, aProvince, aCity, aArea, aDetailAddr,id);
 		IAddressDao addresDao=new AddressDaoImpl();
 		int i=addresDao.insertAddress(address);
 		System.out.println(i);

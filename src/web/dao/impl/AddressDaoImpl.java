@@ -76,10 +76,42 @@ public class AddressDaoImpl implements IAddressDao{
 		} catch (Exception e) {}
 		return count;
 	}
+	
+	/*
+	 * 统计指定用户的所有地址总数
+	 */
+	@Override
+	public int countAddressByvipId(Integer vipId) {
+		Integer count=0;
+		try {
+			ResultSet rs=SqlHelper.executeQuery("select Count(*) from T_Address where vipId="+vipId);;
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+		} catch (Exception e) {}
+		return count;
+	}
+	
+	
+	/*
+	 * 普通用户分页查询
+	 */
+	@Override
+	public List<Address> selectUserAddressByPage(int pageSize,int pageNow,Integer vipId){
+		return SqlHelper.executeQuery(Address.class,"select top "+pageSize+" * from T_Address where vipId="+vipId+" and aid not in(select top "+pageNow+" aid from T_Address)");
+	}
+
 	public static void main(String[] args) {
-		Address address=new Address("1010", "1010", "1010", "1010", "1010", "1010");
+		/*Address address=new Address("1010", "1010", "1010", "1010", "1010", "1010");
 		IAddressDao addresDao=new AddressDaoImpl();
-		addresDao.insertAddress(address);
+		addresDao.insertAddress(address);*/
+		Address address=new Address();
+		address.setaId(7);
+		address.setaName("OOOO");
+		address.setaTel("1234584514");
+		IAddressDao addressDao=new AddressDaoImpl();
+		int i=addressDao.updateByAddressId(address);
+		System.out.println(i);
 	}
 
 }

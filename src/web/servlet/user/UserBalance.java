@@ -46,11 +46,12 @@ public class UserBalance extends HttpServlet {
 		IUserDao uDao=new UserDaoImpl();
 		HttpSession session=request.getSession();
 		
-		String username=(String) session.getAttribute("username");
-		System.out.println(username);
-		User user=uDao.selectByVipName(username);
+		//String username=(String) session.getAttribute("username");
+		User user=(User) session.getAttribute("user");
+		System.out.println(user);
+		User use=uDao.selectByVipName(user.getVipName());
 		System.out.println(user.toString());
-		request.setAttribute("user", user);
+		request.setAttribute("user", use);
         request.getRequestDispatcher("/userbalance.jsp").forward(request, response);
 	}
 

@@ -9,7 +9,9 @@ import web.entity.TakeGood;
 
 public class TakeGoodDaoImpl implements ITakeGoodDao {
 	
-	
+	/*
+	 * 收货地址分页
+	 */
 	@Override
 	public List<TakeGood> selectTakeGoodByPage(int pageSize,int pageNow,Integer vipId){
 		return SqlHelper.executeQuery(TakeGood.class,"SELECT top "+pageSize+
@@ -20,6 +22,9 @@ public class TakeGoodDaoImpl implements ITakeGoodDao {
 				" and vipId not in(select top "+pageNow+" vipId from T_Order)");
 	}
 
+	/*
+	 * 收货地址信息通过vipId
+	 */
 	public List<TakeGood> selectTakeGoodByvipId(Integer vipId){
 		return SqlHelper.executeQuery(TakeGood.class, 
 				"SELECT o.*,od.ordertime,u.productName,u.productImages,u.suppliers FROM T_Order AS o "+

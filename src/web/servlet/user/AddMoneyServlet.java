@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import web.dao.IUserDao;
 import web.dao.impl.UserDaoImpl;
@@ -42,11 +43,11 @@ public class AddMoneyServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		String umoney=request.getParameter("usermoney");
 		Integer aBalance=Integer.valueOf(umoney);
-		String uname=request.getParameter("username");
-		System.out.println(aBalance);
-		System.out.println(uname);
+		
+		HttpSession session=request.getSession();
+		User use=(User) session.getAttribute("user");
 		IUserDao uDao=new UserDaoImpl();
-		User us=uDao.selectByVipName(uname);
+		User us=uDao.selectByVipName(use.getVipName());
 		//System.out.println("Us:"+us.toString());
 		
 		if(us!=null) {
@@ -69,7 +70,7 @@ public class AddMoneyServlet extends HttpServlet {
 				response.sendRedirect("/addmoney.jsp");
 			}   	
 		}else {
-			System.out.println("没有"+uname+"用户");
+			System.out.println("没有"+use.getVipName()+"用户");
 			response.sendRedirect(request.getContextPath()+"/addmoney.jsp");
 		}
 		

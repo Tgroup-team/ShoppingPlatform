@@ -27,7 +27,7 @@ public interface IAddressDao {
 	public List<Address> selectAddressByPage(int pageSize,int pageNow);
 	
 	/*
-	 * 分页查询
+	 * 小区成员分页查询
 	 */
 	public List<Address> selectAddressByPage(int pageSize,int pageNow,int communityId);
 	
@@ -40,4 +40,14 @@ public interface IAddressDao {
 	 * 统计数据库中地址的总数（用于计算分页）
 	 */
 	public int countAddress();
+
+	/*
+	 * 普通用户地址分页查询
+	 */
+	public List<Address> selectUserAddressByPage(int pageSize, int pageNow, Integer vipId);
+	
+	/*
+	 * 统计指定用户的所有地址总数
+	 */
+	int countAddressByvipId(Integer vipId);
 }

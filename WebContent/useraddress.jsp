@@ -22,7 +22,6 @@
 </head>
 <body style="background: transparent;">
 	<div class="user-address"> 
-	  <c:if test="${session.user.isLead==0}">
 		<!--标题 -->
 		<div class="am-cf am-padding">
 			<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">地址管理</strong> / <small>Address&nbsp;list</small></div>
@@ -92,81 +91,6 @@
 					</c:otherwise>
 				</c:choose>
 			</center>
-		</c:if>
-		
-		<c:if test="${session.user.isLead==0}">
-		<!--标题 -->
-		<div class="am-cf am-padding">
-			<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">地址管理</strong> / <small>Address&nbsp;list</small></div>
-		</div>
-		<hr/>
-		<ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
-		  <c:forEach items="${cads}" var="ca">
-			<li class="user-addresslist">
-				<span class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>
-				<p class="new-tit new-p-re">
-					<span class="new-txt">${ca.aName }</span>
-					<span class="new-txt-rd2">${ca.aTel }</span>
-				</p>
-				<div class="new-mu_l2a new-p-re">
-					<p class="new-mu_l2cw">
-						<span class="title">地址：</span>
-						<span class="province">${ca.aProvince }</span>
-						<span class="city">${ca.aCity }</span>
-						<span class="dist">${ca.aArea }</span>
-						<span class="street">${ca.aDetailAddr}</span>
-					</p>
-				</div>
-				<div class="new-addr-btn">
-					<a href="editor?id=${ca.aId }"><i class="am-icon-edit"></i>编辑</a>
-					<span class="new-addr-bar">|</span>
-					<a href="DeleteAddressServlet?id=${ca.aId }"><i class="am-icon-trash"></i>删除</a>
-				</div>
-			</li>
-		  </c:forEach>
-		  <hr>
-		  </ul>
-	
-		  	<center>
-				<font size="2">共 ${page.totalPageCount} 页</font> <font size="2">第
-					${page.pageNow} 页</font> <a
-					href="${pageContext.request.contextPath}/page?pageNow=1">首页</a>
-				<c:choose>
-					<c:when test="${page.pageNow - 1 > 0}">
-						<a href="${pageContext.request.contextPath}/page?pageNow=${page.pageNow - 1}">上一页</a>
-					</c:when>
-					<c:when test="${page.pageNow - 1 <= 0}">
-						<a href="${pageContext.request.contextPath}/page?pageNow=1">上一页</a>
-					</c:when>
-				</c:choose>
-				<c:choose>
-					<c:when test="${page.totalPageCount==0}">
-						<a
-							href="${pageContext.request.contextPath}/page?pageNow=${page.pageNow}">下一页</a>
-					</c:when>
-					<c:when test="${page.pageNow + 1 < page.totalPageCount}">
-						<a
-							href="${pageContext.request.contextPath}/page?pageNow=${page.pageNow + 1}">下一页</a>
-					</c:when>
-					<c:when test="${page.pageNow + 1 >= page.totalPageCount}">
-						<a
-							href="${pageContext.request.contextPath}/page?pageNow=${page.totalPageCount}">下一页</a>
-					</c:when>
-				</c:choose>
-				<c:choose>
-					<c:when test="${page.totalPageCount==0}">
-						<a
-							href="${pageContext.request.contextPath}/page?pageNow=${page.pageNow}">尾页</a>
-					</c:when>
-					<c:otherwise>
-						<a
-							href="${pageContext.request.contextPath}/page?pageNow=${page.totalPageCount}">尾页</a>
-					</c:otherwise>
-				</c:choose>
-			</center>
-		</c:if>
-		
-		
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {							

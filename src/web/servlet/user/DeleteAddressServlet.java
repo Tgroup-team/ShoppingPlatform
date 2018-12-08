@@ -34,7 +34,7 @@ public class DeleteAddressServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int aId=Integer.valueOf(request.getParameter("id"));
+		Integer aId=Integer.valueOf(request.getParameter("id"));
 		IAddressDao addresDao=new AddressDaoImpl();
 		int i=addresDao.deleteByAddressId(aId);
 		System.out.println(i);
@@ -48,10 +48,9 @@ public class DeleteAddressServlet extends HttpServlet {
         List<Address> addresses = new ArrayList<Address>(); 
         List<Address> addressCount = addressDao.selectAddress();
    
-        //查询用户总数
+        //查询总数
         int totalCount=addressCount.size();
         System.out.println("一共数据条数："+totalCount);
-        //int totalCount = (int) addressDao.countAddress();
         
         if (pageNow != null) { 
             page = new Page(totalCount, Integer.parseInt(pageNow),5);  
