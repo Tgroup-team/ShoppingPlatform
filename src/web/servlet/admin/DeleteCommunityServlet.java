@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import web.dao.ICommunityDao;
+import web.dao.IUserDao;
 import web.dao.impl.CommunityDaoImpl;
+import web.dao.impl.UserDaoImpl;
 import web.entity.Community;
 
 /**
@@ -22,14 +24,17 @@ public class DeleteCommunityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      
 	private ICommunityDao communityDao=new CommunityDaoImpl();
+	private IUserDao userDao=new UserDaoImpl();
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session=request.getSession();
 		
 		String communityId=request.getParameter("communityId");
-		
+
+		userDao.updateUserCommunityIdByCommunityId(Integer.parseInt(communityId));
 		communityDao.deleteByCommunityId(Integer.parseInt(communityId));
+		
 		
 		List<Community> listCommunity = communityDao.selectCommunity();
 		session.setAttribute("listCommunity", listCommunity);

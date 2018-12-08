@@ -45,6 +45,16 @@ public class ProductDaoImpl implements IProductDao {
 	public List<Product> selectProduct() {
 		return SqlHelper.executeQuery(Product.class, "select p.*,c.* from " + TABLENAME + " p,T_Category c where p.categoryId=c.categoryId");
 	}
+	
+	
+	/*
+	 * 通过产品名查询
+	 */
+	@Override
+	public List<Product> selectProductByName(String productName) {
+		return SqlHelper.executeQuery(Product.class, "select T_Product.*,T_Category.* from  T_Product,T_Category where T_Product.categoryId=T_Category.categoryId and productName='"+productName+"'");
+	}
+	
 
 	/**
 	 * 通过主键查询单个商品
@@ -111,6 +121,7 @@ public class ProductDaoImpl implements IProductDao {
 		return SqlHelper.executeQuery(Product.class,"select top "+pageSize+" T_Product.*,T_Category.* from T_Product,T_Category where T_Product.categoryId=T_Category.categoryId and productId not in(select top "+pageNow+" productId from T_Product)");
 	}
 	
+
 	
 	/**
 	 * 根据productId查询商品
@@ -127,4 +138,5 @@ public class ProductDaoImpl implements IProductDao {
 	}
 	
 	
+
 }

@@ -38,7 +38,7 @@ public class ApplyDaoImpl implements IApplyDao{
 	 */
 	@Override
     public List<Apply> selectApply(){
-    	List<Apply> list=SqlHelper.executeQuery(Apply.class, "select applyId,communityName,vipName,rappl,deal,dealtime from T_Apply,T_Community,T_User where T_Apply.communityId=T_Community.communityId and T_Apply.vipId=T_User.vipId");
+    	List<Apply> list=SqlHelper.executeQuery(Apply.class, "select T_Apply.*,T_Community.*,T_User.*  from T_Apply,T_Community,T_User where T_Apply.communityId=T_Community.communityId and T_Apply.vipId=T_User.vipId");
     	return list;
     }
     

@@ -1,7 +1,7 @@
 package web.servlet.admin;
 
 import java.io.IOException;
-import java.math.BigDecimal;
+import java.security.KeyStore.PrivateKeyEntry;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,39 +12,28 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import web.dao.ICategoryDao;
-import web.dao.IProductDao;
 import web.dao.impl.CategoryDaoImpl;
-import web.dao.impl.ProductDaoImpl;
 import web.entity.Category;
-import web.entity.Product;
 
 /**
- * Servlet implementation class UpdateProductServlet
+ * Servlet implementation class AddProductServlet1
  */
-@WebServlet("/updateproduct")
-public class UpdateProductServlet extends HttpServlet {
+@WebServlet("/addproduct1")
+public class AddProductServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     
-	private IProductDao productDao=new ProductDaoImpl();
+
 	private ICategoryDao categoryDao=new CategoryDaoImpl();
-   
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-        HttpSession session=request.getSession();
-		
-		String productId=request.getParameter("productId");
+		HttpSession session=request.getSession();
 		
 		List<Category> listCategory = categoryDao.selectCategory();
 		session.setAttribute("listCategory", listCategory);
-		session.setAttribute("productId", productId);
 		
-		Product selectProduct = productDao.selectProduct(Integer.parseInt(productId));
-		
-		
-		session.setAttribute("selectProduct", selectProduct);
-		
-		request.getRequestDispatcher("/admin/updateproduct1.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("/admin/addproduct1.jsp").forward(request, response);
 		
 	}
+
+
 }

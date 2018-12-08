@@ -1,10 +1,12 @@
 package web.entity;
 
+import java.math.BigDecimal;
+
 public class Managers {
 	private Integer managerId;
 	private String managerName;
 	private String password;
-	private Double money;
+	private BigDecimal money;
 
 	public Integer getManagerId() {
 		return managerId;
@@ -26,27 +28,18 @@ public class Managers {
 		return password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Double getMoney() {
+	
+	
+	public BigDecimal getMoney() {
 		return money;
 	}
 
-	public void setMoney(Double money) {
+	public void setMoney(BigDecimal money) {
 		this.money = money;
 	}
 
-	public static Managers find(String managername2, String password2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String toString() {
-		return "Managers [managerId=" + managerId + ", managerName=" + managerName + ", password=" + password
-				+ ", money=" + money + "]";
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

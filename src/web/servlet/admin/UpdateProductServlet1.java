@@ -32,19 +32,25 @@ public class UpdateProductServlet1 extends HttpServlet {
         HttpSession session=request.getSession();
        String productId=(String) session.getAttribute("productId");
 		
+        String categoryId=request.getParameter("categoryId");
 		String productName=request.getParameter("productName");
 		String productPrice=request.getParameter("productPrice");
 		String inventory=request.getParameter("inventory");
 		String suppliers=request.getParameter("suppliers");
+		String productImages=request.getParameter("productImages");
+		String productDescriptionImages=request.getParameter("productDescriptionImages");
 		
 		
 		System.out.println(productId);
 		Product product=new Product();
+		product.setCategoryId(Integer.parseInt(categoryId));
 		product.setProductId(Integer.parseInt(productId));
 		product.setProductName(productName);
 		product.setProductPrice(new BigDecimal(Float.parseFloat(productPrice)));
 		product.setInventory(Integer.parseInt(inventory));
 		product.setSuppliers(suppliers);
+		product.setProductImages(productImages);
+		product.setProductDescriptionImages(productDescriptionImages);
 		
 		productDao.updateProduct(product);
 	

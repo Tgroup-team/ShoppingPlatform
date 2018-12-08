@@ -15,7 +15,7 @@
 		<div class="m_right">
 			<div class="mem_tit">产品类别管理</div>
 			<div align="right">
-				<a href="addcatagory1.jsp" style="padding: 10px 20px;">添加产品类别</a>
+				<a href="catagory" style="padding: 10px 20px;">添加产品类别</a>
 			</div>
 			<table border="0" class="order_tab"
 				style="width: 930px; text-align: center; margin-bottom: 30px;"

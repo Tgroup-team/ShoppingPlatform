@@ -62,4 +62,8 @@ public interface IProductDao {
 	 * 根据productId查询商品
 	 */
 	public List<Product> selectProductByproductId(Integer productId);
+
+	
+	public List<Product> selectProductByName(String productName);
+
 }

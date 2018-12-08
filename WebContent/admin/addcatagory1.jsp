@@ -16,7 +16,7 @@
 				<a href="catagory1.jsp">返回</a>
 			</div>
 			<div align="center">
-				<form  action="../addcategory" method="post">
+				<form  action="addcategory" method="post">
 					<table border="1" class="order_tab"
 						style="width: 500px; text-align: margin-bottom:30px;"
 						cellspacing="0" cellpadding="0">

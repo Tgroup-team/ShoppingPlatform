@@ -13,7 +13,7 @@
 	<div class="i_bg bg_color">
 		<div class="m_right">
 			<div style="float: right;">
-				<a href="catagory1.jsp">返回</a>
+				<a href="admin/catagory1.jsp">返回</a>
 			</div>
 			<div align="center">
 				<form method="post" action="updatecategory1">

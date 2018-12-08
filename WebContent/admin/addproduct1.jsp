@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@
 			</div>
 			<div align="center">
 
-				<form method="post" action="addproduct">
+				<form action="addproduct" method="get">
 
 					<table border="1" class="order_tab"
 						style="width: 500px; text-align: margin-bottom:30px;"
@@ -27,11 +28,10 @@
 						</tr>
 						<tr>
 							<td>所属类别：</td>
-							<td><select name="categoryId" id="categoryId">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
+							<td><select name="categoryId" id="categoryId">	
+									<c:forEach items="${listCategory }" var="lc">
+									   <option value="${lc.categoryId }">${lc.categoryName }</option>
+									</c:forEach>
 							</select></td>
 						<tr>
 							<td width="33%">产品名称：</td>

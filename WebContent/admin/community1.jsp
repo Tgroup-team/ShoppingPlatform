@@ -34,10 +34,10 @@
 				   <tr>
 					<td>${la.community.communityName }</td>
 					<td>${la.user.vipName }</td>
-					<td><fmt:formatDate value="${la.rappl }" pattern="yyyy-MM-dd"/></td>
+					<td><fmt:formatDate value="${la.rappl }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 					<td>${la.deal }</td>
-					<td><a class="c0085d0" href="applypass?applyId=${la.applyId }">审核通过</a>&nbsp;&nbsp;<a
-						class="c0085d0" href="applynpass?applyId=${la.applyId }">不通过</a></td>
+					<td><a class="c0085d0" href="applypass?applyId=${la.applyId }&vipId=${la.vipId}">审核通过</a>&nbsp;&nbsp;<a
+						class="c0085d0" href="applynpass?applyId=${la.applyId }&vipId=${la.vipId}">不通过</a></td>
 				</tr>
 				
 				</c:forEach>

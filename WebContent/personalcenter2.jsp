@@ -1,5 +1,5 @@
 <%@page import="javax.websocket.Session"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="web.entity.User"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
 				</div>
                                    
 				<div class="topMessage home">
-					<div class="menu-hd"><a href="index.jsp" target="_top" class="h"><i class="am-icon-shopping-cart  am-icon-fw"></i>商城首页</a></div>
+					<div class="menu-hd"><a href="<%=request.getContextPath() %>" target="_top" class="h"><i class="am-icon-shopping-cart  am-icon-fw"></i>商城首页</a></div>
 				</div>
 				
 				<!--<div class="  topMessage mini-cart">
@@ -144,6 +144,7 @@
                            <li><a href="UserBalance" target="main">账户余额</a></li>   
 					</ul>
 				</li>
+<<<<<<< HEAD
 				<c:if test="${sessionScope.user.isLead==1}">
 				
 					<li class="person">
@@ -158,6 +159,22 @@
 						</ul>
 					</li>
 				</c:if>
+=======
+<% if("1".equals(((User)session.getAttribute("user")).getIsLead())){%>
+				<li class="person">
+					<a href="#">我的管理</a>
+					<ul>
+                           <li><a href="manage.jsp" target="main">收货管理</a></li>   
+					</ul>
+				</li><li class="person">
+					<a href="#">小区成员</a>
+					<ul>
+                           <li><a href="BrowseMemberServlet" target="main">查看成员</a></li>   
+					</ul>
+				</li>
+<%} %>
+
+>>>>>>> branch 'master' of https://github.com/Tgroup-team/ShoppingPlatform.git
 				<li class="person">
 					<a href="#">我的申请</a>
 					<ul>

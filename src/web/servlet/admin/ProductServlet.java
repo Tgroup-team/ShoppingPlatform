@@ -39,11 +39,13 @@ public class ProductServlet extends HttpServlet {
 		System.out.println("pageNow:"+pageNow);
 		
         Page page = null; 
-		
-		
-		List<Product> listProduct = productDao.selectProduct();
-		
-		 int totalCount=listProduct.size();
+        
+        int totalCount=0; 
+		  
+        List<Product> listProduct = productDao.selectProduct();
+       
+		totalCount=listProduct.size();
+		System.out.println(totalCount);
 		
 		 if (pageNow != null) { 
 	            page = new Page(totalCount, Integer.parseInt(pageNow),10);  
@@ -52,7 +54,6 @@ public class ProductServlet extends HttpServlet {
 	            page = new Page(totalCount, 1,10); 
 	            pro=productDao.selectProductByPage(page.getPageSize(), page.getStartPos());
 	        } 
-		 
 		session.setAttribute("page", page);
 		session.setAttribute("pro", pro);
 		request.getRequestDispatcher("/admin/product1.jsp").forward(request, response);
