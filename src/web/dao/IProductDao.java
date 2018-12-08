@@ -54,4 +54,6 @@ public interface IProductDao {
 	public Integer selectOnlineProductsCountByProductName(String productName);
 
 	public List<Product> selectProductByPage(int pageSize, int pageNow);
+	
+	public List<Product> selectProductByName(String productName);
 }

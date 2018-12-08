@@ -42,20 +42,14 @@ public class ManagerServlet extends HttpServlet {
 		String password=request.getParameter("password");
 		
 		Managers seleteByManagerName = managerDao.seleteByManagerName(managerName);
-		Managers seleteByPassword = managerDao.seleteByPassword(password);
+		//Managers seleteByPassword = managerDao.seleteByPassword(password);
 		
 		List<Category> listCategory = categoryDao.selectCategory();
 		session.setAttribute("listCategory",listCategory);
 		
-		if(seleteByManagerName==null) {
-			request.setAttribute("show", "用户名不存在");
-		}else {
-			if (seleteByPassword==null) {
-				request.setAttribute("show", "密码错误");
-			}else {
+		if(seleteByManagerName.getManagerName()==managerName&&seleteByManagerName.getPassword()==password) {
 				request.getRequestDispatcher("/admin/ahome1.jsp").forward(request, response);
-			}
-		}
+	}
 	}
 
 }

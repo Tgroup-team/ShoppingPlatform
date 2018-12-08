@@ -17,7 +17,7 @@ import web.entity.Category;
 /*
  * 添加产品类别
  */
-@WebServlet("/addcategory")
+@WebServlet("/admin/addcategory")
 public class AddCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
         

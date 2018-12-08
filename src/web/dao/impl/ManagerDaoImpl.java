@@ -9,7 +9,7 @@ public class ManagerDaoImpl implements IManagerDao{
 	//查询用户名
 	@Override
 	public Managers seleteByManagerName(String managerName) {
-		Managers managers=SqlHelper.executeQueryOne(Managers.class,"select managerName from T_Manager where managerName='"+managerName+"'");
+		Managers managers=SqlHelper.executeQueryOne(Managers.class,"select * from T_Manager where managerName='"+managerName+"'");
 		return managers;
 	}
 	
