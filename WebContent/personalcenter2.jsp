@@ -1,5 +1,5 @@
 <%@page import="javax.websocket.Session"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="web.entity.User"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -144,6 +144,7 @@
                            <li><a href="UserBalance" target="main">账户余额</a></li>   
 					</ul>
 				</li>
+<% if("1".equals(((User)session.getAttribute("user")).getIsLead())){%>
 				<li class="person">
 					<a href="#">我的管理</a>
 					<ul>
@@ -155,6 +156,8 @@
                            <li><a href="BrowseMemberServlet" target="main">查看成员</a></li>   
 					</ul>
 				</li>
+<%} %>
+
 				<li class="person">
 					<a href="#">我的申请</a>
 					<ul>

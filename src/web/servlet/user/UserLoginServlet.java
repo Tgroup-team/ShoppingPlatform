@@ -54,6 +54,7 @@ public class UserLoginServlet extends HttpServlet {
 			if(user.getPassword().equals(pwd)) {
 				HttpSession session = request.getSession();
 				System.out.println("session:"+session);
+				session.setAttribute("user", user);
 				session.setAttribute("username", uname);
 				session.setAttribute("id", user.getVipId());
 				session.setAttribute("communityId", user.getCommunityId());

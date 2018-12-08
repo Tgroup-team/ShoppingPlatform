@@ -1,6 +1,7 @@
 package web.filter;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -12,9 +13,11 @@ import javax.servlet.annotation.WebFilter;
 
 @WebFilter("/")
 public class AllFilter implements Filter {
-
+	
+	private static List<String> noIntercept;
+	
     public AllFilter() {
-        // TODO Auto-generated constructor stub
+       
     }
 
 	public void destroy() {
