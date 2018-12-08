@@ -53,5 +53,13 @@ public interface IProductDao {
 	 */
 	public Integer selectOnlineProductsCountByProductName(String productName);
 
+	/*
+	 * 分页查询
+	 */
 	public List<Product> selectProductByPage(int pageSize, int pageNow);
+
+	/**
+	 * 根据productId查询商品
+	 */
+	public List<Product> selectProductByproductId(Integer productId);
 }

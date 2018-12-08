@@ -74,13 +74,23 @@ public class UserDaoImpl implements IUserDao{
 	public List<User> selectUserByPage(int pageSize,int pageNow){
 		return SqlHelper.executeQuery(User.class,"select top "+pageSize+" * from T_User where vipId not in(select top "+pageNow+" vipId from T_User)");
 	}
+	
 	/*
 	 * 分页查询2
 	 */
 	@Override
 	public List<User> selectUserByPage(int pageSize,int pageNow,Integer communityId){
-		return SqlHelper.executeQuery(User.class,"select top "+pageSize+" * from T_User where communityId="+communityId+" and vipId not in(select top "+pageNow+" vipId from T_Userwhere communityId="+communityId+")");
+		return SqlHelper.executeQuery(User.class,"select top "+pageSize+" * from T_User where communityId="+communityId+" and vipId not in(select top "+pageNow+" vipId from T_User where communityId="+communityId+")");
 	}
+
+	/*
+	 * 查询社团成员 
+	 */
+	@Override
+	public List<User> selectUserByCommunity(Integer communityId) {
+		return SqlHelper.executeQuery(User.class, "select * from " + TABLENAME +" where communityId=" + communityId);
+	}
+
 	public static void main(String[] args) {
 		User user=new User("小猫", "111111", "123456789", "天使大街");
 		IUserDao uDao=new UserDaoImpl();

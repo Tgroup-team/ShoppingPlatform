@@ -8,7 +8,7 @@ public class DbConnection {
     static String url = "jdbc:sqlserver://localhost:1433;DatabaseName=newlifeDB";
     static String username = "sa";
 
-    static String password = "888999";
+    static String password = "123456";
 
     static String driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     

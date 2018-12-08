@@ -10,7 +10,15 @@ public class Order {
 
 	private String orderstate;
 	private Date delivery;
+	
 	private Date acceptance;
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", user=" + user + ", vipId=" + vipId + ", orderstate=" + orderstate
+				+ ", delivery=" + delivery + ", acceptance=" + acceptance + "]";
+	}
+
+
 
 	public Integer getOrderId() {
 		return orderId;

@@ -38,8 +38,11 @@ public interface IUserDao {
 	/**
 	 * 分页
 	 */
-	List<User> selectUserByPage(int pageSize, int pageNow);
+	public List<User> selectUserByPage(int pageSize, int pageNow);
 
-	List<User> selectUserByPage(int pageSize, int pageNow, Integer communityId);
+	public List<User> selectUserByPage(int pageSize, int pageNow, Integer communityId);
+
+
+	public List<User> selectUserByCommunity(Integer communityId);
 
 }

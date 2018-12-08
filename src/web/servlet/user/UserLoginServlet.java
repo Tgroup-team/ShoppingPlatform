@@ -54,9 +54,7 @@ public class UserLoginServlet extends HttpServlet {
 			if(user.getPassword().equals(pwd)) {
 				HttpSession session = request.getSession();
 				System.out.println("session:"+session);
-				session.setAttribute("username", uname);
-				session.setAttribute("id", user.getVipId());
-				session.setAttribute("communityId", user.getCommunityId());
+				session.setAttribute("user", user);
 				request.getRequestDispatcher("/personalcenter2.jsp").forward(request, response);
 			}else {
 				request.setAttribute("msg", "密码错误");

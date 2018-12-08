@@ -42,14 +42,14 @@
 						<div class="am-form-group">
 							<label for="user-name" class="am-form-label">收货人</label>
 							<div class="am-form-content">
-								<input type="text" name="uaname" id="user-name" placeholder="收货人"  value="${requestScope.address.aName }">
+								<input type="text" name="uaname" id="user-name" placeholder="收货人" maxlength="10" value="${requestScope.address.aName }">
 							</div>
 						</div>
 
 						<div class="am-form-group">
 							<label for="user-phone" class="am-form-label">手机号码</label>
 							<div class="am-form-content">
-								<input id="user-phone" name="uatel" placeholder="手机号必填"  value="${requestScope.address.aTel }" type="text">
+								<input id="user-phone" name="number" placeholder="手机号必填" maxlength="11" value="${requestScope.address.aTel }" type="number">
 							</div>
 						</div>
 						<div class="am-form-group">
@@ -73,7 +73,7 @@
 						<div class="am-form-group">
 							<label for="user-intro" class="am-form-label">详细地址</label>
 							<div class="am-form-content">
-								<textarea class="" rows="3" name="uadetail" id="user-intro" placeholder="输入详细地址">${requestScope.address.aDetailAddr }</textarea>
+								<textarea class="" rows="3" name="uadetail" id="user-intro" maxlength="25" placeholder="输入详细地址">${requestScope.address.aDetailAddr }</textarea>
 								<small>100字以内写出你的详细地址...</small>
 							</div>
 						</div>

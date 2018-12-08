@@ -17,6 +17,14 @@ public class Product {
 
 	private String suppliers;
 
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", categoryId=" + categoryId + ", category=" + category
+				+ ", productName=" + productName + ", productPrice=" + productPrice + ", productImages=" + productImages
+				+ ", productDescriptionImages=" + productDescriptionImages + ", inventory=" + inventory
+				+ ", productState=" + productState + ", suppliers=" + suppliers + "]";
+	}
+
 	public Integer getProductId() {
 		return productId;
 	}

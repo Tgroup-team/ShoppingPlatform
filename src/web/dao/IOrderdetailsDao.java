@@ -41,4 +41,6 @@ public interface IOrderdetailsDao {
 	 * 获取商品总销量
 	 */
 	public Integer selectAllSellCountByProductId(Integer productId);
+
+	public List<Orderdetails> selectOrderdetailsByorderId(Integer orderId);
 }

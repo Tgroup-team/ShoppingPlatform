@@ -48,5 +48,14 @@ public class OrderDaoImpl implements IOrderDao {
 	public Order selectByOrderId(Integer orderId) {
 		return SqlHelper.executeQueryOne(Order.class,"select T_Order.*,T_User.* from T_Order,T_User where T_Order.orderId=T_User.vipId and orderId="+orderId);
 	}
+	
+	/*
+	 * 根据vipId查询orderId
+	 */
+	@Override
+    public List<Order> selectOrderByVipId(Integer vipId){
+    	List<Order> list=SqlHelper.executeQuery(Order.class, "select * from T_Order where vipId="+vipId);
+    	return list;
+    }
 
 }

@@ -1,5 +1,6 @@
 package web.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Orderdetails {
@@ -10,11 +11,27 @@ public class Orderdetails {
 
 	private Product product;
 	private Integer productId;
-
 	private Integer amount;
-	private Float price;
-	private Float total;
+	private BigDecimal price;
+	private BigDecimal total;
 	private Date ordertime;
+	
+	@Override
+	public String toString() {
+		return "Orderdetails [detailsId=" + detailsId + ", order=" + order + ", orderId=" + orderId + ", product="
+				+ product + ", productId=" + productId + ", amount=" + amount + ", price=" + price + ", total=" + total
+				+ ", ordertime=" + ordertime + "]";
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	
 
 	public Integer getDetailsId() {
 		return detailsId;
@@ -64,19 +81,11 @@ public class Orderdetails {
 		this.amount = amount;
 	}
 
-	public Float getPrice() {
-		return price;
-	}
-
-	public void setPrice(Float price) {
-		this.price = price;
-	}
-
-	public Float getTotal() {
+	public BigDecimal getTotal() {
 		return total;
 	}
 
-	public void setTotal(Float total) {
+	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
 

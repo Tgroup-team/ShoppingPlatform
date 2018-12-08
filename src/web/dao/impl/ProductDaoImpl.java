@@ -111,6 +111,14 @@ public class ProductDaoImpl implements IProductDao {
 		return SqlHelper.executeQuery(Product.class,"select top "+pageSize+" T_Product.*,T_Category.* from T_Product,T_Category where T_Product.categoryId=T_Category.categoryId and productId not in(select top "+pageNow+" productId from T_Product)");
 	}
 	
+	
+	/**
+	 * 根据productId查询商品
+	 */
+	@Override
+	public List<Product> selectProductByproductId(Integer productId) {
+		return SqlHelper.executeQuery(Product.class, "select * from " + TABLENAME + " where productId="+productId);
+	}
 	public static void main(String[] args) {
 		
 		ProductDaoImpl daoImpl=new ProductDaoImpl();

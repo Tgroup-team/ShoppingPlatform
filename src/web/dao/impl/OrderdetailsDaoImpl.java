@@ -88,5 +88,12 @@ public class OrderdetailsDaoImpl implements IOrderdetailsDao {
 		} catch (Exception e) {}
 		return count;
 	}
+	/**
+	 * 根据orderId查询productId
+	 */
+	@Override
+	public List<Orderdetails> selectOrderdetailsByorderId(Integer orderId) {
+		return SqlHelper.executeQuery(Orderdetails.class, "select * from " + TABLENAME +" where orderId="+orderId);
+	}
 
 }

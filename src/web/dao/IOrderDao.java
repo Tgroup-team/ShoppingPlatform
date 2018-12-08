@@ -30,4 +30,9 @@ public interface IOrderDao {
 	 * 通过orderId查询
 	 */
 	public Order selectByOrderId(Integer orderId);
+
+	/*
+	 * 根据vipId查询orderId
+	 */
+	public List<Order> selectOrderByVipId(Integer vipId);
 }

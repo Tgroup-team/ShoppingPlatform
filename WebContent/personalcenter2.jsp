@@ -33,7 +33,7 @@
 					</ul>
 					<ul class="message-r">   
 						 <div class="topMessage my-shangcheng">
-					<div class="menu-hd MyShangcheng"><a href="personalcenter2.jsp" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+					<div class="menu-hd MyShangcheng"><a href="page" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
                                    
 				<div class="topMessage home">
@@ -59,7 +59,7 @@
 									<a href="#">
 										<img src="images/getAvatar.do.jpg">
 									</a>
-									<em class="s-name"><%=session.getAttribute("username") %><span class="vip1"></em>
+									<em class="s-name">${sessionScope.user.vipName }<span class="vip1"></em>
 									<div class="s-prestige am-btn am-round">
 										</span>会员福利</div>
 								</div>
@@ -144,17 +144,20 @@
                            <li><a href="UserBalance" target="main">账户余额</a></li>   
 					</ul>
 				</li>
-				<li class="person">
-					<a href="#">我的管理</a>
-					<ul>
-                           <li><a href="manage.jsp" target="main">收货管理</a></li>   
-					</ul>
-				</li><li class="person">
-					<a href="#">小区成员</a>
-					<ul>
-                           <li><a href="BrowseMemberServlet" target="main">查看成员</a></li>   
-					</ul>
-				</li>
+				<c:if test="${sessionScope.user.isLead==1}">
+				
+					<li class="person">
+						<a href="#">我的管理</a>
+						<ul>
+	                           <li><a href="takeGoodServlet" target="main">收货管理</a></li>   
+						</ul>
+					</li><li class="person">
+						<a href="#">小区成员</a>
+						<ul>
+	                           <li><a href="BrowseMemberServlet" target="main">查看成员</a></li>   
+						</ul>
+					</li>
+				</c:if>
 				<li class="person">
 					<a href="#">我的申请</a>
 					<ul>
