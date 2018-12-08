@@ -13,8 +13,9 @@
 	<div class="i_bg bg_color">
 		<div class="m_right">
 			<div style="float: right;">
-				<a href="baccounts1.html">返回</a>
+				<a href="admin/baccounts1.jsp">返回</a>
 			</div>
+			<form action="cashwithdrawal?money=${seleteByManagerName.money }&managerId=${seleteByManagerName.managerId}" method="post"">
 			<table border="1" class="order_tab"
 				style="width: 450px; text-align: margin-bottom:30px;"
 				cellspacing="0" cellpadding="0">
@@ -23,7 +24,7 @@
 				</tr>
 				<tr>
 					<td width="33%">管理员账户余额：</td>
-					<td width="67%"></td>
+					<td width="67%">${seleteByManagerName.money }</td>
 				</tr>
 				<tr>
 					<td width="33%">提现金额：</td>
@@ -40,6 +41,7 @@
 					</td>
 				</tr>
 			</table>
+			</form>
 		</div>
 	</div>
 </body>

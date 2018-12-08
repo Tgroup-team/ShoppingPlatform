@@ -17,7 +17,7 @@
 		<div class="m_right">
 			<div class="mem_tit">余额账户</div>
 			<div align="right">
-				<a href="admin/withdrawal1.jsp" style="padding: 10px 20px;">提现</a>
+				<a href="withdrawal" style="padding: 10px 20px;">提现</a>
 			</div>
 			<table border="0" class="order_tab"
 				style="width: 930px; text-align: center; margin-bottom: 30px;"
@@ -31,7 +31,7 @@
 				<c:forEach items="${listRecord }" var="lr">
 				   <tr>
 				        <td><div align="center">${lr.recordtype }</div></td>
-						<td><fmt:formatDate value="${lr.recordTime }" pattern="yyyy-MM-dd"/></td>
+						<td><fmt:formatDate value="${lr.recordTime }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 						<td>${lr.recordAmount }</td>
 				    </tr>
 				</c:forEach>

@@ -31,7 +31,7 @@
 				   <tr>
 					<td width="17%">${lo.orderId }</td>
 					<td width="9%">${lo.user.vipName }</td>
-					<td width="19%"><fmt:formatDate value="${lo.delivery }" pattern="yyyy-MM-dd"/></td>
+					<td width="19%"><fmt:formatDate value="${lo.delivery }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 					<td width="12%">${lo.orderstate }</td>
 					<td width="19%"><a
 						href="javascript:if(confirm('您是否确定发货？'))location='delivergoods?orderId=${lo.orderId }'">发货</a>&nbsp;&nbsp;<a

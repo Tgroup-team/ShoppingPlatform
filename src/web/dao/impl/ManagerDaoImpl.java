@@ -3,6 +3,7 @@ package web.dao.impl;
 import web.dao.IManagerDao;
 import web.dao.util.SqlHelper;
 import web.entity.Managers;
+import web.entity.Order;
 
 public class ManagerDaoImpl implements IManagerDao{
 	
@@ -18,6 +19,18 @@ public class ManagerDaoImpl implements IManagerDao{
 	public Managers seleteByPassword(String password) {
 		Managers managers=SqlHelper.executeQueryOne(Managers.class,"select password from T_Manager where password='"+password+"'");
 		return managers;
+	}
+	
+	//通过managerId修改
+	@Override
+	public int updateByManagerId(Managers managers) {
+		return SqlHelper.executeUpdate("T_Manager", managers, "where managerId="+managers.getManagerId());
+	}
+	
+	//登录
+	@Override
+	public Managers loginManagers(String managerName,String password) {
+		return SqlHelper.executeQueryOne(Managers.class, "select * from T_Manager where managerName='"+managerName+"' and password='"+password+"'");
 	}
 	
 }

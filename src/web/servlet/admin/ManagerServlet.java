@@ -24,32 +24,32 @@ import web.entity.Managers;
 @WebServlet("/ManagerServlet")
 public class ManagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private IManagerDao managerDao=new ManagerDaoImpl();
-	private ICategoryDao categoryDao=new CategoryDaoImpl();
-       
-    public ManagerServlet() {
-        super();    
-    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private IManagerDao managerDao = new ManagerDaoImpl();
+	private ICategoryDao categoryDao = new CategoryDaoImpl();
+
+	public ManagerServlet() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
+
 		HttpSession session = request.getSession();
-		
-		String managerName=request.getParameter("managerName");
-		String password=request.getParameter("password");
-		
-		Managers seleteByManagerName = managerDao.seleteByManagerName(managerName);
-		//Managers seleteByPassword = managerDao.seleteByPassword(password);
-		
+
+		String managerName = request.getParameter("managerName");
+		String password = request.getParameter("password");
+
+		Managers managers = managerDao.loginManagers(managerName, password);
+
 		List<Category> listCategory = categoryDao.selectCategory();
-		session.setAttribute("listCategory",listCategory);
-		
-		if(seleteByManagerName.getManagerName()==managerName&&seleteByManagerName.getPassword()==password) {
-				request.getRequestDispatcher("/admin/ahome1.jsp").forward(request, response);
-	}
+		session.setAttribute("listCategory", listCategory);
+		session.setAttribute("managerName", managerName);
+		if (managers!= null) {
+			request.getRequestDispatcher("/admin/ahome1.jsp").forward(request, response);
+		}
 	}
 
 }

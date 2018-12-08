@@ -16,7 +16,7 @@ import web.entity.Category;
 /**
  * 跳转到修改产品页面
  */
-@WebServlet("/admin/updatecategory")
+@WebServlet("/updatecategory")
 public class UpdateCategoryServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;

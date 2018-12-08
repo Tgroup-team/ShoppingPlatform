@@ -30,7 +30,7 @@
 				<c:forEach items="${listReturn }" var="lr">
 				   <tr>
 					<td><font color="#ff4e00">${lr.returnId }</font></td>
-					<td><fmt:formatDate value="${lr.applytime }" pattern="yyyy-MM-dd"/></td>
+					<td><fmt:formatDate value="${lr.applytime }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 					<td>¥${lr.total}</td>
 					<td>${lr.returnstate } ${lr.processingstate }</td>
 					<td><a class="c0085d0" href="refund?returnId=${lr.returnId }">退款</a>

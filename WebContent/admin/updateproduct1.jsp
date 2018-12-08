@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,14 +24,13 @@
 						<tr>
 							<td colspan="2"><div align="center">修改产品</div></td>
 						</tr>
-						<!-- <tr>
+						<tr>
 							<td>所属类别：</td>
 							<td><select name="categoryId" id="categoryId">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-							</select></td>-->
+									<c:forEach items="${listCategory }" var="lc">
+									   <option value="${lc.categoryId }">${lc.categoryName }</option>
+									</c:forEach>
+							</select></td>
 						<tr> 
 							<td width="33%">产品名称：</td>
 							<td width="67%"><input type="text" name="productName"
@@ -41,17 +41,16 @@
 							<td width="67%"><input type="text" name="productPrice"
 								id="productPrice" value="${selectProduct.productPrice }" /></td>
 						</tr>
-						<%-- <tr>
+						<tr>
 							<td width="33%">产品图片：</td>
-							<td width="67%"><input type="text" name="productDescriptionImages"
-								id="productDescriptionImages" value="${selectProduct.productDescriptionImages }" /></td>
+							<td width="67%"><input type="text" name="productImages"
+								id="productImages" value="${selectProduct.productImages }" /></td>
 						</tr>
 						<tr>
 							<td width="33%">产品介绍图片：</td>
 							<td width="67%"><input type="text" name="productDescriptionImages"
 								id="productDescriptionImages" value="${selectProduct.productDescriptionImages }" /></td>
-						</tr> --%>
-						
+						</tr>					
 						<tr>
 							<td width="33%">库存量：</td>
 							<td width="67%"><input type="text" name="inventory"

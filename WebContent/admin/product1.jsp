@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +10,6 @@
 <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/select.js"></script>
-
-<style type="text/css">
-.wrap {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-</style>
-
-
 </head>
 <body style="background: transparent;">
 	<div class="i_bg bg_color">
@@ -43,7 +34,7 @@
 						<td style="text-align: center;" width="10%">名称</td>
 						<td style="text-align: center;" width="10%">图片</td>
 						<td style="text-align: center;" width="10%">描述图片</td>
-						<td style="text-align: center;" width="10%">描述</td>
+						<!-- <td style="text-align: center;" width="10%">描述</td> -->
 						<td style="text-align: center;" width="10%">单价</td>
 						<td style="text-align: center;" width="7%">库存量</td>
 						<td style="text-align: center;" width="7%">状态</td>
@@ -55,9 +46,9 @@
 							<td style="text-align: center;">${lp.productId }</td>
 							<td style="text-align: center;">${lp.category.categoryName }</td>
 							<td style="text-align: center;">${lp.productName }</td>
-							<td class="wrap" title="${lp.productImages }">images/...</td>
-							<td class="wrap" title="${lp.productDescriptionImages }">images/...</td>
-							<td>描述</td>
+							<td title="${lp.productImages }">${fn:substring(lp.productImages,0,15) }...</td>
+							<td title="${lp.productDescriptionImages }">${fn:substring(lp.productDescriptionImages,0,15) }...</td>
+							<!-- <td>描述</td> -->
 							<td style="text-align: center;">${lp.productPrice }</td>
 							<td style="text-align: center;">${lp.inventory }</td>
 							<td style="text-align: center;">${lp.productState }</td>

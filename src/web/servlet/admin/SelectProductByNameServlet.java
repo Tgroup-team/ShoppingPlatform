@@ -39,7 +39,7 @@ public class SelectProductByNameServlet extends HttpServlet {
 		List<Product> selectProductByName = productDao.selectProductByName(txtPname);
 		session.setAttribute("pro", selectProductByName);
 		
-		request.getRequestDispatcher("/admin/product.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/product1.jsp").forward(request, response);
 		
 	}
 

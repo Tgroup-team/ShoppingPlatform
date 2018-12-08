@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import web.dao.IProductDao;
+import web.dao.IReturnDao;
 import web.dao.impl.ProductDaoImpl;
+import web.dao.impl.ReturnDaoImpl;
 import web.entity.Product;
 
 /**
@@ -22,6 +24,7 @@ public class DeleteProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 	private IProductDao productDao=new ProductDaoImpl();
+	private IReturnDao returnDao=new ReturnDaoImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -30,6 +33,8 @@ public class DeleteProductServlet extends HttpServlet {
 		String productId=request.getParameter("productId");
 		
 		productDao.deleteProduct(Integer.parseInt(productId));
+		
+		
 		 
 		
 		request.getRequestDispatcher("/productservlet").forward(request, response);
