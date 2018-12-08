@@ -66,12 +66,12 @@ public class AddMoneyServlet extends HttpServlet {
 				System.out.println("充值成功！！！");
 				request.getRequestDispatcher("/UserBalance").forward(request, response);
 			}else {
-				System.out.println("充值失败");
-				response.sendRedirect("/addmoney.jsp");
+				request.setAttribute("msg", "充值失败");
+				request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
 			}   	
 		}else {
-			System.out.println("没有"+use.getVipName()+"用户");
-			response.sendRedirect(request.getContextPath()+"/addmoney.jsp");
+			request.setAttribute("msg", "找不到账户");
+			request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
 		}
 		
 	}

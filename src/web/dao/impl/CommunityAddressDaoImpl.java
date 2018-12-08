@@ -30,17 +30,17 @@ public class CommunityAddressDaoImpl implements ICommunityAddressDao{
 	}
 	
 	public static void main(String[] args) {
-		/*CommunityAddressDaoImpl ca=new CommunityAddressDaoImpl();
-		 List<CommunityAddress> te=ca.selectCommunityAddressByCommunityId(1);
-		 for (CommunityAddress communityAddress : te) {
-			System.out.println(communityAddress.toString());
-		}*/
-		
 		CommunityAddressDaoImpl ca=new CommunityAddressDaoImpl();
-		 List<CommunityAddress> te=ca.selectCommunityAddressPage(5, 0, 1);
+		 List<CommunityAddress> te=ca.selectCommunityAddressByCommunityId(2);
 		 for (CommunityAddress communityAddress : te) {
 			System.out.println(communityAddress.toString());
 		}
+		
+		/*CommunityAddressDaoImpl ca=new CommunityAddressDaoImpl();
+		 List<CommunityAddress> te=ca.selectCommunityAddressPage(5, 0, 1);
+		 for (CommunityAddress communityAddress : te) {
+			System.out.println(communityAddress.toString());
+		}*/
 	}
 	
 	
