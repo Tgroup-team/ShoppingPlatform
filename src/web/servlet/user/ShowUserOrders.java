@@ -90,22 +90,22 @@ public class ShowUserOrders extends HttpServlet {
 		returnOrder.setProductId(orderdetails.getProductId());
 		returnOrder.setVipId(user.getVipId());
 		returnOrder.setTotal(null);
-		returnOrder.setReturnstate("待退款 待退货");
+		returnOrder.setReturnstate("待退款");
 		Date nowDate=new Date();
 		returnOrder.setApplytime(nowDate);
 		returnOrder.setAmount(orderdetails.getAmount());
-		returnOrder.setProcessingstate("未退款 未退货");
+		returnOrder.setProcessingstate("未退货");
 		returnOrder.setProductprice(orderdetails.getPrice());
 		returnOrder.setReturnTime(nowDate);
 		int result=returnDao.insertReturn(returnOrder);
 		if(result>0) {
 			order.setOrderstate("退货");
 			orderDao.updateByOrderId(order);
-			request.setAttribute("msg", "退货成功");
+			request.setAttribute("msg", "申请退货成功");
 			request.getRequestDispatcher("/404").forward(request, response);
 			return;
 		}
-		request.setAttribute("msg", "退货失败");
+		request.setAttribute("msg", "申请退货失败");
 		request.getRequestDispatcher("/404").forward(request, response);
 		return;
 	}

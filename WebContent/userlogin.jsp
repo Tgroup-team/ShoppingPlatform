@@ -104,18 +104,21 @@
 		</div>
 	</div>
 	
-<%if(request.getAttribute("loginMsg")!=null){ %>
+
 <script type="text/javascript">
+
+
 $(function() {
+	<%if(request.getAttribute("loginMsg")!=null){ %>
+		alert("<%=request.getAttribute("loginMsg")%>");
+	<%} %>
 	//判断是不是在框架中打开，是就重定向一下
 	if(top.location!=self.location){
 		top.location=self.location;
-	}else{
-		alert("<%=request.getAttribute("loginMsg")%>");
 	}
 });
 </script>
-<%} %>
+
 </body>
 
 </html>

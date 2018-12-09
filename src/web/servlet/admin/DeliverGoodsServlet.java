@@ -30,7 +30,7 @@ public class DeliverGoodsServlet extends HttpServlet {
 		
 		Order order=new Order();
 		order.setOrderId(Integer.parseInt(orderId));
-		order.setOrderstate("已发货");
+		order.setOrderstate("发货");
 		
 		orderDao.updateByOrderId(order);
 		

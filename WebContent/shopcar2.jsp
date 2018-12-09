@@ -77,7 +77,7 @@
 							</li>
 							<li class="td td-item">
 								<div class="item-pic">
-									<a href="#" target="_blank"
+									<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${cartBean.productId }" target="_blank"
 										data-title="${cartBean.product.productName }"
 										class="J_MakePoint" data-point="tbcart.8.12"> <img
 										src="<%=request.getContextPath() %>/${fn:split(cartBean.product.productImages,';')[0] }"
@@ -85,7 +85,7 @@
 								</div>
 								<div class="item-info">
 									<div class="item-basic-info">
-										<a href="#" target="_blank"
+										<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${cartBean.productId }" target="_blank"
 											title="${cartBean.product.productName }"
 											class="item-title J_MakePoint" data-point="tbcart.8.11">${cartBean.product.productName }</a>
 									</div>

@@ -149,22 +149,6 @@ if(request.getSession().getAttribute("user")==null){
                            <li><a href="UserBalance" target="main">账户余额</a></li>   
 					</ul>
 				</li>
-<<<<<<< HEAD
-				<c:if test="${sessionScope.user.isLead==1}">
-				
-					<li class="person">
-						<a href="#">我的管理</a>
-						<ul>
-	                           <li><a href="takeGoodServlet" target="main">收货管理</a></li>   
-						</ul>
-					</li><li class="person">
-						<a href="#">小区成员</a>
-						<ul>
-	                           <li><a href="BrowseMemberServlet" target="main">查看成员</a></li>   
-						</ul>
-					</li>
-				</c:if>
-=======
 <% if("1".equals(((User)session.getAttribute("user")).getIsLead())){%>
 				<li class="person">
 					<a href="#">我的管理</a>
@@ -178,8 +162,6 @@ if(request.getSession().getAttribute("user")==null){
 					</ul>
 				</li>
 <%} %>
-
->>>>>>> branch 'master' of https://github.com/Tgroup-team/ShoppingPlatform.git
 				<li class="person">
 					<a href="#">我的申请</a>
 					<ul>

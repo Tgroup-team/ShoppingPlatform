@@ -83,6 +83,7 @@ public class OrderSubmit extends HttpServlet {
 			return;
 		}
 		User user = (User) request.getSession().getAttribute("user");
+		user=userDao.selectUser(user.getVipId());
 		if (user == null) {
 			request.setAttribute("loginMsg", "亲爱的用户，登陆后才能购买哦！");
 			request.setAttribute("redirectUrl", "IntroductionServlet?productId=" + productId);
@@ -168,6 +169,7 @@ public class OrderSubmit extends HttpServlet {
 			return;
 		}
 		User user = (User) request.getSession().getAttribute("user");
+		user=userDao.selectUser(user.getVipId());
 		if (user == null) {
 			request.setAttribute("msg", "登陆已失效，请重新登陆！<a href='userlogin.jsp'>》》点我登陆《《</a>");
 			request.getRequestDispatcher("/404").forward(request, response);
