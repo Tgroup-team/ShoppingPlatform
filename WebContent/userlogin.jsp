@@ -13,9 +13,10 @@
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-	<link rel="stylesheet" href="AmazeUI-2.4.2/assets/css/amazeui.css" />
-	<link href="css/dlstyle.css" rel="stylesheet" type="text/css">
-	
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/AmazeUI-2.4.2/assets/css/amazeui.css" />
+	<link href="<%=request.getContextPath()%>/css/dlstyle.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript"
+	src="<%=request.getContextPath()%>/js/jquery.js"></script>
 	<script type="text/javascript">
 		 
 		//提交之前进行检查，如果return false，则不允许提交
@@ -38,17 +39,18 @@
 </head>
 <body>
 	<div class="login-boxtitle">
-		<a href="index.html"><img alt="logo" src="images/logobig.png" /></a>
+		<a href="index.html"><img alt="logo" src="<%=request.getContextPath()%>/images/logobig.png" /></a>
 	</div>
 
 	<div class="login-banner" style="height: 500px;">
 		<div class="login-main" style="padding-top: 25px;">
-			<div class="login-banner-bg"><span></span><img src="images/big.jpg" /></div>
+			<div class="login-banner-bg"><span></span><img src="<%=request.getContextPath()%>/images/big.jpg" /></div>
 			<div class="login-box">
 				<h3 class="title" style="margin-top:25px">登录商城</h3>
 				<div class="clear"></div>
 				<div class="login-form">
 				  <form action="userLoginServlet" method="post"  onsubmit="return check()">
+				  		<input type="hidden" name="redirectUrl" value="${redirectUrl }">
 					    <div class="user-name">
 						    <label for="user"><i class="am-icon-user"></i></label>
 						    <input type="text" name="uname" id="username" placeholder="请输入用户名">
@@ -101,6 +103,19 @@
 			</p>
 		</div>
 	</div>
+	
+<%if(request.getAttribute("loginMsg")!=null){ %>
+<script type="text/javascript">
+$(function() {
+	//判断是不是在框架中打开，是就重定向一下
+	if(top.location!=self.location){
+		top.location=self.location;
+	}else{
+		alert("<%=request.getAttribute("loginMsg")%>");
+	}
+});
+</script>
+<%} %>
 </body>
 
 </html>

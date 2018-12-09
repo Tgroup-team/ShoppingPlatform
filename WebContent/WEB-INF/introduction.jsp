@@ -37,13 +37,13 @@
 	<!--顶部导航条 -->
 	<div class="am-container header">
 		<ul class="message-l">
-				<div class="topMessage">
-					<div class="menu-hd">
-						<a href="<%=request.getContextPath()%>/userlogin.jsp" target="_top" class="h">亲，请登录</a> <a
-							href="register.html" target="_top">免费注册</a> <a href="#"
-							target="_top">手机逛商场</a>
-					</div>
+			<div class="topMessage">
+				<div class="menu-hd">
+					<a href="<%=request.getContextPath()%>/userlogin.jsp" target="_top"
+						class="h">亲，请登录</a> <a href="register.html" target="_top">免费注册</a>
+					<a href="#" target="_top">手机逛商场</a>
 				</div>
+			</div>
 		</ul>
 		<ul class="message-r">
 			<div class="topMessage home">
@@ -53,7 +53,8 @@
 			</div>
 			<div class="topMessage my-shangcheng">
 				<div class="menu-hd MyShangcheng">
-					<a href="<%=request.getContextPath()%>/personalcenter2.jsp" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+					<a href="<%=request.getContextPath()%>/personalcenter2.jsp"
+						target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
 				</div>
 			</div>
 			<div class="topMessage mini-cart">
@@ -82,10 +83,9 @@
 		<div class="search-bar pr">
 			<a name="index_none_header_sysc" href="#"></a>
 			<form action="<%=request.getContextPath()%>/IntroductionServletList">
-				<input id="searchInput" name="keywords" type="text"
-					placeholder="搜索" autocomplete="off"> <input
-					id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
-					type="submit">
+				<input id="searchInput" name="keywords" type="text" placeholder="搜索"
+					autocomplete="off"> <input id="ai-topsearch"
+					class="submit am-btn" value="搜索" index="1" type="submit">
 			</form>
 		</div>
 	</div>
@@ -103,7 +103,8 @@
 				<ul>
 					<li class="index"><a href="<%=request.getContextPath()%>">首页</a></li>
 					<c:forEach items="${categories }" var="category">
-						<li class="qc"><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=${category.categoryId }">${category.categoryName }</a></li>
+						<li class="qc"><a
+							href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=${category.categoryId }">${category.categoryName }</a></li>
 					</c:forEach>
 				</ul>
 				<!-- 				<div class="nav-extra">
@@ -114,7 +115,8 @@
 		</div>
 		<ol class="am-breadcrumb am-breadcrumb-slash">
 			<li><a href="<%=request.getContextPath()%>">首页</a></li>
-			<li><a href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=${product.category.categoryId }">${product.category.categoryName }</a></li>
+			<li><a
+				href="<%=request.getContextPath()%>/IntroductionServletList?categoryId=${product.category.categoryId }">${product.category.categoryName }</a></li>
 			<li><a href="#">${product.productName }</a></li>
 		</ol>
 		<script type="text/javascript">
@@ -266,7 +268,7 @@
 									<form class="theme-signin" name="loginform" action=""
 										method="post">
 
-										<div class="theme-signin-left" style="padding-top:0px;">
+										<div class="theme-signin-left" style="padding-top: 0px;">
 											<div class="theme-options">
 												<div class="cart-title">规格</div>
 												<ul class="tb-thumb" id="thumblist">
@@ -299,10 +301,11 @@
 												<dd>
 													<input id="min" class="am-btn am-btn-default" name=""
 														type="button" value="-" /> <input id="text_box" name=""
-														type="number" value="1" style="width: 50px;" min="1" max="${product.inventory }" /> <input
-														id="add" class="am-btn am-btn-default" name=""
-														type="button" value="+" /> <span id="Stock"
-														class="tb-hidden">库存<span class="stock">${product.inventory }</span>件
+														type="number" value="1" style="width: 50px;" min="1"
+														max="${product.inventory }" /> <input id="add"
+														class="am-btn am-btn-default" name="" type="button"
+														value="+" /> <span id="Stock" class="tb-hidden">库存<span
+														class="stock">${product.inventory }</span>件
 													</span>
 												</dd>
 
@@ -367,12 +370,12 @@
 					</div>
 					<li>
 						<div class="clearfix tb-btn tb-btn-buy theme-login">
-							<a id="LikBuy" title="点此按钮到下一步确认购买信息" href="#">立即购买</a>
+							<a id="LikBuy" title="点此按钮到下一步确认购买信息" href="javascript:postOrderSubmit()">立即购买</a>
 						</div>
 					</li>
 					<li>
 						<div class="clearfix tb-btn tb-btn-basket theme-login">
-							<a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+							<a id="LikBasket" title="加入购物车" href="javascript:postAddToUserCartFunction();"><i></i>加入购物车</a>
 						</div>
 					</li>
 				</div>
@@ -385,25 +388,32 @@
 
 		<!-- introduce-->
 
-		<div class="introduce" style="margin-top:20px;">
+		<div class="introduce" style="margin-top: 20px;">
 			<div class="browse">
 				<div class="mc">
 					<ul>
 						<div class="mt">
 							<h2>看了又看</h2>
 						</div>
-						<c:forEach items="${likeProducts }" var="likeProduct" begin="0" end="1">
-						<li class="p-img">
-							<div class="p-img">
-								<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }"> <img class="" src="${fn:split(likeProduct.productImages,';')[0] }"></a>
-							</div>
-							<div class="p-name">
-								<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }"> ${likeProduct.productName } </a>
-							</div>
-							<div class="p-price">
-								<strong>￥${likeProduct.productPrice } </strong>
-							</div>
-						</li>
+						<c:forEach items="${likeProducts }" var="likeProduct" begin="0"
+							end="1">
+							<li class="p-img">
+								<div class="p-img">
+									<a
+										href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }">
+										<img class=""
+										src="${fn:split(likeProduct.productImages,';')[0] }">
+									</a>
+								</div>
+								<div class="p-name">
+									<a
+										href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }">
+										${likeProduct.productName } </a>
+								</div>
+								<div class="p-price">
+									<strong>￥${likeProduct.productPrice } </strong>
+								</div>
+							</li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -414,9 +424,8 @@
 						<li class="am-active"><a href="#"> <span
 								class="index-needs-dt-txt">宝贝详情</span></a></li>
 						</li>
-						<li id="mylikelistli">
-							<a id="mylikelista" href="#"> <span class="index-needs-dt-txt">猜你喜欢</span></a>
-						</li>
+						<li id="mylikelistli"><a id="mylikelista" href="#"> <span
+								class="index-needs-dt-txt">猜你喜欢</span></a></li>
 					</ul>
 
 					<div class="am-tabs-bd">
@@ -459,21 +468,24 @@
 						</div>
 
 						<div class="am-tab-panel am-fade">
-							<div class="like"  style="min-height: 660px;">
+							<div class="like" style="min-height: 660px;">
 								<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
-								<c:forEach items="${likeProducts }" var="likeProduct">
-								<li>
-										<div class="i-pic limit">
-											<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }"><img src="${fn:split(likeProduct.productImages,';')[0] }" /></a>
-											<p>
-												<a href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }">${likeProduct.productName }</a>
-											</p>
-											<p class="price fl">
-												<b>¥</b> <strong>${likeProduct.productPrice }</strong>
-											</p>
-										</div>
-									</li>
-								</c:forEach>
+									<c:forEach items="${likeProducts }" var="likeProduct">
+										<li>
+											<div class="i-pic limit">
+												<a
+													href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }"><img
+													src="${fn:split(likeProduct.productImages,';')[0] }" /></a>
+												<p>
+													<a
+														href="<%=request.getContextPath() %>/IntroductionServlet?productId=${likeProduct.productId }">${likeProduct.productName }</a>
+												</p>
+												<p class="price fl">
+													<b>¥</b> <strong>${likeProduct.productPrice }</strong>
+												</p>
+											</div>
+										</li>
+									</c:forEach>
 								</ul>
 							</div>
 							<div class="clear"></div>
@@ -481,24 +493,29 @@
 							<!--分页 -->
 							<ul class="am-pagination am-pagination-right">
 								<c:if test="${pagesIndex>1 }">
-									<li><a href="?productId=${product.productId }&pageIndex=${pagesIndex-1 }&showlike=true">&laquo;</a></li>				
+									<li><a
+										href="?productId=${product.productId }&pageIndex=${pagesIndex-1 }&showlike=true">&laquo;</a></li>
 								</c:if>
 								<c:if test="${pagesIndex<2 }">
-									<li class="am-disabled"><a href="#">&laquo;</a></li>				
+									<li class="am-disabled"><a href="#">&laquo;</a></li>
 								</c:if>
-								<c:forEach var="pageindexTemp" begin="1" end="${pagesCount }" step="1">
+								<c:forEach var="pageindexTemp" begin="1" end="${pagesCount }"
+									step="1">
 									<c:if test="${pagesIndex==pageindexTemp }">
-										<li class="am-active"><a href="?productId=${product.productId }&pageIndex=${pageindexTemp }&showlike=true">${pageindexTemp }</a></li>
+										<li class="am-active"><a
+											href="?productId=${product.productId }&pageIndex=${pageindexTemp }&showlike=true">${pageindexTemp }</a></li>
 									</c:if>
 									<c:if test="${pagesIndex!=pageindexTemp }">
-										<li><a href="?productId=${product.productId }&pageIndex=${pageindexTemp }&showlike=true">${pageindexTemp }</a></li>
+										<li><a
+											href="?productId=${product.productId }&pageIndex=${pageindexTemp }&showlike=true">${pageindexTemp }</a></li>
 									</c:if>
 								</c:forEach>
 								<c:if test="${pagesIndex<pagesCount }">
-									<li><a href="?productId=${product.productId }&pageIndex=${pagesIndex+1 }&showlike=true">&raquo;</a></li>				
+									<li><a
+										href="?productId=${product.productId }&pageIndex=${pagesIndex+1 }&showlike=true">&raquo;</a></li>
 								</c:if>
 								<c:if test="${pagesIndex>=pagesCount }">
-									<li class="am-disabled"><a href="#">&raquo;</a></li>				
+									<li class="am-disabled"><a href="#">&raquo;</a></li>
 								</c:if>
 							</ul>
 						</div>
@@ -527,18 +544,52 @@
 
 		</div>
 	</div>
+	<!-- 用来提交添加到购物车 -->
+	<div style="display: none;">
+		<form id="postAddToUserCart" action="ShowUserCart" method="post">
+			<input id="postAddToUserCart_productId" name="productId" value="${product.productId }">
+			<input id="postAddToUserCart_amount" name="amount" value="">
+		</form>
+		<script type="text/javascript">
+			var postAddToUserCartFunction = function() {
+				$('#postAddToUserCart_amount').val($('#text_box').val());
+				var form_table = document.getElementById("postAddToUserCart");
+				form_table.submit();
+			};
+		</script>
+	</div>
+	<!-- 用来提交购买 -->
+	<div style="display: none;">
+		<form id="postOrderSubmitForm" action="OrderSubmit" method="get">
+			<input id="postOrderSubmit_productId" name="productId" value="${product.productId }">
+			<input id="postOrderSubmit_amount" name="amount" value="">
+		</form>
+		<script type="text/javascript">
+			var postOrderSubmit = function(productId) {
+				$('#postOrderSubmit_amount').val($('#text_box').val());
+				var form_table = document.getElementById("postOrderSubmitForm");
+				form_table.submit();
+			};
+		</script>
+	</div>
 	
-<!-- 实现自动滚动到猜你喜欢 -->
-<c:if test="${showlike }">
-<script type="text/javascript">
-$(function(){
-	$("#mylikelistli").trigger('click');
-	$("#mylikelista").trigger('click');
-	var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-	$body.animate({scrollTop: $('#mylikelistli').offset().top}, 1000);
-});
-</script>
-</c:if>
+	
+	
+	<!-- 实现自动滚动到猜你喜欢 -->
+	<c:if test="${showlike }">
+		<script type="text/javascript">
+			$(function() {
+				$("#mylikelistli").trigger('click');
+				$("#mylikelista").trigger('click');
+				var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html')
+						: $('body'))
+						: $('html,body');
+				$body.animate({
+					scrollTop : $('#mylikelistli').offset().top
+				}, 1000);
+			});
+		</script>
+	</c:if>
 
 </body>
 

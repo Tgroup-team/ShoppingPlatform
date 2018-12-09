@@ -38,8 +38,7 @@ public class UserLoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+		request.removeAttribute("loginMsg");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String uname=request.getParameter("uname");
@@ -61,15 +60,18 @@ public class UserLoginServlet extends HttpServlet {
 				session.setAttribute("username", uname);
 				session.setAttribute("id", user.getVipId());
 				session.setAttribute("communityId", user.getCommunityId());
-
+				if(request.getParameter("redirectUrl")!=null&&!"".equals(request.getParameter("redirectUrl"))) {
+					response.sendRedirect(request.getParameter("redirectUrl"));
+					return;
+				}
 				request.getRequestDispatcher("/personalcenter2.jsp").forward(request, response);
 			}else {
-				request.setAttribute("msg", "密码错误");
-				request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
+				request.setAttribute("loginMsg", "密码错误");
+				request.getRequestDispatcher("/userlogin.jsp").forward(request, response);
 			}
 		}else {
-			request.setAttribute("msg", "找不到用户");
-			request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
+			request.setAttribute("loginMsg", "用户不存在");
+			request.getRequestDispatcher("/userlogin.jsp").forward(request, response);
 		}
 	}
 

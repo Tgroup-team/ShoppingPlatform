@@ -41,9 +41,9 @@
 						<td style="text-align: center;" width="15%">操作</td>
 					</tr>
 
-					<c:forEach items="${pro }" var="lp">
+					<c:forEach items="${pro }" var="lp" varStatus="vs">
 						<tr>
-							<td style="text-align: center;">${lp.productId }</td>
+							<td style="text-align: center;">${vs.count }</td>
 							<td style="text-align: center;">${lp.category.categoryName }</td>
 							<td style="text-align: center;">${lp.productName }</td>
 							<td title="${lp.productImages }">${fn:substring(lp.productImages,0,15) }...</td>

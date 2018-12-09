@@ -50,7 +50,13 @@ public class ReturnDaoImpl implements IReturnDao{
 	@Override
 	public Return selectReturn(Integer returnId) {
 		return SqlHelper.executeQueryOne(Return.class,
-				"select * from " + TABLENAME + " where returnId=" + returnId);
+				"select r.*,p.*,u.* from T_Return r,T_Product p,T_User u where p.productId=r.productId and u.vipId=r.vipId and r.returnId=" + returnId);
+	}
+
+	@Override
+	public List<Return> selectReturnByVipId(Integer vipId) {
+		return SqlHelper.executeQuery(Return.class,
+				"select r.*,p.*,u.* from T_Return r,T_Product p,T_User u where p.productId=r.productId and u.vipId=r.vipId and r.vipId=" + vipId);
 	}
 
 }

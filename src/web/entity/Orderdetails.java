@@ -23,16 +23,6 @@ public class Orderdetails {
 				+ ", ordertime=" + ordertime + "]";
 	}
 
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-
-	
-
 	public Integer getDetailsId() {
 		return detailsId;
 	}
@@ -81,6 +71,14 @@ public class Orderdetails {
 		this.amount = amount;
 	}
 
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	
 	public BigDecimal getTotal() {
 		return total;
 	}
