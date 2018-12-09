@@ -20,6 +20,18 @@ public class ManagerDaoImpl implements IManagerDao{
 		Managers managers=SqlHelper.executeQueryOne(Managers.class,"select password from T_Manager where password='"+password+"'");
 		return managers;
 	}
+
+	@Override
+	public int updateManager(Managers managers) {
+		return SqlHelper.executeUpdate("T_Manager", managers, "where managerId="+managers.getManagerId());
+	}
+
+	@Override
+	public Managers selectByManagerId(Integer managerId) {
+		// TODO Auto-generated method stub
+		return SqlHelper.executeQueryOne(Managers.class, "select * from T_Manager where managerId="+managerId);
+	}
+	
 	
 	//通过managerId修改
 	@Override

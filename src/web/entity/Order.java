@@ -7,7 +7,7 @@ public class Order {
 
 	private User user;
 	private Integer vipId;
-
+	//订单状态 发货，待发货，已收货
 	private String orderstate;
 	private Date delivery;
 	

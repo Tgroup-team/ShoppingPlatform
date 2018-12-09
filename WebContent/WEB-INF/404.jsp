@@ -10,29 +10,36 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>未找到相关商品</title>
+<title>未找到相关...</title>
 
-<link href="AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet"
+<link href="<%=request.getContextPath()%>/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet"
 	type="text/css" />
-<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet"
+<link href="<%=request.getContextPath()%>/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet"
 	type="text/css" />
-<link href="basic/css/demo.css" rel="stylesheet" type="text/css" />
-<link type="text/css" href="css/optstyle.css" rel="stylesheet" />
-<link type="text/css" href="css/style.css" rel="stylesheet" />
+<link href="<%=request.getContextPath()%>/basic/css/demo.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="<%=request.getContextPath()%>/css/optstyle.css" rel="stylesheet" />
+<link type="text/css" href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" />
 
-<script type="text/javascript" src="basic/js/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="basic/js/quick_links.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/basic/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/basic/js/quick_links.js"></script>
 
-<script type="text/javascript" src="AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-<script type="text/javascript" src="js/jquery.imagezoom.min.js"></script>
-<script type="text/javascript" src="js/jquery.flexslider.js"></script>
-<script type="text/javascript" src="js/list.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.imagezoom.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/list.js"></script>
 
 </head>
 
 <body>
-
-
+<%
+	if(!"true".equals(request.getAttribute("noRedirect"))){
+%>
+<script type="text/javascript">
+	//判断是不是在框架中打开，是就重定向一下
+	if(top.location!=self.location){
+		top.location=self.location;
+	}
+</script>
 	<!--顶部导航条 -->
 	<div class="am-container header">
 		<ul class="message-l">
@@ -47,7 +54,7 @@
 		<ul class="message-r">
 			<div class="topMessage home">
 				<div class="menu-hd">
-					<a href="#" target="_top" class="h">商城首页</a>
+					<a href="<%=request.getContextPath()%>" target="_top" class="h">商城首页</a>
 				</div>
 			</div>
 			<div class="topMessage my-shangcheng">
@@ -73,10 +80,10 @@
 
 	<div class="nav white">
 		<div class="logo">
-			<img src="images/logo.png" />
+			<img src="<%=request.getContextPath()%>/images/logo.png" />
 		</div>
 		<div class="logoBig">
-			<li><img src="images/logobig.png" /></li>
+			<li><img src="<%=request.getContextPath()%>/images/logobig.png" /></li>
 		</div>
 		<div class="search-bar pr">
 			<a name="index_none_header_sysc" href="#"></a>
@@ -116,9 +123,17 @@
 
 		<div class="introduce">
 			<div class="introduceMain" style="width: 100%;">
+			<%} %>
 				<div>
-
 					<center>
+					
+					<%
+						if(request.getParameter("msg")!=null){
+							if(request.getAttribute("msg")==null){
+								request.setAttribute("msg", request.getParameter("msg"));
+							}
+						}
+					%>
 						<h3>${msg==null?"页面不存在":msg }</h3>
 					</center>
 					<br />
@@ -152,7 +167,9 @@
 					<br />
 				</div>
 				<div class="clear"></div>
-
+<%
+	if(!"true".equals(request.getAttribute("noRedirect"))){
+%>
 				<div class="footer">
 					<div class="footer-hd">
 						<p>
@@ -171,6 +188,7 @@
 
 		</div>
 	</div>
+	<%} %>
 </body>
 
 </html>

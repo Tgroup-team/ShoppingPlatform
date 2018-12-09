@@ -28,18 +28,16 @@ public class Managers {
 		return password;
 	}
 
-	
-	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public BigDecimal getMoney() {
 		return money;
 	}
 
 	public void setMoney(BigDecimal money) {
 		this.money = money;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 }

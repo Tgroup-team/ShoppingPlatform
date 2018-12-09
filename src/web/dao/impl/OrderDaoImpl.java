@@ -1,5 +1,7 @@
 package web.dao.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import web.dao.IOrderDao;
@@ -46,7 +48,13 @@ public class OrderDaoImpl implements IOrderDao {
 	 */
 	@Override
 	public Order selectByOrderId(Integer orderId) {
-		return SqlHelper.executeQueryOne(Order.class,"select T_Order.*,T_User.* from T_Order,T_User where T_Order.orderId=T_User.vipId and orderId="+orderId);
+		return SqlHelper.executeQueryOne(Order.class,"select T_Order.*,T_User.* from T_Order,T_User where T_Order.vipId=T_User.vipId and T_Order.orderId="+orderId);
+	}
+
+	@Override
+	public Order selectByVipIdAndDelivery(Integer vipId, String delivery) {
+		//System.out.println("select T_Order.*,T_User.* from T_Order,T_User where T_Order.vipId=T_User.vipId and T_Order.vipId="+vipId+" and T_Order.delivery='"+delivery+"'");
+		return SqlHelper.executeQueryOne(Order.class,"select T_Order.*,T_User.* from T_Order,T_User where T_Order.vipId=T_User.vipId and T_Order.vipId="+vipId+" and T_Order.delivery='"+delivery+"'");
 	}
 	
 	/*
