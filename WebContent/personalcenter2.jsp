@@ -126,8 +126,8 @@
 				<li class="person">
 					<a href="#">个人资料</a>
 					<ul>
-                            <li><a href="page" target="main">收货地址</a></li>   
-                            <li><a href="newaddress.jsp" target="main">新增地址</a></li>   
+                           <li><a href="page" target="main">收货地址</a></li>   
+                           <li><a href="newaddress.jsp" target="main">新增地址</a></li>   
 					</ul>
 				</li>
                     <li class="person">
@@ -144,7 +144,7 @@
                            <li><a href="UserBalance" target="main">账户余额</a></li>   
 					</ul>
 				</li>
-<<<<<<< HEAD
+
 				<c:if test="${sessionScope.user.isLead==1}">
 				
 					<li class="person">
@@ -159,32 +159,16 @@
 						</ul>
 					</li>
 				</c:if>
-=======
-<% if("1".equals(((User)session.getAttribute("user")).getIsLead())){%>
-				<li class="person">
-					<a href="#">我的管理</a>
-					<ul>
-                           <li><a href="manage.jsp" target="main">收货管理</a></li>   
-					</ul>
-				</li><li class="person">
-					<a href="#">小区成员</a>
-					<ul>
-                           <li><a href="BrowseMemberServlet" target="main">查看成员</a></li>   
-					</ul>
-				</li>
-<%} %>
-
->>>>>>> branch 'master' of https://github.com/Tgroup-team/ShoppingPlatform.git
+				<c:if test="${sessionScope.user.isLead==0}">
 				<li class="person">
 					<a href="#">我的申请</a>
 					<ul>
-                           <li><a href="teamHeader" target="main">申请团长</a></li>   
+                         <li><a href="teamHeader" target="main">申请团长</a></li>   
 					</ul>
 				</li>
+				</c:if>
 			</ul>
 		</aside>
 	</div>
-
 </body>
-
 </html>

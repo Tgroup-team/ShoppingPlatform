@@ -97,21 +97,37 @@ public class AddressDaoImpl implements IAddressDao{
 	 * 普通用户分页查询
 	 */
 	@Override
-	public List<Address> selectUserAddressByPage(int pageSize,int pageNow,Integer vipId){
-		return SqlHelper.executeQuery(Address.class,"select top "+pageSize+" * from T_Address where vipId="+vipId+" and aid not in(select top "+pageNow+" aid from T_Address)");
+	public List<Address> selectUserAddressByPage(int getStartPos,int pageSize,Integer vipId){
+		return SqlHelper.executeQuery(Address.class,"select top "+pageSize+" * from T_Address where vipId="+vipId+" and aid not in(select top "+getStartPos+" aid from T_Address where vipId="+vipId+")");
+	}
+	
+	/*
+	 * 获取指定用户的所有地址
+	 */
+	@Override
+	public List<Address> selectAddressCount(Integer vipId){
+		return SqlHelper.executeQuery(Address.class,"select * from T_Address where vipId="+vipId);
 	}
 
 	public static void main(String[] args) {
 		/*Address address=new Address("1010", "1010", "1010", "1010", "1010", "1010");
 		IAddressDao addresDao=new AddressDaoImpl();
 		addresDao.insertAddress(address);*/
-		Address address=new Address();
+		/*Address address=new Address();
 		address.setaId(7);
 		address.setaName("OOOO");
 		address.setaTel("1234584514");
 		IAddressDao addressDao=new AddressDaoImpl();
 		int i=addressDao.updateByAddressId(address);
-		System.out.println(i);
+		System.out.println(i);*/
+		IAddressDao addressDao=new AddressDaoImpl();
+		
+		List<Address> us=addressDao.selectUserAddressByPage(5, 0, 3);
+		for (Address address : us) {
+			System.out.println(address.toString());
+		}
+		
+		
 	}
 
 }

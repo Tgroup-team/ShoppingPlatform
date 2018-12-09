@@ -46,6 +46,7 @@ public class AddressQueryServlet extends HttpServlet {
 		User user=(User) session.getAttribute("user");
 		Integer id=Integer.valueOf(user.getIsLead());
 		Integer vipId=Integer.valueOf(user.getVipId());
+		System.out.println("身份："+id);
 		//0代表用户
 		if(id==0) {
 			String pageNow = request.getParameter("pageNow"); 
@@ -58,37 +59,44 @@ public class AddressQueryServlet extends HttpServlet {
 	        int totalCount = addressDao.countAddressByvipId(vipId);
 	        System.out.println("一共数据条数："+totalCount);
 	        if (pageNow != null) { 
-	            page = new Page(totalCount, Integer.parseInt(pageNow),5);  
-	            addresses=addressDao.selectUserAddressByPage(page.getPageSize(), page.getStartPos(),vipId);
+	            page = new Page(totalCount, Integer.parseInt(pageNow),5); 
+	            
+	            addresses=addressDao.selectUserAddressByPage(page.getStartPos(),page.getPageSize(),vipId);
 	        } else { 
 	            page = new Page(totalCount, 1,5); 
-	            addresses=addressDao.selectUserAddressByPage(page.getPageSize(), page.getStartPos(),vipId);
+	            System.out.println("================");
+	            System.out.println(page.getStartPos());
+	            System.out.println(page.getPageSize());
+	            System.out.println(vipId);
+	            System.out.println("================");
+	            addresses=addressDao.selectUserAddressByPage(page.getStartPos(),page.getPageSize(),vipId);
 	        } 
 	        for (Address address : addresses) {
 				System.out.println(address.toString());
 			}
 	        request.setAttribute("addresses", addresses);
 	        request.setAttribute("page", page);  
-	        request.getRequestDispatcher("/useraddress.jsp").forward(request, response);
+	        request.getRequestDispatcher("/address2.jsp").forward(request, response);
 		}else if(id==1) {
-			System.out.println("1111111111");
 			
 			String pageNow = request.getParameter("pageNow"); 
 			System.out.println("pageNow:"+pageNow);
 	        Page page = null; 
 	        ICommunityAddressDao caDao=new CommunityAddressDaoImpl();
 	        List<CommunityAddress> cads=new ArrayList<CommunityAddress>();
-	        List<CommunityAddress> cad=caDao.selectCommunityAddressByCommunityId(vipId);
-	        
-	        
+	        List<CommunityAddress> cad=caDao.selectCommunityAddressByCommunityId(user.getCommunityId());
 	        //查询总数
 	        int totalCount = cad.size();
-	        System.out.println("一共数据条数："+totalCount);
+	        System.out.println("社团成员一共数据条数："+totalCount);
 	        if (pageNow != null) { 
 	            page = new Page(totalCount, Integer.parseInt(pageNow),5);  
+	            
+	            System.out.println(page.getPageSize());
+	            System.out.println(page.getStartPos());
 	            cads=caDao.selectCommunityAddressPage(page.getPageSize(), page.getStartPos(), user.getCommunityId());
 	        } else { 
 	            page = new Page(totalCount, 1,5); 
+	            System.out.println(user.getCommunityId());    
 	            cads=caDao.selectCommunityAddressPage(page.getPageSize(), page.getStartPos(), user.getCommunityId());
 	        } 
 	        for (CommunityAddress communityAddress : cads) {
@@ -96,7 +104,7 @@ public class AddressQueryServlet extends HttpServlet {
 			}
 	        request.setAttribute("cads", cads);
 	        request.setAttribute("page", page);  
-	        request.getRequestDispatcher("/leaderaddress.jsp").forward(request, response);
+	        request.getRequestDispatcher("/address2.jsp").forward(request, response);
 			
 		}else {
 			System.out.println("异常");
