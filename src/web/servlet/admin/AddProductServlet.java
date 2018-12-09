@@ -33,8 +33,27 @@ public class AddProductServlet extends HttpServlet {
 		String categoryId=request.getParameter("categoryId");
 		String productName=request.getParameter("productName");
 		String productPrice=request.getParameter("productPrice");
-		String productImge=request.getParameter("productImge");
-		String productDescriptionImages=request.getParameter("productDescriptionImages");
+		
+		String[] productImges=request.getParameterValues("productImages");
+		String[] productDescriptionImagess=request.getParameterValues("productDescriptionImages");
+		String productImge="";
+		for (String string : productImges) {
+			if(string==null||"".equals(string)) {
+				continue;
+			}
+			productImge=productImge+";"+string;
+		}
+		productImge=productImge.length()>0?productImge.substring(1):"";
+		
+		String productDescriptionImages="";
+		for (String string : productDescriptionImagess) {
+			if(string==null||"".equals(string)) {
+				continue;
+			}
+			productDescriptionImages=productDescriptionImages+";"+string;
+		}
+		productDescriptionImages=productDescriptionImages.length()>0?productDescriptionImages.substring(1):"";
+		
 		String inventory=request.getParameter("inventory");
 		String productState=request.getParameter("productState");
 		String suppliers=request.getParameter("suppliers");

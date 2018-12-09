@@ -25,13 +25,19 @@ public class WithdrawalServlet extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		
-		String managerName=(String) session.getAttribute("managerName");
+		Managers manage=(Managers) session.getAttribute("admin");
 		
-		Managers seleteByManagerName = managerDao.seleteByManagerName(managerName);
+		Managers seleteByManagerName = managerDao.seleteByManagerName(manage.getManagerName());
 		session.setAttribute("seleteByManagerName", seleteByManagerName);
+		System.out.println(seleteByManagerName);
 		
 		request.getRequestDispatcher("/admin/withdrawal1.jsp").forward(request, response);
 		
 	}
+	
+	@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			doGet(req, resp);
+		}
 
 }

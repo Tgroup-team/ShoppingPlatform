@@ -55,9 +55,9 @@
 							<td style="text-align: center;"><a class="c0085d0"
 								href="uppershelf?productId=${lp.productId }">上架</a>&nbsp;&nbsp;<a
 								class="c0085d0" href="lowershelf?productId=${lp.productId }">下架</a>&nbsp;&nbsp;<a
-								class="c0085d0" href="updateproduct?productId=${lp.productId }">修改</a>&nbsp;&nbsp;<a
-								class="c0085d0" href="deleteproduct?productId=${lp.productId }"
-								onclick="alert('确定要删除吗？')">删除</a></td>
+								class="c0085d0" href="updateproduct?productId=${lp.productId }">修改</a>&nbsp;&nbsp;
+								<%-- <a class="c0085d0" href="deleteproduct?productId=${lp.productId }"
+								onclick="alert('确定要删除吗？')">删除</a>--%></td> 
 					</c:forEach>
 
 				</table>

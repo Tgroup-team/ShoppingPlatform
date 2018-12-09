@@ -49,17 +49,17 @@
 
 						<div class="topMessage home">
 							<div class="menu-hd">
-								<a href="#" target="_top" class="h">商城首页</a>
+								<a href="${pageContext.request.contextPath}" target="_top" class="h">商城首页</a>
 							</div>
 						</div>
-
+<!-- 
 						<div class="  topMessage mini-cart">
 							<div class="menu-hd">
 								<a id="mc-menu-hd" href="#" target="_top"><i
 									class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong
 									id="J_MiniCartNum" class="h"></strong></a>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="topMessage favorite1">
 							<div class="menu-hd">

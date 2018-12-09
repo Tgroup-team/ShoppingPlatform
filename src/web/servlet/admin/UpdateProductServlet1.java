@@ -37,9 +37,25 @@ public class UpdateProductServlet1 extends HttpServlet {
 		String productPrice=request.getParameter("productPrice");
 		String inventory=request.getParameter("inventory");
 		String suppliers=request.getParameter("suppliers");
-		String productImages=request.getParameter("productImages");
-		String productDescriptionImages=request.getParameter("productDescriptionImages");
+		String[] productImges=request.getParameterValues("productImages");
+		String[] productDescriptionImagess=request.getParameterValues("productDescriptionImages");
+		String productImge="";
+		for (String string : productImges) {
+			if(string==null||"".equals(string)) {
+				continue;
+			}
+			productImge=productImge+";"+string;
+		}
+		productImge=productImge.length()>0?productImge.substring(1):"";
 		
+		String productDescriptionImages="";
+		for (String string : productDescriptionImagess) {
+			if(string==null||"".equals(string)) {
+				continue;
+			}
+			productDescriptionImages=productDescriptionImages+";"+string;
+		}
+		productDescriptionImages=productDescriptionImages.length()>0?productDescriptionImages.substring(1):"";
 		
 		System.out.println(productId);
 		Product product=new Product();
@@ -49,7 +65,7 @@ public class UpdateProductServlet1 extends HttpServlet {
 		product.setProductPrice(new BigDecimal(Float.parseFloat(productPrice)));
 		product.setInventory(Integer.parseInt(inventory));
 		product.setSuppliers(suppliers);
-		product.setProductImages(productImages);
+		product.setProductImages(productImge);
 		product.setProductDescriptionImages(productDescriptionImages);
 		
 		productDao.updateProduct(product);

@@ -14,23 +14,25 @@ public class TakeGoodDaoImpl implements ITakeGoodDao {
 	 */
 	@Override
 	public List<TakeGood> selectTakeGoodByPage(int pageSize,int pageNow,Integer vipId){
-		return SqlHelper.executeQuery(TakeGood.class,"SELECT top "+pageSize+
+/*		return SqlHelper.executeQuery(TakeGood.class,"SELECT top "+pageSize+
 				" o.*,od.ordertime,u.productName,u.productImages,u.suppliers "+
 				"FROM T_Order AS o "+
 				"LEFT JOIN T_Orderdetails AS od ON o.orderId = od.orderId "+
 				"LEFT JOIN T_Product AS u ON od.productId = u.productId where vipId="+vipId+
-				" and vipId not in(select top "+pageNow+" vipId from T_Order)");
+				" and vipId not in(select top "+pageNow+" vipId from T_Order)");*/
+		return SqlHelper.executeQuery(TakeGood.class, "select top "+pageSize+" o.*,od.*,p.* from T_Order o,T_Orderdetails od,T_Product p where od.orderId=o.orderId and p.productId=od.productId and o.vipId="+vipId 
+				+"and o.orderId not in(select top "+pageNow+" o.orderId from T_Order o,T_Orderdetails od where od.orderId=o.orderId and o.vipId="+vipId+")");
 	}
 
 	/*
 	 * 收货地址信息通过vipId
 	 */
 	public List<TakeGood> selectTakeGoodByvipId(Integer vipId){
-		return SqlHelper.executeQuery(TakeGood.class, 
+/*		return SqlHelper.executeQuery(TakeGood.class, 
 				"SELECT o.*,od.ordertime,u.productName,u.productImages,u.suppliers FROM T_Order AS o "+
 				"LEFT JOIN T_Orderdetails AS od ON o.orderId = od.orderId "+
-				"LEFT JOIN T_Product AS u ON od.productId = u.productId where vipId="+vipId);
-				
+				"LEFT JOIN T_Product AS u ON od.productId = u.productId where vipId="+vipId);*/
+		return SqlHelper.executeQuery(TakeGood.class, "select o.*,od.*,p.* from T_Order o,T_Orderdetails od,T_Product p where od.orderId=o.orderId and p.productId=od.productId and o.vipId="+vipId);				
 	}
 	
 	public static void main(String[] args) {

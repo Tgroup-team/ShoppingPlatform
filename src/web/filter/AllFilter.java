@@ -19,7 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 public class AllFilter implements Filter {
 
 	// 静态文件不会被拦截
-	private static final String[] staticFilesEndWiths = { ".css", ".js", ".png", ".jpg", ".jpeg", ".gif" };
+	private static final String[] staticFilesEndWiths = { ".css", 
+			".js", ".png", ".jpg", ".jpeg", ".gif" ,".eot",".svg",".ttf",".woff",".woff2",".otf" };
 	// 不需要登录的不会被拦截
 	private static List<String> noInterceptRequestUri;
 
@@ -92,7 +93,7 @@ public class AllFilter implements Filter {
 			}
 		}
 		if (hasServletToResponse) {// 有就判断是该登陆管理员还是用户
-			if (servletToResponse_className.contains("user")) {
+			if (servletToResponse_className.contains("user")||servletToResponse_className.contains("Leader")) {
 				if (hRequest.getSession().getAttribute("user") != null) {
 					// 登录了就不拦截
 					chain.doFilter(request, response);

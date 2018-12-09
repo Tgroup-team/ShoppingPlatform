@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="web.entity.Address"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -49,7 +49,7 @@
 						<div class="am-form-group">
 							<label for="user-phone" class="am-form-label">手机号码</label>
 							<div class="am-form-content">
-								<input id="user-phone" name="number" placeholder="手机号必填" maxlength="11" value="${requestScope.address.aTel }" type="number">
+								<input id="user-phone" name="number" placeholder="手机号必填" maxlength="11" value="${requestScope.address.aTel }" type="text" style="height:30px;font-size: 14px;"/>
 							</div>
 						</div>
 						<div class="am-form-group">
@@ -103,7 +103,6 @@
 			if($ww>640) {
 				$("#doc-modal-1").removeClass("am-modal am-modal-no-btn")
 			}
-			
 		})
 	</script>
 

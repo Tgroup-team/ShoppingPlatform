@@ -92,7 +92,7 @@ public class SqlHelper {
 							attr_Object=BuildObjectUtil.build(attrClass, attr_Object_attrs);
 							map.put(attr, attr_Object);
 						} catch (Exception e1) {
-							System.out.println("SQL查询：获取列"+attr+"失败");
+//							System.out.println("SQL查询：获取列"+attr+"失败");
 						}
 					}
 				}

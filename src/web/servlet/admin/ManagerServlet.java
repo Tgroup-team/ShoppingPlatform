@@ -46,7 +46,7 @@ public class ManagerServlet extends HttpServlet {
 
 		List<Category> listCategory = categoryDao.selectCategory();
 		session.setAttribute("listCategory", listCategory);
-		session.setAttribute("admin", managerName);
+		session.setAttribute("admin", managers);
 		if (managers!= null) {
 			request.getRequestDispatcher("/admin/ahome1.jsp").forward(request, response);
 		}

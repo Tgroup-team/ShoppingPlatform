@@ -115,9 +115,6 @@
 											<li class="td td-amount">
 												<div class="item-amount">
 													总价：${orderdetails.total }
-													<p>
-														含运费：<span>10.00</span>
-													</p>
 												</div>
 											</li>
 											<div class="move-right">
@@ -196,9 +193,6 @@
 											<li class="td td-amount">
 												<div class="item-amount">
 													总价：${orderdetails.total }
-													<p>
-														含运费：<span>10.00</span>
-													</p>
 												</div>
 											</li>
 											<div class="move-right">
@@ -279,9 +273,6 @@
 											<li class="td td-amount">
 												<div class="item-amount">
 													总价：${orderdetails.total }
-													<p>
-														含运费：<span>10.00</span>
-													</p>
 												</div>
 											</li>
 											<div class="move-right">
@@ -360,9 +351,6 @@
 											<li class="td td-amount">
 												<div class="item-amount">
 													总价：${orderdetails.total }
-													<p>
-														含运费：<span>10.00</span>
-													</p>
 												</div>
 											</li>
 											<div class="move-right">
@@ -441,9 +429,6 @@
 											<li class="td td-amount">
 												<div class="item-amount">
 													总价：${returnOrder.total }
-													<p>
-														含运费：<span>10.00</span>
-													</p>
 												</div>
 											</li>
 											<div class="move-right">

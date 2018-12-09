@@ -113,7 +113,7 @@
 				<div class="new-addr-btn">
 					<a href="editor?id=${ad.aId }"><i class="am-icon-edit"></i>编辑</a>
 					<span class="new-addr-bar">|</span>
-					<a href="DeleteAddressServlet?id=${ad.aId }"><i class="am-icon-trash"></i>删除</a>
+					<a href="${pageContext.request.contextPath}/DeleteAddressServlet?id=${ad.aId }"><i class="am-icon-trash"></i>删除</a>
 				</div>
 			</li>
 		  </c:forEach>

@@ -46,7 +46,7 @@ public class CashWithdrawalServlet extends HttpServlet {
 		record.setRecordAmount(textfield);
 		recordDao.insertRecord(record);
 		
-		request.getRequestDispatcher("/admin/baccounts1.jsp").forward(request, response);
+		request.getRequestDispatcher("/withdrawal").forward(request, response);
 		
 	}
 

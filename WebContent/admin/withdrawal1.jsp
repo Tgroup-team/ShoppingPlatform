@@ -13,7 +13,7 @@
 	<div class="i_bg bg_color">
 		<div class="m_right">
 			<div style="float: right;">
-				<a href="admin/baccounts1.jsp">返回</a>
+				<a href="<%=request.getContextPath() %>/scanbaccounts">返回</a>
 			</div>
 			<form action="cashwithdrawal?money=${seleteByManagerName.money }&managerId=${seleteByManagerName.managerId}" method="post"">
 			<table border="1" class="order_tab"

@@ -72,7 +72,7 @@ public class DeleteAddressServlet extends HttpServlet {
 			}
 	        request.setAttribute("addresses", addresses);
 	        request.setAttribute("page", page);  
-	        request.getRequestDispatcher("/useraddress.jsp").forward(request, response);
+	        request.getRequestDispatcher("/address2.jsp").forward(request, response);
 		}else if(id==1) {
 			System.out.println("1111111111");
 			
@@ -99,7 +99,7 @@ public class DeleteAddressServlet extends HttpServlet {
 			}
 	        request.setAttribute("cads", cads);
 	        request.setAttribute("page", page);  
-	        request.getRequestDispatcher("/leaderaddress.jsp").forward(request, response);
+	        request.getRequestDispatcher("/address2.jsp").forward(request, response);
 		}
 	}
 
