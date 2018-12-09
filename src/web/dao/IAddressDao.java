@@ -44,10 +44,15 @@ public interface IAddressDao {
 	/*
 	 * 普通用户地址分页查询
 	 */
-	public List<Address> selectUserAddressByPage(int pageSize, int pageNow, Integer vipId);
+	public List<Address> selectUserAddressByPage(int getStartPos,int pageSize,Integer vipId);
 	
 	/*
 	 * 统计指定用户的所有地址总数
 	 */
 	int countAddressByvipId(Integer vipId);
+
+	/*
+	 * 获取指定用户的所有地址
+	 */
+	List<Address> selectAddressCount(Integer vipId);
 }

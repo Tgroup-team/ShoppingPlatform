@@ -132,8 +132,8 @@ if(request.getSession().getAttribute("user")==null){
 				<li class="person">
 					<a href="#">个人资料</a>
 					<ul>
-                            <li><a href="page" target="main">收货地址</a></li>   
-                            <li><a href="newaddress.jsp" target="main">新增地址</a></li>   
+                           <li><a href="page" target="main">收货地址</a></li>   
+                           <li><a href="newaddress.jsp" target="main">新增地址</a></li>   
 					</ul>
 				</li>
                     <li class="person">
@@ -149,6 +149,7 @@ if(request.getSession().getAttribute("user")==null){
                            <li><a href="UserBalance" target="main">账户余额</a></li>   
 					</ul>
 				</li>
+
 <% if("1".equals(((User)session.getAttribute("user")).getIsLead())){%>
 				<li class="person">
 					<a href="#">我的管理</a>
@@ -165,13 +166,12 @@ if(request.getSession().getAttribute("user")==null){
 				<li class="person">
 					<a href="#">我的申请</a>
 					<ul>
-                           <li><a href="teamHeader" target="main">申请团长</a></li>   
+                         <li><a href="teamHeader" target="main">申请团长</a></li>   
 					</ul>
 				</li>
+				</c:if>
 			</ul>
 		</aside>
 	</div>
-
 </body>
-
 </html>

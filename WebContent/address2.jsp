@@ -15,19 +15,19 @@
 	<link href="Style/user/css/amazeui.css" rel="stylesheet" type="text/css">
 	<link href="Style/user/css/personal.css" rel="stylesheet" type="text/css">
 
-	
 	<link href="Style/user/css/addstyle.css" rel="stylesheet" type="text/css">
 	<script src="AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
 	<script src="AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 </head>
 <body style="background: transparent;">
 	<div class="user-address"> 
-	  <c:if test="${session.user.isLead==0}">
+	  
 		<!--标题 -->
 		<div class="am-cf am-padding">
 			<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">地址管理</strong> / <small>Address&nbsp;list</small></div>
 		</div>
 		<hr/>
+		<c:if test="${sessionScope.user.isLead==0 }">
 		<ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
 		  <c:forEach items="${addresses}" var="ad">
 			<li class="user-addresslist">
@@ -52,7 +52,6 @@
 				</div>
 			</li>
 		  </c:forEach>
-		  <hr>
 		  </ul>
 	
 		  	<center>
@@ -93,38 +92,31 @@
 				</c:choose>
 			</center>
 		</c:if>
-		
-		<c:if test="${session.user.isLead==0}">
-		<!--标题 -->
-		<div class="am-cf am-padding">
-			<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">地址管理</strong> / <small>Address&nbsp;list</small></div>
-		</div>
-		<hr/>
+		<c:if test="${sessionScope.user.isLead==1 }">
 		<ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
-		  <c:forEach items="${cads}" var="ca">
+		  <c:forEach items="${cads}" var="ad">
 			<li class="user-addresslist">
 				<span class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>
 				<p class="new-tit new-p-re">
-					<span class="new-txt">${ca.aName }</span>
-					<span class="new-txt-rd2">${ca.aTel }</span>
+					<span class="new-txt">${ad.aName }</span>
+					<span class="new-txt-rd2">${ad.aTel }</span>
 				</p>
 				<div class="new-mu_l2a new-p-re">
 					<p class="new-mu_l2cw">
 						<span class="title">地址：</span>
-						<span class="province">${ca.aProvince }</span>
-						<span class="city">${ca.aCity }</span>
-						<span class="dist">${ca.aArea }</span>
-						<span class="street">${ca.aDetailAddr}</span>
+						<span class="province">${ad.aProvince }</span>
+						<span class="city">${ad.aCity }</span>
+						<span class="dist">${ad.aArea }</span>
+						<span class="street">${ad.aDetailAddr}</span>
 					</p>
 				</div>
 				<div class="new-addr-btn">
-					<a href="editor?id=${ca.aId }"><i class="am-icon-edit"></i>编辑</a>
+					<a href="editor?id=${ad.aId }"><i class="am-icon-edit"></i>编辑</a>
 					<span class="new-addr-bar">|</span>
-					<a href="DeleteAddressServlet?id=${ca.aId }"><i class="am-icon-trash"></i>删除</a>
+					<a href="DeleteAddressServlet?id=${ad.aId }"><i class="am-icon-trash"></i>删除</a>
 				</div>
 			</li>
 		  </c:forEach>
-		  <hr>
 		  </ul>
 	
 		  	<center>
@@ -165,23 +157,7 @@
 				</c:choose>
 			</center>
 		</c:if>
-		
-		
 	</div>
-	<script type="text/javascript">
-		$(document).ready(function() {							
-			$(".new-option-r").click(function() {
-				$(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
-			});
-			
-			var $ww = $(window).width();
-			if($ww>640) {
-				$("#doc-modal-1").removeClass("am-modal am-modal-no-btn")
-			}
-			
-		})
-	</script>
-
 </body>
 
 </html>
