@@ -52,8 +52,26 @@ public class OrderdetailsDaoImpl implements IOrderdetailsDao {
 	 */
 	@Override
 	public Orderdetails selectOrderdetails(Integer detailsId) {
-		return SqlHelper.executeQueryOne(Orderdetails.class,
-				"select * from " + TABLENAME + " where detailsId=" + detailsId);
+		return SqlHelper.executeQueryOne(Orderdetails.class,//三表联查
+				"select od.*,o.*,p.* from T_Orderdetails od,T_Order o,T_Product p where o.orderId=od.orderId and p.productId=od.productId and od.detailsId=" + detailsId);
+	}
+	
+	/**
+	 * 通过用户id和订单状态查询单个订单详情
+	 */
+	@Override
+	public List<Orderdetails> selectOrderdetailsByVipIdAndOrderState(Integer vipId,String orderState) {
+		return SqlHelper.executeQuery(Orderdetails.class,//三表联查
+				"select od.*,o.*,p.* from T_Orderdetails od,T_Order o,T_Product p where o.orderId=od.orderId and p.productId=od.productId and o.vipId=" + vipId+(orderState==null?"":(orderState.contains("%")?" and o.orderstate like '"+orderState+"'":" and o.orderstate='"+orderState+"'")));
+	}
+	
+	/**
+	 * 通过orderId查询单个订单详情
+	 */
+	@Override
+	public Orderdetails selectOrderdetailsByOrderId(Integer orderId) {
+		return SqlHelper.executeQueryOne(Orderdetails.class,//三表联查
+				"select od.*,o.*,p.* from T_Orderdetails od,T_Order o,T_Product p where o.orderId=od.orderId and p.productId=od.productId and od.orderId=" + orderId);
 	}
 	
 	/**

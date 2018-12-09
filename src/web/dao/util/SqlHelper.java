@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,7 @@ import web.util.ResolveObjectUtil;
 
 public class SqlHelper {
 	private static final String BaseEntityPacage="web.entity";
+	private static SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 	
 	public static ResultSet executeQuery(String sql) {
 		ResultSet rs=null;
@@ -117,7 +119,7 @@ public class SqlHelper {
 				continue;
 			}
 			String className=value.getClass().getName();
-			if(!className.startsWith("java.lang")&&!className.startsWith("java.math")) {
+			if(!className.startsWith("java.lang")&&!className.startsWith("java.math")&&!className.equals("java.util.Date")) {
 				continue;
 			}
 			col=col+","+key;
@@ -125,7 +127,12 @@ public class SqlHelper {
 			if("java.lang.String".equals(className)) {
 				row=row+"'"+element.get(key)+"'";
 			}else {
-				row=row+element.get(key);
+				Object value1=element.get(key);
+				if(className.equals("java.util.Date")) {
+					row=row+"'"+sdf.format(value1)+"'";
+				}else {
+					row=row+element.get(key);
+				}
 			}
 		}
 		sql=sql+"("+col.substring(1)+") values("+row.substring(1)+")";
@@ -240,8 +247,6 @@ public class SqlHelper {
 	}
 	
 	public static void main(String[] args) throws SQLException {
-		ResultSet rs=SqlHelper.executeQuery("select count(*) from T_User");
-		System.out.println(rs.next());
-		System.out.println(rs.getInt(1));
+		
 	}
 }

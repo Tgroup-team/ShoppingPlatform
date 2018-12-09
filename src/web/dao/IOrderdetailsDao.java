@@ -42,5 +42,16 @@ public interface IOrderdetailsDao {
 	 */
 	public Integer selectAllSellCountByProductId(Integer productId);
 
+	/**
+	 * 通过用户id和订单状态查询单个订单详情
+	 */
+	public List<Orderdetails> selectOrderdetailsByVipIdAndOrderState(Integer vipId, String orderState);
+
+	/**
+	 * 通过orderId查询单个订单详情
+	 */
+	public Orderdetails selectOrderdetailsByOrderId(Integer orderId);
+
 	public List<Orderdetails> selectOrderdetailsByorderId(Integer orderId);
+
 }

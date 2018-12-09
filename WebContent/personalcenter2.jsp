@@ -16,7 +16,13 @@
 	<script src="Style/user/js/jquery.min.js" type="text/javascript"></script>
 	
 </head>
-
+<%
+if(request.getSession().getAttribute("user")==null){
+	request.setAttribute("msg", "登陆已失效，请重新登陆！<a href='userlogin.jsp'>》》点我登陆《《</a>");
+	request.getRequestDispatcher("/WEB-INF/404.jsp").forward(request, response);
+	return;
+}
+%>
 <body style="background: transparent;">
 	<!--头 -->
 	<header>
@@ -83,7 +89,7 @@
                     
 			<!--浮动框架-->
                <div class="main-wrap">
-                   <iframe width="1020" height="700px" name="main" style="background-color: white;" src="page" scrolling="no" allowTransparency="true"></iframe>           
+                   <iframe width="1020px" height="700px" name="main" style="background-color: white;" src="page" scrolling="no" allowTransparency="true" <%=request.getAttribute("iframeUrl")!=null?"src='"+request.getAttribute("iframeUrl")+"'":"" %>></iframe>           
 		    </div>
 
                 <!--底部-->
@@ -92,7 +98,7 @@
 				<div class="m-user">
 					<!--个人信息 -->
 					<div class="m-bg"></div>
-					<div class="m-userinfo">
+					<div class="m-userinfo" style="overflow: hidden;">
 						<div class="footer-hd" >
 							<p>
 								<span><a href="#">恒望科技</a></span>
@@ -133,9 +139,8 @@
                     <li class="person">
 					<a href="#">我的交易</a>
 					<ul>
-                        <li><a href="shopcar1.jsp" target="main">订单管理</a></li>
-                           <li><a href="orderinfo2.jsp" target="main">订单详情</a></li>  
-                           <li><a href="shopping" target="main">购物车</a></li>    
+                        <li><a href="ShowUserOrders" target="main">订单管理</a></li>
+                           <li><a href="ShowUserCart" target="main">购物车</a></li>    
 					</ul>
 				</li>
 	            <li class="person">

@@ -29,5 +29,10 @@ public interface IReturnDao {
 	 * 通过主键查询单个退货
 	 */
 	public Return selectReturn(Integer returnId);
+	
+	/**
+	 * 通过vipId查询单个退货
+	 */
+	public List<Return> selectReturnByVipId(Integer vipId);
 
 }
